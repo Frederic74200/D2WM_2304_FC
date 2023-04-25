@@ -1,0 +1,31 @@
+﻿’utilisateur est invité à saisir 2 nombres entier.
+
+Le programme calcule la moyenne des 2 nombres et affiche le résultat 
+sous forme de nombre décimal.
+
+
+VARIABLES
+
+	nombre1 est un nombre entier
+	nombre2 est un nombre entier
+	moyenne est un nombre réel
+
+
+TRAITEMENT
+	écrire "Calcul de la moyenne de deux nombres"
+	écrire "Veuillez saisir le premier nombre"
+	lire nombre1
+
+	écrire "Veuillez saisir le deuxième nombre"
+	lire nombre2
+
+	moyenne <-- (nombre1 + nombre2) / 2.0
+
+FIN TRAITEMENT
+
+
+AFFICHAGE
+	écrire "La moyenne des nombres : " , nombre1 , " et " 
+	, nombre2 , "est : " , moyenne
+
+FIN PROGRAMME

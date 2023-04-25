@@ -1,0 +1,38 @@
+﻿Lire le rayon R d’un cercle et un angle A (en degré(s)).
+
+Calculer et afficher :
+
+    L’ aire du secteur circulaire = (π R² A) / 360
+
+    ----------------------------------------------------------------------------------
+
+    VARIABLES
+        rayonR est un réel
+        angleA est un réel
+        aire est un réel
+
+
+    TRAITEMENT
+        écrire "Programme de calcul d'un secteur cireculaire."
+
+        écrire "Veuillez saisir le rayon du secteur en centimètres."
+        lire rayonR
+
+        écrire "veuillez saisir l'angle du secteur en degrés."
+        lire angleA
+
+        aire <-- ( π x rayonR² x angleA)
+    FIN TRAITEMENT
+
+    AFFICHAGE
+        écrire " Le rayon du secteur est : ", rayonR, " cm.",
+                "L'angle du secteur est : ", angleA, " deg",
+                 "L'aire du secteur est : ", aire, " cm2"
+
+    FIN PROGRAMME
+
+
+
+
+
+
