@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_2_5_bicyclette", "ex_2_5_bicyclette\ex_2_5_bicyclette.csproj", "{A8BF3A90-B325-49CE-9C91-7D4D2B8F5DF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8BF3A90-B325-49CE-9C91-7D4D2B8F5DF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8BF3A90-B325-49CE-9C91-7D4D2B8F5DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8BF3A90-B325-49CE-9C91-7D4D2B8F5DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8BF3A90-B325-49CE-9C91-7D4D2B8F5DF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2BE8FE7-0CBB-428A-9060-E5C8A620F54B}
+	EndGlobalSection
+EndGlobal

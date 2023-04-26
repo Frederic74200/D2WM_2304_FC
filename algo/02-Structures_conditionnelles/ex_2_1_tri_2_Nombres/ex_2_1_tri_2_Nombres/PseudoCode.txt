@@ -8,10 +8,10 @@ VARIABLES
 
 
 TRAITEMENT
-	écrire "Programme de tri de deux nombres par ordre croissant"
-	écrire "Veuillez saisir le premier nombre"
+	écrire "Programme de tri de deux nombres entiers par ordre croissant"
+	écrire "Veuillez saisir le premier nombre entier :"
 	lire a
-	écrire "Veuillez saisir le deuxième nombre"
+	écrire "Veuillez saisir le deuxième nombre entier :"
 	lire b
 
 	SI a < b 

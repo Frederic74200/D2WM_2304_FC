@@ -1,0 +1,42 @@
+﻿Lire 3 nombres entier A, B et C puis les afficher dans l’ordre décroissant.
+
+
+
+VARIABLES
+a est un entier
+b est un entier
+c est un entier
+
+
+TRAITEMENT 
+	écrire "programme de classement de 3 nombres entiers par ordre décroissant"
+
+	écrire "Veuillez saisir le premier nombre"
+	lire a
+	écrire "Veuillez saisir le deuxième nombre"
+	lire b
+	écrire "Veuillez saisir le troisième nombre"
+	lire c
+
+
+	SI a > b 
+		SI c > a
+			ALORS écrire "L'ordre décroissant des nombres est " c, a, b
+		SINON SI c > b et c < a 
+			ALORS écrire "L'ordre décroissant des nombres est " a, c, b 
+		SINON
+			écrire "L'ordre décroissant des nombres est "a, b, c
+
+	SINON SI b > a
+		SI c > b
+			ALORS écrire "L'ordre décroissant des nombres est " c, b, a
+		SINON SI c > a et c < b
+			ALORS écrire "L'ordre décroissant des nombres est " b, c, a
+		SINON
+			écrire "L'ordre décroissant des nombres est "b, a, c
+FIN TRAITEMENT
+
+
+
+
+FIN PROGRAMME

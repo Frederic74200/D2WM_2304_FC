@@ -1,0 +1,44 @@
+﻿
+    Lire un nombre A correspondant à un âge (en années).
+    Selon l’âge fourni, le programme doit afficher l’un des messages suivants :
+        Vous êtes à la retraite depuis X années
+        Il vous reste X années avant la retraite.
+        C’est le moment de prendre sa retraite.
+        La valeur fournie n’est pas un âge valide.
+
+La retraite est fixée à 60 ans.
+
+
+VARIABLES
+   saisieAge est une chaîne de caractères
+   ageA est un entier
+   saisieValide est un booléen
+
+TRAITEMENT
+    écrire "Étes-vous à la retraite ? "
+
+  
+  FAIRE 
+        écrire "Veuillez saisir votre âge : "
+        lire siaiseAge
+
+        SI saisieAge est un nombre entier
+            ALORS
+                ageA <-- saiseAge
+                saisieValide <-- vrai
+        SINON 
+            écrire "La valeur fournie n'est pas valide"
+
+    TANT QUE saisieValide = faux
+
+
+     SI ageA > 60
+        ALORS écrire " Vous êtes à la retraire depuis ", ageA - 60, "années."
+    SINON SI ageA < 60
+        ALORS  écrire "Il vous reste ", 60 - ageA, "années avant la retraie."
+    SINON écrire "C'est le momant de prendre votre retraite"
+
+
+FIN TRAITEMENT
+
+FIN PROGRAMME
