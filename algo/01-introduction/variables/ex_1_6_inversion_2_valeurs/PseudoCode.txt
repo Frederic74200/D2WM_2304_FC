@@ -1,0 +1,36 @@
+
+    Lire 2 nombres entier A et B.
+    Afficher la valeur de A puis la valeur de B.
+    Mettre le contenu de A dans B et celui de B dans A.
+    Afficher à nouveau la valeur de A puis la valeur de B.
+
+
+    VARIABLES
+        a est un entier
+        b est un entier
+        tmp est un entier
+
+
+    TRAITEMENT
+        écrire "Programme d'inversion de deux nombres"
+        écrire "Veuillez saisir le nombre A :"
+        lire a
+
+        écrire "Veuillez saisir le nombre B :"
+        lire b
+
+        écrire "Le nombre A est : ", a,
+                "Le nombre B est : ", b
+
+           tmp <-- a
+           a <-- b
+           b <-- tmp
+    FIN TRAITEMENT
+
+
+    AFFICHAGE
+        écrire "Après inversion,",
+                "Le nombre A est : ", a,
+                "Le nombre B est : ", b
+
+    FIN PROGRAMME
