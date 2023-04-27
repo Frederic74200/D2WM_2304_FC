@@ -40,57 +40,108 @@ TRAITEMENT
 écrire "Que vais-je faire demain ? "
 
 
-écrire "Est-ce qu'il va faire beau demain ?"
-		"Tapez o pour oui ou n pour non"
+écrire "Est-ce qu'il fera beau demain ?"
+		"Tapez o pour oui ou sur une autre touche pour non"
 Lire ouiNon
 
-		SI ouiNon == o
-			ALORS 
+		SI ouiNon == "o"
+			ALORS ilFaitBeau <-- vrai
+		SINON 
+			ilFaitBeau <-- faux
 
 
 
 	SI ilFaitBeau == vrai
-		ALORS 
-			| SI bicycletteOK == faux
-			|	 ALORS 
-			|		| SI delaiGraragisteOk == faux
-			|		|	ALORS écrire "J’irai à pied jusqu’à l’étang pour cueillir les joncs."
-			|		| SINON
-			|		|	bicycletteOK = vrai
-			|
-			| SI bicycletteOK = vrai
-			|	ALORS écrire " J’irai faire une balade à bicyclette."
-			|
-			
-
-
-
-
-
-
+	|	ALORS 
+	|
+	|	écrire "Ma bicyclette est-elle en êtat de fonctionnement ?"
+	|				"Tapez o pour oui ou une autre touche pour non"
+	|	lire ouiNon
+	|		
+	|				| SI ouiNon == "o"
+	|				|	ALORS bicycletteOK <-- vrai
+	|				| SINON 
+	|				|	bicycletteOK <-- faux
+	|				| FIN SI
+	|
+	|		| SI bicycletteOK == faux      
+	|		|	 ALORS 
+	|		|		
+	|		|		écrire "J'emmènerai ma bicuclette chez le garagiste."
+	|		|
+	|		|		écrir|e "Le garaististe resparera t-il ma bicuclette immédiatement ?"
+	|		|				"Tapez o pour oui ou une autre touche pour non"
+	|		|				lire ouiNon
+	|		|
+	|		|				| SI ouiNon == "o"
+	|		|				|	ALORS delaiGraragisteOk <-- vrai
+	|		|				| SINON 
+	|		|				|	delaiGraragisteOk <-- faux
+	|		|				| FIN SI
+	|		|
+	|		|
+	|		|			| SI delaiGraragisteOk == faux
+	|		|			|	ALORS écrire "J’irai à pied jusqu’à l’étang pour cueillir les joncs."
+	|		|			| SINON
+	|		|			|	bicycletteOK = vrai
+	|		|			| FIN SI
+	|		|
+	|		| FIN SI
+	|
+	|
+	|		| SI bicycletteOK = vrai
+	|		|	ALORS écrire "J’irai faire une balade à bicyclette."
+	|		| FIN SI
+	|		
+	| 	
+	|
 	SINON 
-
-		ALORS
-			| SI livreGOTdansBibliothequeSalon == faux
-			|	ALORS 
-			|		| écrire "J'irai à la bibliothèque municipale."
-			|		|
-			|		| SI livreGOTaBibliothequeMunicipale == faux
-			|		|		ALORS écrire "j’emprunterai un roman policier."
-			|		| SINON 
-			|		|		livreGOTdansBibliothequeSalon
-			|
-			|	écrire "Je rentrerai ensuite directement à la maison."
-			|
-			| SINON SI livreGOTdansBibliothequeSalon == VRAI
-			|		écrire " Je m’installerai confortablement dans un fauteuil et je me plongerai dans la lecture."
-
-		
-
-
-
-
-
+	|	ALORS
+	|		écrire "J’aimerais relire le 1er tome de Game of Thrones."
+	|		
+	|		écrir|e "Le livre Game Of Trhrones se trouve t-il dans la bibliothèque du salon ?"  <<<<<<<<<<<<<<<<<<<<
+	|				"Tapez o pour oui ou une autre touche pour non"
+	|		lire ouiNon
+	|
+	|				| SI ouiNon == "o"
+	|				|	ALORS livreGOTdansBibliothequeSalon <-- vrai
+	|				| SINON 
+	|				|	livreGOTdansBibliothequeSalon <-- faux
+	|				|FIN SI
+	|
+	|	
+	|		| SI livreGOTdansBibliothequeSalon == faux
+	|		|	ALORS 
+	|		|		 écrire "J'irai à la bibliothèque municipale."
+	|		|		
+	|		|		 écrir|e "Le livre Game Of Trhrones est-il disponible à la bibliothèque municipale ?"
+	|		|					"Tapez o pour oui ou une autre touche pour non"
+	|		|		 lire ouiNon
+	|		|		
+	|		|				| SI ouiNon == "o"
+	|		|				|	ALORS livreGOTaBibliothequeMunicipale <-- vrai
+	|		|				| SINON 
+	|		|				|	livreGOTaBibliothequeMunicipale <-- faux
+	|		|				|FIN SI
+	|		|		
+	|		|				| SI livreGOTaBibliothequeMunicipale == faux
+	|		|				| ALORS 
+	|		|				|	écrire "j’emprunterai un roman policier."
+	|		|				| SINON 
+	|		|				|	livreGOTdansBibliothequeSalon
+	|		|				| FIN SI
+	|		|
+	|		|	écrire "Je rentrerai ensuite directement à la maison."
+	|		|
+	|		FIN SI
+	|
+	|	
+	|		|  SI livreGOTdansBibliothequeSalon == VRAI
+	|		|  ALORS
+	|		|	écrire "Je m’installerai confortablement dans un fauteuil et je me plongerai dans la lecture."
+	|		| FIN SI
+	|
+	FIN SI
 
 
 FIN TRAITEMENT
