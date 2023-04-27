@@ -32,42 +32,64 @@ delaiGraragisteOk est un booléen
 livreGOTdansBibliothequeSalon est un booléen
 livreGOTaBibliothequeMunicipale est un booléen
 
+ouiNon est une chaîne de caractère
+
 
 TRAITEMENT
 
 écrire "Que vais-je faire demain ? "
 
 
-	SI ilFaitBeau = vrai
+écrire "Est-ce qu'il va faire beau demain ?"
+		"Tapez o pour oui ou n pour non"
+Lire ouiNon
+
+		SI ouiNon == o
+			ALORS 
+
+
+
+	SI ilFaitBeau == vrai
 		ALORS 
-			SI bicycletteOK = vrai
-				écrire " J’irai faire une balade à bicyclette."
-			SINON SI 
-				écrire "J'emmènerai ma bicyclette chez le garagise."
-					SI delaiGraragisteOk = vrai
-						ALORS écrire " J’irai faire une balade à bicyclette."
-					SINON SI 
-						écrire "J’irai à pied jusqu’à l’étang pour cueillir les joncs."
+			| SI bicycletteOK == faux
+			|	 ALORS 
+			|		| SI delaiGraragisteOk == faux
+			|		|	ALORS écrire "J’irai à pied jusqu’à l’étang pour cueillir les joncs."
+			|		| SINON
+			|		|	bicycletteOK = vrai
+			|
+			| SI bicycletteOK = vrai
+			|	ALORS écrire " J’irai faire une balade à bicyclette."
+			|
+			
+
+
+
 
 
 
 	SINON 
-		SI livreGOTdansBibliothequeSalon = vrai
-			ALORS
-				écrire " Je m’installerai confortablement dans un fauteuil et je me plongerai dans la lecture."
 
-		SINON
-			écrire "J'irai à la bibliothèque municipale."
+		ALORS
+			| SI livreGOTdansBibliothequeSalon == faux
+			|	ALORS 
+			|		| écrire "J'irai à la bibliothèque municipale."
+			|		|
+			|		| SI livreGOTaBibliothequeMunicipale == faux
+			|		|		ALORS écrire "j’emprunterai un roman policier."
+			|		| SINON 
+			|		|		livreGOTdansBibliothequeSalon
+			|
+			|	écrire "Je rentrerai ensuite directement à la maison."
+			|
+			| SINON SI livreGOTdansBibliothequeSalon == VRAI
+			|		écrire " Je m’installerai confortablement dans un fauteuil et je me plongerai dans la lecture."
 
-				SI livreGOTaBibliothequeMunicipale = vrai
-					ALORS écrire "J'emprunterai le livre Game of Thrones"
-					écrire "Je rentrerai ensuite directement à la maison."
-					écrire " Je m’installerai confortablement dans un fauteuil et je me plongerai dans la lecture."
-				SINON 
-					écrire "j’emprunterai un roman policier."
-					écrire "Je rentrerai ensuite directement à la maison."
-					écrire " Je m’installerai confortablement dans un fauteuil et je me plongerai dans la lecture."
-			
+		
+
+
+
+
 
 
 
