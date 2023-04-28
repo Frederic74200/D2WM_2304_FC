@@ -1,0 +1,34 @@
+﻿
+Lire 2 nombres entier A et B puis afficher tous les nombres entier dans l’intervalle.
+
+
+PSEUDO CODE -----------------------------------------------------------------------
+
+VARIABLES
+	nombreA  est un entier
+	nombreB est un entier
+
+TRAITEMENT
+	écrire "Programme d'affichage des entiers entre deux nombres."
+	écrire "Saisissez le premier nombre : "
+	lire nombreA
+	écrire "Saisissez le second nombre : "
+	lire nombreB
+
+
+	SI nombreA < nombreB
+		FAIRE
+			nombreA = nombreA + 1
+			écrire nombreA, " "
+		TANT QUE nombreA < nombreB
+	SINON
+		FAIRE
+			nombreB = nombreB + 1
+			écrire nombreB, " "
+		TANT QUE nombreA > nombreB
+	FIN SI
+	
+FIN TRAITEMENT
+
+
+FIN PROGRAMME

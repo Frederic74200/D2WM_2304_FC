@@ -1,0 +1,31 @@
+﻿
+Lire un nombre N et déterminer s’il est un nombre premier.
+Un nombre premier n’est divisible que par 1 et par lui-même.
+
+VARIABLES
+	nombreSaisi est un entier
+	nombrePremier est un boolean
+	i est un entier <-- 2
+
+DEBUT TRAITEMENT
+	écrire "Programme pour déterminer si un nombre est premier."
+	écrire "Saisissez un nombre entier positif."
+	lire nombreSaisi
+
+	TANT QUE i > nombreSaisi ou nombrePremmier == vrai
+		SI nombreSaisi modulo i == 0
+			ALORS nombrePremier <-- faux
+		SINON
+			i <-- i + 1
+		FIN SI
+	FIN TANT QUE
+FIN TRAITEMENT
+
+AFFICHAGE
+	SI nombrePremier == faux
+		ALORS écrire "Le nombre : ", nombreSaisi, " n'est pas un nombre premier."
+	SINON
+		écrire "Le nombre : ", nombreSaisi, " est un nombre premier."
+	FIN SI
+
+FIN PROGRAMME

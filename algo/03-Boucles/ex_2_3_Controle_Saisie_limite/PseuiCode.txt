@@ -1,0 +1,50 @@
+﻿ENNONCEE  --------------------------------------------------------------------------
+
+L’utilisateur est invité à saisir un mot de passe.
+
+Si le mot de passe saisi est correct, le programme affiche “Vous êtes connecté”.
+
+Dans le cas contraire, l’utilisateur doit recommencer la saisie.
+
+L’utilisateur dispose de 3 essais maximum.
+
+Au 3ème échec, le programme affiche “Votre compte est bloqué” et se termine.
+
+Note : Le bon mot de passe est formation
+
+
+
+PSEUDO CODE -----------------------------------------------------------------------
+
+VARIABLES
+
+	motDePasse est une chaîne de caractère <-- "formation"
+	saisie est une chaîne de caractère
+	saisieOk est un booléen
+	nombreMaxiEssais est un entier <-- 3
+
+TRAITEMENT
+	FAIRE
+		écrire "Saisissez votre mot de passe : "
+		lire saisie
+
+		SI saisie != motDePasse
+		ALORS 
+			nombreMaxiEssais <-- nombreMaxiEssais - 1
+			saisieOk <-- faux
+			écrire "Saise incorrecte !"
+		SINON
+			saisieOk <-- vrai
+		FIN SI
+	TANT QUE saisieOk == faux ou nombreMaxiEssais > 0
+FIN TRAITEMENT
+
+AFFICHAGE
+		SI saiseOk == vrai
+	ALORS
+		écrire "Vous êtes connecté."
+	SINON
+		écrire "Votre compte est bloqué."
+	FIN SI
+
+FIN PROGRAMME
