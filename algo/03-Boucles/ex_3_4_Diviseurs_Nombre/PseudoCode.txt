@@ -1,0 +1,25 @@
+﻿
+Lire un nombre entier et afficher tous ses diviseurs autres que 1 et lui-même.
+
+VARIABLES
+	nombreSaisi est un entier
+	i est un entier <-- 2
+
+DEBUT TRAITEMENT
+	écrire "Programme de recherche des diviseurs d'un nombre entier."
+	écrire "Saisissez un nombre entier positif."
+	lire nombreSaisi
+
+	TANT QUE i > nombreSaisi
+		SI nombreSaisi modulo i == 0
+			ALORS écrire nombreSaisi," "
+		SINON
+			i <-- i + 1
+		FIN SI
+	FIN TANT QUE
+FIN TRAITEMENT
+
+AFFICHAGE
+	écrire "Le nombre : ", nombreSaisi, " est un nombre premier."
+
+FIN PROGRAMME
