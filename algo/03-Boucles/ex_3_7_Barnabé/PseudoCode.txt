@@ -1,0 +1,42 @@
+﻿
+
+ENNONCEE --------------------------------------------------------------------------------------
+
+Barnabé fait ses courses dans plusieurs magasins.
+
+Dans chacun, il dépense 1 € de plus que la moitié de ce qu’il possédait en entrant.
+
+Dans le dernier magasin, il dépense le solde.
+
+Barnabé dépense au moins 1 € dans chaque magasin.
+
+Représenter l’algorithme permettant de trouver le nombre de magasins dans lesquels il a acheté.
+
+
+
+PSEUDO CODE ----------------------------------------------------------------------------------------
+
+VARIABLES
+	somme est un réel
+	nombreMagasins est un entier
+
+TRAITEMENT
+	écrire "Dans combien de magasins Barnabé va t-il faire ses courses ?"
+
+	écrire "Saisissez la somme en € dont dispose Barnabé : "
+	lire somme
+
+	SI somme >= 1 ET somme / 2 -1 > 1 
+		ALORS
+			TANT QUE somme >= 1
+				somme <-- somme / 2 - 1
+				nombreMagasins <-- nombreMagasins + 1
+			FIN TANT QUE
+		écrire "Barnabé à fait ses courses dans : ", nombreMagasins , " magasins"
+
+	SINON
+		écrire "Barnabé n'a pas pu faire ses courses."
+	FIN SI
+FIN TRAITEMENT
+
+FIN PROGRAMME

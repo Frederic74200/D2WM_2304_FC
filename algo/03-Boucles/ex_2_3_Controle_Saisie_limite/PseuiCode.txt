@@ -36,7 +36,7 @@ TRAITEMENT
 		SINON
 			saisieOk <-- vrai
 		FIN SI
-	TANT QUE saisieOk == faux ou nombreMaxiEssais > 0
+	TANT QUE saisieOk == faux ET nombreMaxiEssais > 0
 FIN TRAITEMENT
 
 AFFICHAGE

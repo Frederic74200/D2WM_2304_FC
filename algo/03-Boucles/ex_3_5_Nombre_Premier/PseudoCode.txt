@@ -12,12 +12,11 @@ DEBUT TRAITEMENT
 	écrire "Saisissez un nombre entier positif."
 	lire nombreSaisi
 
-	TANT QUE i > nombreSaisi ou nombrePremmier == vrai
+	TANT QUE i > nombreSaisi ET nombrePremmier == vrai
 		SI nombreSaisi modulo i == 0
 			ALORS nombrePremier <-- faux
-		SINON
-			i <-- i + 1
-		FIN SI
+				FIN SI	
+				i <-- i + 1
 	FIN TANT QUE
 FIN TRAITEMENT
 

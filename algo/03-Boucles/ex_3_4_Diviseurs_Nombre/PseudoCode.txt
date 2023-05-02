@@ -4,6 +4,7 @@ Lire un nombre entier et afficher tous ses diviseurs autres que 1 et lui-même.
 VARIABLES
 	nombreSaisi est un entier
 	i est un entier <-- 2
+	diviseurTrouve est un booléen <--  faux
 
 DEBUT TRAITEMENT
 	écrire "Programme de recherche des diviseurs d'un nombre entier."
@@ -13,13 +14,15 @@ DEBUT TRAITEMENT
 	TANT QUE i > nombreSaisi
 		SI nombreSaisi modulo i == 0
 			ALORS écrire nombreSaisi," "
-		SINON
-			i <-- i + 1
+			diviseurTrouve <-- vrai
 		FIN SI
+		i <-- i + 1
 	FIN TANT QUE
 FIN TRAITEMENT
 
 AFFICHAGE
-	écrire "Le nombre : ", nombreSaisi, " est un nombre premier."
+SI diviseurTrouve == faux
+ALORS
+	écrire	
 
 FIN PROGRAMME
