@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03_Boucles", "03_Boucles.csproj", "{E26FAC45-A3A3-42C4-B036-569D1FC9FDBE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_3_1_controle_saisie", "..\ex_3_1_controle_saisie\ex_3_1_controle_saisie.csproj", "{1FE0FA26-C0F7-4A71-A4FB-41E19149A9B4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_3_2_Controle_Saisie_limite", "..\ex_2_3_Controle_Saisie_limite\ex_3_2_Controle_Saisie_limite.csproj", "{BE15EF9F-C7AB-4DF2-9EA0-06401CD06B88}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_3_3_intervalle-2-nombres", "..\ex_3_3_intervalle-2-nombres\ex_3_3_intervalle-2-nombres.csproj", "{5B56551F-F0FD-4339-97F2-EC3FC33E4DE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_3_4_Diviseurs_Nombre", "..\ex_3_4_Diviseurs_Nombre\ex_3_4_Diviseurs_Nombre.csproj", "{E9D1F654-286F-4B75-AE33-15845707F75E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_3_4_Diviseurs_Nombre", "..\ex_3_4_Diviseurs_Nombre\ex_3_4_Diviseurs_Nombre.csproj", "{E9D1F654-286F-4B75-AE33-15845707F75E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_3_5_Nombre_Premier", "..\ex_3_5_Nombre_Premier\ex_3_5_Nombre_Premier.csproj", "{14350FF5-BD5F-4EF5-B952-CF98E543E7D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_3_5_Nombre_Premier", "..\ex_3_5_Nombre_Premier\ex_3_5_Nombre_Premier.csproj", "{14350FF5-BD5F-4EF5-B952-CF98E543E7D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_3_6_Fourchette", "..\ex_3_6_Fourchette\ex_3_6_Fourchette.csproj", "{19C3C6B7-696F-4A10-AAF3-D3BA07403D5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_3_7_Barnabé", "..\ex_3_7_Barnabé\ex_3_7_Barnabé.csproj", "{61330EE8-A3F2-4A84-9F33-4F637BF99977}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E26FAC45-A3A3-42C4-B036-569D1FC9FDBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E26FAC45-A3A3-42C4-B036-569D1FC9FDBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E26FAC45-A3A3-42C4-B036-569D1FC9FDBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E26FAC45-A3A3-42C4-B036-569D1FC9FDBE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1FE0FA26-C0F7-4A71-A4FB-41E19149A9B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1FE0FA26-C0F7-4A71-A4FB-41E19149A9B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FE0FA26-C0F7-4A71-A4FB-41E19149A9B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +43,14 @@ Global
 		{14350FF5-BD5F-4EF5-B952-CF98E543E7D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14350FF5-BD5F-4EF5-B952-CF98E543E7D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14350FF5-BD5F-4EF5-B952-CF98E543E7D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19C3C6B7-696F-4A10-AAF3-D3BA07403D5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19C3C6B7-696F-4A10-AAF3-D3BA07403D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19C3C6B7-696F-4A10-AAF3-D3BA07403D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19C3C6B7-696F-4A10-AAF3-D3BA07403D5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61330EE8-A3F2-4A84-9F33-4F637BF99977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61330EE8-A3F2-4A84-9F33-4F637BF99977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61330EE8-A3F2-4A84-9F33-4F637BF99977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61330EE8-A3F2-4A84-9F33-4F637BF99977}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,53 @@
+﻿
+ENNONCEE ----------------------------------------------------------------------
+
+    L’ordinateur « choisit » aléatoirement un nombre mystère (entier compris entre 0 et 100).
+    Le joueur essaie de le deviner.
+
+Lors de chaque essai, l’ordinateur affiche la « fourchette » dans laquelle se trouve le nombre qu’il a choisi.
+
+Le choix du nombre mystère sera simulé par génération d’un nombre aléatoire : N <-- RANDOM(0,100).
+
+Lorsque l’utilisateur a trouvé le nombre mystère, le programme affiche :
+
+    Bravo vous avez trouvé en X essais.
+
+
+PSEUDO CODE --------------------------------------------------------------------
+
+
+VARIABLES 
+     N est un nombre entier <-- RANDOM(0,100).
+     proposition est un nombre entier
+     min est un nombre entier <-- 0
+     max est un nombre entier <-- 100
+     nombreEssais est un nombre entier
+
+TRAITEMENT
+    écrire "Jeu de la fourchette"
+
+    FAIRE
+        écrire "Proposez un nombre entre", min, " et ", max
+        lire proposition
+
+         SI proposition < min OU proposition > max
+         ALORS écrire "Erreur de saisie ! "
+
+         SINON SI proposition < N
+         ALORS
+            min <-- proposition
+
+        SINON SI proposition > N
+        ALORS 
+            max <-- proposition
+
+        nombreEssais <-- nombreEssais + 1
+    TANT QUE proposition != N 
+
+FIN TRAITEMENT
+
+AFFICHAGE 
+    écrire "Bravo ! Vous avez trouvé en : ", nombreEssais,
+
+FIN PROGRAMME
+
