@@ -10,8 +10,7 @@ PSEUDO CODE --------------------------------------------------------------------
 
 
 VARAIBLES
-	texte est une chaîne de caractère
-	// nombreCracteresTexte est un nombre enier
+	texte est une chaîne de caractères
 	nomnbreMinCractères est un nombre entier <-- 120
 	saisieOK est un boolean
 	alphabet est une chaîne de caractère <- "abcdefghijklmnopqrstuvwxyz"
@@ -22,10 +21,10 @@ VARAIBLES
 
 DEBUT TRAITEMENT
 	FAIRE
-		écrire "saisissez un texte de 120 caractères minimun : "
+		écrire Ssaisissez un texte de 120 caractères minimun : "
 		lire texte
 
-		SI fin texte > nomnbreMinCractères 
+		SI fin texte >= nomnbreMinCractères 
 		ALORS
 			saisieOK <-- vrai
 		SINON
