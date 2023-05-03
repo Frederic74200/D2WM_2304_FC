@@ -43,7 +43,7 @@ for (i=0; i<alphabet.Length; i++)
 
     if (occurence >= 1)
     {
-        Console.WriteLine("La lettre : " + alphabet[i] + " est présente : " + occurence + " dans le texte.");
+        Console.WriteLine("La lettre : " + alphabet[i] + " est présente : " + occurence + " fois dans le texte.");
     }
 
     j = 0;
