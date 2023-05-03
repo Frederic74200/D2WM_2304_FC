@@ -1,0 +1,95 @@
+﻿ENNONCEE -------------------------------------------------------------
+Un palindrome est une chaîne de caractères que l’on peut lire identiquement de droite à gauche, et gauche à droite.
+
+Par exemple:
+
+    AA
+    38783
+    LAVAL
+    LAVAL A ETE A LAVAL
+    ET LA MARINE VA VENIR A MALTE
+
+L’utilisateur saisit une chaîne de caractères terminée par un point . (à contrôler).
+
+Ecrivez l’algorithme et le programme permettant d’affirmer si cette phrase est ou non un palindrome.
+
+Si la chaîne de caractères n’est composée que du caractère ‘.’, l’utilisateur est invité à recommencer.
+
+L’algorithme doit prévoir les 3 cas suivants :
+
+    la phrase est vide
+    la chaîne de caractères n’est pas un palindrome
+    la chaîne de caractères est un palindrome
+
+
+
+
+
+PSEUDO CODE ---------------------------------------------------------
+
+VARIABLES
+    text est une chaîne de caractète 
+    entryOK est un booleén 
+
+    String est une chaîne de caractère
+    invertText est une chaîne de caractères
+    space est un caractère <-- "␣"
+    iterator est un entier <-- 0
+    palindrome est un booléen
+
+
+DEBUT TRAITEMENT
+    écrire "Le mot ou la phrase sont-ils des palindromes ? "
+
+    // Saisie ---------------
+
+    FAIRE
+    écrire "Saisiez un mot ou une phrase : "
+    lire text
+    
+    SI text != null 
+    ALORS
+        entryOK <-- vrai
+    SINON
+        écrire "La phrase est vide"
+    TANT QUE entryOK == faux
+
+    // supprimer les espaces -------
+
+    POUR de itertor = 0 à iterator < fin text FAIRE
+        SI text[i] != space
+        ALORS
+            taxtWhitoutSpace = taxtWhitoutSpace + text[i]
+        FIN SI
+
+            iterator = iterator + 1
+    FIN POUR
+
+    // Créer nouvelle chaîne inversée -------------
+
+    POUR de i = fin taxtWhitoutSpace à i> 0 FAIRE
+        invertText = invertText + taxtWhitoutSpace[i]
+        iterator = iterator -1
+    FIN POUR
+
+    // Comparer les textes sans espace et texte inversé ---------
+
+    FAIRE
+        SI taxtWhitoutSpace == invertText
+        ALORS 
+            palindrome <-- vrai
+            iterator = iterator + 1
+        SINON
+            palindrome <-- faux
+    TANT QUE palindrome == vrai ET i < fin invertText
+
+FIN TRAITEMENT
+
+AFFICHAGE
+    SI palindrome == faux 
+    ALORS
+        écrire "la chaîne de caractères est un palindrome"
+    SINON
+        écrire "la chaîne de caractères n’est pas un palindrome"
+
+FIN PROGRAMME
