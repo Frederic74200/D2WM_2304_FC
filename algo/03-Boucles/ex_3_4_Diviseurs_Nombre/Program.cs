@@ -1,62 +1,61 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿/* Lire un nombre entier et afficher tous ses diviseurs autres que 1 et lui-même.*/
 
-/* Lire un nombre entier et afficher tous ses diviseurs autres que 1 et lui-même.*/
-
-int nombreSaisi;
-String saisie;
-bool saisieOk;
-
-int i = 2;
-int j;
-int[] tableauDiviseurs = new int[0];
-bool diviseurTrouve = false;
-
-
-Console.WriteLine("Programme de recherche des diviseurs d'un nombre entier.");
-
-do
+internal class Program
 {
-    Console.WriteLine("Saisissez un nombre entier positif.");
-    saisie = Console.ReadLine();
-
-    saisieOk = int.TryParse(saisie, out nombreSaisi);
-
-    if (nombreSaisi < 1)
+    private static void Main(string[] args)
     {
-        saisieOk = false;
-    }
+        int nombreSaisi;
+        string saisie;
+        bool saisieOk;
 
-} while (!saisieOk);
+        int diviseur;
+        bool diviseurTrouve = false;
 
-while (i < nombreSaisi)
-{
-    if (nombreSaisi % i == 0)
-    {
-        Console.WriteLine("contrôle");
+        string listeDiviseurs = "";
+        string separateur = " | ";
 
 
-        for (j = 0; j < tableauDiviseurs.Length; j++)   // j = 0 égal forcement à fin tableau. C# n'accepte rien d'autre
+        Console.WriteLine("Programme de recherche des diviseurs d'un nombre entier.");
+
+        do
         {
-            tableauDiviseurs[j + 1] = i;
-            Console.WriteLine(i);
+            Console.WriteLine("Saisissez un nombre entier positif.");
+            saisie = Console.ReadLine();
+
+            saisieOk = int.TryParse(saisie, out nombreSaisi);
+
+            if (nombreSaisi < 1)
+            {
+                saisieOk = false;
+            }
+
+        } while (!saisieOk);
+
+
+        Console.WriteLine(nombreSaisi);
+
+      
+        for (diviseur = 2; diviseur < nombreSaisi; diviseur++)
+        {
+            if (nombreSaisi % diviseur == 0)
+            {
+                listeDiviseurs = listeDiviseurs + separateur + diviseur.ToString();
+               
+              //  Console.WriteLine(diviseur.ToString() + " ");
+                diviseurTrouve = true;
+
+            }
+
         }
+            if (!diviseurTrouve)
+            {
+                Console.WriteLine("Le nombre : " + nombreSaisi + " est un nombre premier.");
+            }
 
+            else
+            {
 
-        diviseurTrouve = true;
-
+                Console.WriteLine("Les diviseurs du nombre ." + nombreSaisi + " sont : " + listeDiviseurs);
+            } 
+        }
     }
-
-    i++;
-}
-
-
-if (!diviseurTrouve)
-{
-    Console.WriteLine("Le nombre : " + nombreSaisi + " est un nombre premier.");
-}
-
-else
-{
-
-    Console.WriteLine("Les diviseurs du nombre ." + nombreSaisi + " sont : " + tableauDiviseurs.ToString());
-}

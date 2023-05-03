@@ -30,13 +30,20 @@ do
 
 if (somme >= 1)
 {
-
-    while (somme >= 1 && somme / 2 - 1 > 1)
+    if (somme >= 2)
     {
-        somme = somme / 2 - 1;
-        nombreMagasins++;
-        Console.WriteLine(somme);
+        while (somme >= 2)
+        {
+            somme = somme / 2 - 1;
+            nombreMagasins++;
+            Console.WriteLine(somme);
+        }
     }
+   else
+    {
+        nombreMagasins++;
+        Console.WriteLine("reste : " + somme);
+    } 
 
     Console.WriteLine("Barnabé à fait ses courses dans : " + nombreMagasins + " magasins");
 }
