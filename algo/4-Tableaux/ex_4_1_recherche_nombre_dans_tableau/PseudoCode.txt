@@ -17,17 +17,35 @@ VARIABLES
 
 	tableau est un tableau d'entiers
 	nombreN est un entier
-	i est un mombre entier
+	nombreTrouve est un boolean
+	iterateur est un mombre entier
 
 
 D2BUT TRAITEMENT
-	Le 
+	écrire "Le nombre se trouve t-il dans le tableau ?" 
 
+	tableau[6] <-- nouveau tableau [8, 16, 32, 64, 128, 256, 512]
+
+	écrire "Saisissez un nombre entier : "
+	lire nombreN
+
+	POUR de iterarteur = 0 à iterateur > fin tableau FAIRE
+		
+		SI nomnreN == tableau[iterateur]
+		ALORS 
+			écrire "Le nombre ", nombreN, " se trouve à l'index : ", iterarteur
+			nombretrouve <-- vrai
+		SINON
+			iterarteur <-- iterareteur + 1
+		FIN POUR
+
+
+		SI nombreTrouve == faux
+		ALORS
+		écrire "Le nombre ",  nombreN, " n'est pas présent dans le tableau."
+		FIN SI
 
 FIN TRAITEMENT
-
-AFFICHAGE
-
 
 
 FIN PROGRAMME

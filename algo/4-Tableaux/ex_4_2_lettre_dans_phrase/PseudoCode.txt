@@ -1,0 +1,60 @@
+﻿
+
+ENNONCEE --------------------------------------------------------------------
+
+Soit une chaîne de caractères terminée par le caractère « . ».
+
+Donnez l’algorithme d’un programme qui compte le nombre d’occurrences d’une lettre donnée (“a” par exemple) dans cette chaîne.
+
+Si la chaîne de caractères est vide ou n’est composée que du caractère « . », le message “LA CHAINE EST VIDE” sera affiché.
+
+Proposez un jeu d’essai prévoyant les 3 cas suivants :
+
+    La phrase est vide
+    La lettre n’est pas présente
+    La lettre est présente une ou plusieurs fois
+
+
+PSEUDOCODE ----------------------------------------------------------------
+
+
+VARIABLES
+    phrase est une chaine de caractères
+    point est un caractère <-- "."
+    lettre est un cararctère
+    occurrence est un nombre entier <-- 0
+    iterarteur est un entier
+
+DEBUT TRAITEMENT
+    écrire "occurrences d'une lettre dans une phrase."
+    écrire "saisisez une phrase : "
+    écrire "Saisissez la lette que vous souhaitez compter : "
+
+    phrase <-- phrase + point 
+
+    SI phrase == point ou phrase == point + point
+    ALORS 
+        écrire "La phrase est vide"
+    SINON
+        POUR iterarteur = 0 à iterateur < fin phrase 
+            SI phrase[iterateur] == lettre
+             ALORS 
+                occurence <-- occurence + 1
+                iterateur <-- iterateur + 1
+            SINON
+                 iterateur <-- iterateur + 1
+            FIN SI
+        FIN POUR
+    FIN SI
+FIN TRAITEMENT
+
+AFFICHAGE
+    SI occurence == 0
+    ALORS 
+        écrire "La lettre n'est pas présente"
+    SINON 
+        écrire "La lettre est présente : ", occurence, " fois dans la phrase."
+
+FIN PROGRAMME
+
+abracadabra a a a a a 5

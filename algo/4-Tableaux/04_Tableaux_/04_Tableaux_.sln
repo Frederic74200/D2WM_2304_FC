@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_Tableaux_", "04_Tableaux_.csproj", "{E58752AC-9EA3-452A-8408-4FDF1D4F5431}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_4_1_recherche_nombre_dans_tableau", "..\ex_4_1_recherche_nombre_dans_tableau\ex_4_1_recherche_nombre_dans_tableau.csproj", "{C4CAFF71-2987-4419-83A3-EE3C65B82339}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_4_1_recherche_nombre_dans_tableau", "..\ex_4_1_recherche_nombre_dans_tableau\ex_4_1_recherche_nombre_dans_tableau.csproj", "{C4CAFF71-2987-4419-83A3-EE3C65B82339}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_4_2_lettre_dans_phrase", "..\ex_4_2_lettre_dans_phrase\ex_4_2_lettre_dans_phrase.csproj", "{4B43B826-2DB4-45E3-B0CF-B75084F25FC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_4_3_Lettres_alphabet", "..\ex_4_3_Lettres_alphabet\ex_4_3_Lettres_alphabet.csproj", "{8D1771FC-911C-4A62-9331-0383E1EA8987}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E58752AC-9EA3-452A-8408-4FDF1D4F5431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E58752AC-9EA3-452A-8408-4FDF1D4F5431}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E58752AC-9EA3-452A-8408-4FDF1D4F5431}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E58752AC-9EA3-452A-8408-4FDF1D4F5431}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C4CAFF71-2987-4419-83A3-EE3C65B82339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C4CAFF71-2987-4419-83A3-EE3C65B82339}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4CAFF71-2987-4419-83A3-EE3C65B82339}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4CAFF71-2987-4419-83A3-EE3C65B82339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B43B826-2DB4-45E3-B0CF-B75084F25FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B43B826-2DB4-45E3-B0CF-B75084F25FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B43B826-2DB4-45E3-B0CF-B75084F25FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B43B826-2DB4-45E3-B0CF-B75084F25FC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D1771FC-911C-4A62-9331-0383E1EA8987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D1771FC-911C-4A62-9331-0383E1EA8987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D1771FC-911C-4A62-9331-0383E1EA8987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D1771FC-911C-4A62-9331-0383E1EA8987}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
