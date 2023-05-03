@@ -1,0 +1,59 @@
+﻿
+
+ENNONCEE --------------------------------------------------------------------------------
+
+Lire un texte d’au moins 120 caractères (à contrôler).
+
+Compter et afficher le nombre d’occurrences (d’apparitions) de chacune des lettres de l’alphabet.
+
+PSEUDO CODE ----------------------------------------------------------------------------------------
+
+
+VARAIBLES
+	texte est une chaîne de caractère
+	// nombreCracteresTexte est un nombre enier
+	nomnbreMinCractères est un nombre entier <-- 120
+	saisieOK est un boolean
+	alphabet est une chaîne de caractère <- "abcdefghijklmnopqrstuvwxyz"
+	occurence est un nombre enier <-- 0
+	iterateur est un nombre entier 
+	jiterateur est un nombre entier
+
+
+DEBUT TRAITEMENT
+	FAIRE
+		écrire "saisissez un texte de 120 caractères minimun : "
+		lire texte
+
+		SI fin texte > nomnbreMinCractères 
+		ALORS
+			saisieOK <-- vrai
+		SINON
+			écrire "Le texte doit avoir au moins 120 caractères ! recommencez !"
+		FIN SI
+	TANT QUE sisieok == faux
+
+
+
+	POUR iterateur = 0 à iterateur < fin alphabet FAIRE
+		POUR jiterateur = 0 à jiterateur > fin texte FAIRE
+		|	SI alphabet[iterateur] == texte[jiterateur]
+		|		ALORS 
+		|			occurence + occurence + 1
+		|	FIN SI
+		|
+		|	jiter|ateur <-- jiterateur + 1
+		FIN POUR
+
+		SI occurence >= 1
+		ALORS
+			écrire " La lettre : ",  alphabet[iterateur], " est présente : ", occurence
+		FIN SI
+
+		jiterateur <-- 0
+		occurence <-- 0
+		iterateur <-- iterateur + 1
+	FIN POUR
+FIN TRAITEMENT
+
+FIN TRAITEMENT
