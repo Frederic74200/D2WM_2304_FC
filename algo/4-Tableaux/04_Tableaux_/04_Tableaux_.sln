@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_4_2_lettre_dans_phrase",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_4_3_Lettres_alphabet", "..\ex_4_3_Lettres_alphabet\ex_4_3_Lettres_alphabet.csproj", "{8D1771FC-911C-4A62-9331-0383E1EA8987}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_4_4_tri_tableau", "ex_4_4_tri_tableau\ex_4_4_tri_tableau.csproj", "{B9706211-53DB-4A95-8736-4B51F54AFDEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_4_4_tri_tableau", "ex_4_4_tri_tableau\ex_4_4_tri_tableau.csproj", "{B9706211-53DB-4A95-8736-4B51F54AFDEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_4_5_palindrome", "ex_4_5_palindrome\ex_4_5_palindrome.csproj", "{3A7E4A42-E5E5-4773-B95B-3E8EDDC930C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_4_5_palindrome", "ex_4_5_palindrome\ex_4_5_palindrome.csproj", "{3A7E4A42-E5E5-4773-B95B-3E8EDDC930C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_9_9_tests", "ex_9_9_tests\ex_9_9_tests.csproj", "{F94DB9B9-CC97-4AB4-BEC5-9C619E8C474B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{3A7E4A42-E5E5-4773-B95B-3E8EDDC930C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A7E4A42-E5E5-4773-B95B-3E8EDDC930C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A7E4A42-E5E5-4773-B95B-3E8EDDC930C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F94DB9B9-CC97-4AB4-BEC5-9C619E8C474B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94DB9B9-CC97-4AB4-BEC5-9C619E8C474B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94DB9B9-CC97-4AB4-BEC5-9C619E8C474B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94DB9B9-CC97-4AB4-BEC5-9C619E8C474B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
