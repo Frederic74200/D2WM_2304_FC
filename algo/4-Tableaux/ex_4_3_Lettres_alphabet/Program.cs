@@ -4,17 +4,13 @@ String texte = "";
 int nomnbreMinCractères = 120;
 bool saisieOK = false;
 String alphabet = "abcdefghijklmnopqrstuvwxyz";
-int occurence = 0;
-int i;
-int j;
 
-String saisie;
 
 #region
 do
 {
     Console.WriteLine("Ssaisissez un texte de 120 caractères minimun: ");
-    saisie = Console.ReadLine();
+   String saisie = Console.ReadLine();
 
     if (saisie != null && saisie.Length >= nomnbreMinCractères)
     {
@@ -31,9 +27,10 @@ do
 #endregion
 
 #region
-for (i=0; i<alphabet.Length; i++)
+for (int i=0; i<alphabet.Length; i++)
 {
-    for (j=0; j<texte.Length; j++)
+    int occurence = 0;
+    for (int j=0; j<texte.Length; j++)
     {
         if ( texte[j] == alphabet[i])
         {
@@ -45,9 +42,5 @@ for (i=0; i<alphabet.Length; i++)
     {
         Console.WriteLine("La lettre : " + alphabet[i] + " est présente : " + occurence + " fois dans le texte.");
     }
-
-    j = 0;
-    occurence = 0;
-
 }
 #endregion
