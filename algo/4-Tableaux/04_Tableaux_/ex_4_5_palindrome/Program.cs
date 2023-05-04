@@ -3,7 +3,8 @@
 
 /* System.String.Compare(invertText[i].ToString, taxtWhitoutSpace[i].ToString) != 0)  */
 
-String text;
+String text ="";
+String imput;
 bool entryOK = false;
 
 String taxtWhitoutSpace = "";
@@ -19,9 +20,10 @@ Console.WriteLine("Le mot ou la phrase sont-ils des palindromes ? ");
 do
 {
     Console.WriteLine("Saisiez un mot ou une phrase : ");
-    text = Console.ReadLine();
-    if (text != null)
+    imput = Console.ReadLine();
+    if (imput != null)
     {
+        text = imput.ToLower();
         entryOK = true;
     }
     else
@@ -44,10 +46,12 @@ for (i=0; i<text.Length; i++)
 
 
 // Créer nouvelle chaîne inversée -------------
+
+
 #region
-for (i= taxtWhitoutSpace.Length; i>0; i--)
+for (i= taxtWhitoutSpace.Length-1; i>0; i--)
 {
-    invertText = invertText + taxtWhitoutSpace[i];
+    invertText = invertText + taxtWhitoutSpace[i].ToString();
 }
 #endregion
 
