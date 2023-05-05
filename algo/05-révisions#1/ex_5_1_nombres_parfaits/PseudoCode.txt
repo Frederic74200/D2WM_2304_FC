@@ -1,0 +1,70 @@
+﻿ENNONCEEE  ------------------------------------------------------------------------------
+
+On souhaite écrire un programme de calcul des 4 premiers nombres parfaits.
+
+Un nombre est dit parfait s’il est égal à la somme de ses diviseurs, 1 compris.
+
+Exemple :
+
+6 = 1+2+3 
+6 est un nombre parfait.  
+
+L’algorithme retenu contiendra deux boucles imbriquées. Une boucle de comptage des nombres parfaits qui s’arrêtera lorsque le décompte sera atteint, la boucle interne ayant vocation à calculer tous les diviseurs du nombre examiné d’en faire la somme puis de tester l’égalité entre cette somme et le nombre.
+
+Ecrivez le programme complet qui affiche les 4 premiers nombres parfaits.
+
+Affichage des 4 premiers nombres parfaits :
+6 est un nombre parfait.
+28 est un nombre parfait.
+496 est un nombre parfait.
+8128 est un nombre parfait.
+
+
+
+PSEUDO CODE ----------------------------------------------------------------------------------
+
+VARIABLES
+tableauNombresParfaits est un tableau d'entiers <-- tableauNombresParfaits fin <-- 4
+nombreAdiviser est un nombre entier <-- 2
+diviseur est un nombre entier
+somme est un nombre entier <-- 0
+nombreParfait est un booléen <-- faux
+iterateur est un nombre entier
+
+
+DEBUT TRAITEMENT
+
+POUR de iterateur + 0 à iterateur < tableauNombresParfaits fin FAIRE 
+
+	FAIRE 
+		POUR de diviseur = 1 à diviseur < nombreAdiviser FAIRE
+			SI nombreAdiviser modulo diviseur == 0
+			ALORS
+				somme <-- somme + diviseur
+				diviseur <-- diviseur + 1
+			FIN SI
+		FIN POUR
+
+		SI nombreAdiviser == somme
+		ALORS
+			nombreParfait <-- vrai
+		SINON
+			nombreAdiviser <-- nombreAdiviser +1
+		FIN SI
+	TANQUE QUE nombreParfait == faux
+
+	SI nombreParfait == vrai
+	ALORS
+		tableauNombresParfaits[iterateur] <-- nombreAdiviser
+	FIN SI
+
+	iterateur <-- iterateur +1
+
+FIN POUR
+
+
+FIN TRAITEMENT
+
+AFFICHAGE
+
+FIN PROGRAMME

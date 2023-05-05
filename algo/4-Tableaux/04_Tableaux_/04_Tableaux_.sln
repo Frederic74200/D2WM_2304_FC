@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_4_4_tri_tableau", "ex_4_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_4_5_palindrome", "ex_4_5_palindrome\ex_4_5_palindrome.csproj", "{3A7E4A42-E5E5-4773-B95B-3E8EDDC930C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_9_9_tests", "ex_9_9_tests\ex_9_9_tests.csproj", "{F94DB9B9-CC97-4AB4-BEC5-9C619E8C474B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_9_9_tests", "ex_9_9_tests\ex_9_9_tests.csproj", "{F94DB9B9-CC97-4AB4-BEC5-9C619E8C474B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_4_4_Bis_Tri_tableau", "ex_4_4_Bis_Tri_tableau\ex_4_4_Bis_Tri_tableau.csproj", "{C1047BA4-762D-454D-9672-4D118EC47F11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{F94DB9B9-CC97-4AB4-BEC5-9C619E8C474B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F94DB9B9-CC97-4AB4-BEC5-9C619E8C474B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F94DB9B9-CC97-4AB4-BEC5-9C619E8C474B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1047BA4-762D-454D-9672-4D118EC47F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1047BA4-762D-454D-9672-4D118EC47F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1047BA4-762D-454D-9672-4D118EC47F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1047BA4-762D-454D-9672-4D118EC47F11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
