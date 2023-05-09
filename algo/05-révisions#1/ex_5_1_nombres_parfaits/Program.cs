@@ -13,19 +13,19 @@ for (int i = 0; i < tableauNombresParfaits.Length;  i++)
     #region#TrouverUnNombreParfait
     do
     {
-        int somme = 0;
+        int sommeDiviseur = 0;
         #region#TrouverAdditionnerLesDiviseurs
         for (int diviseur = 1; diviseur < nombreAdiviser; diviseur++)
         {
             if (nombreAdiviser % diviseur == 0)
             {
-                somme = somme + diviseur;
+                sommeDiviseur = sommeDiviseur + diviseur;
             }
         }
         #endregion#TrouverAdditionnerLesDiviseurs
 
         #region#VerifierSiSomme=Nomnre
-        if (nombreAdiviser == somme)
+        if (nombreAdiviser == sommeDiviseur)
         {
             nombreParfait = true;
         }
