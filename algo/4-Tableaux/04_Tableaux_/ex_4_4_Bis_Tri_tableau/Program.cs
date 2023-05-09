@@ -12,30 +12,25 @@ foreach (int i in tableau)
 
 
 #region#GrandeBoucleFor
-for (int i= 0; i< tableau.Length; i++)
+for (int i = 0; i < tableau.Length; i++)
 {
     int tmp = tableau[i];
-    int min =0;
-    Console.WriteLine("tmp 1  "+tmp+"  ");
-
-    for (int j= i; j< tableau.Length; j++)
+    int min = tmp;
+    int index = i;
+    #region#RechercheMin
+    for (int j = i; j < tableau.Length; j++)
     {
-        min = tableau[j];   
+
         if (tableau[j] < min)
         {
             min = tableau[j];
+            index = j;
         }
     }
-    Console.WriteLine("tmp 2 min 2 " + tmp + "  " + min);
-    tableau[i] = min;
+    #endregion#RechercheMin
 
-    for (int j= i +1; j< tableau.Length; j++)
-    {
-        if (tableau[j] == min) {
-            tableau[i] = tmp;
-        }
-    }
-    Console.WriteLine("tmp 3 min 3 " + tmp + "  " + min);
+    tableau[i] = min;
+    tableau[index] = tmp;
 }
 #endregion#GrandeBoucleFor
 
@@ -43,9 +38,9 @@ for (int i= 0; i< tableau.Length; i++)
 // afficher tableau final
 Console.WriteLine("\n\r Tableau final : \n\r");
 
-foreach (int i in tableau)
+foreach (int k in tableau)
 {
-    Console.Write("{0} ", i);
+    Console.Write("{0} ", k);
 }
 
 
