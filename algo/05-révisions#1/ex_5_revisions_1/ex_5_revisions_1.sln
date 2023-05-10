@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_5_revisions_1", "ex_5_re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_5_1_nombres_parfaits", "..\ex_5_1_nombres_parfaits\ex_5_1_nombres_parfaits.csproj", "{4B46A957-5111-4F34-B584-1EB601B9ACA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_9_9_test", "..\ex_9_9_test\ex_9_9_test.csproj", "{68BB71A5-8E8A-433C-985C-E0743053BF67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_9_9_test", "..\ex_9_9_test\ex_9_9_test.csproj", "{68BB71A5-8E8A-433C-985C-E0743053BF67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_5_2_conversion_kilometres_miles", "..\ex_5_2_conversion_kilometres_miles\ex_5_2_conversion_kilometres_miles.csproj", "{AC6B2C25-B767-4676-9745-7F2E08D155DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_5_2_conversion_kilometres_miles", "..\ex_5_2_conversion_kilometres_miles\ex_5_2_conversion_kilometres_miles.csproj", "{AC6B2C25-B767-4676-9745-7F2E08D155DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_5_2_Bis_convertisseur_kilomètres_miles", "..\ex_5_2_Bis_convertisseur_kilomètres_miles\ex_5_2_Bis_convertisseur_kilomètres_miles.csproj", "{F701D4E6-D270-487A-931E-CB4925D53821}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{AC6B2C25-B767-4676-9745-7F2E08D155DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC6B2C25-B767-4676-9745-7F2E08D155DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC6B2C25-B767-4676-9745-7F2E08D155DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F701D4E6-D270-487A-931E-CB4925D53821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F701D4E6-D270-487A-931E-CB4925D53821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F701D4E6-D270-487A-931E-CB4925D53821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F701D4E6-D270-487A-931E-CB4925D53821}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
