@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_9_9_test", "..\ex_9_9_te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_5_2_conversion_kilometres_miles", "..\ex_5_2_conversion_kilometres_miles\ex_5_2_conversion_kilometres_miles.csproj", "{AC6B2C25-B767-4676-9745-7F2E08D155DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_5_2_Bis_convertisseur_kilomètres_miles", "..\ex_5_2_Bis_convertisseur_kilomètres_miles\ex_5_2_Bis_convertisseur_kilomètres_miles.csproj", "{F701D4E6-D270-487A-931E-CB4925D53821}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_5_2_Bis_convertisseur_kilomètres_miles", "..\ex_5_2_Bis_convertisseur_kilomètres_miles\ex_5_2_Bis_convertisseur_kilomètres_miles.csproj", "{F701D4E6-D270-487A-931E-CB4925D53821}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_5_3_1__Convertisseur_Fahrenheit_Celsius", "..\ex_5_3_1__Convertisseur_Fahrenheit_Celsius\ex_5_3_1__Convertisseur_Fahrenheit_Celsius.csproj", "{A20DBA3F-BD1E-484D-AFE9-016B63ED00FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F701D4E6-D270-487A-931E-CB4925D53821}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F701D4E6-D270-487A-931E-CB4925D53821}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F701D4E6-D270-487A-931E-CB4925D53821}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A20DBA3F-BD1E-484D-AFE9-016B63ED00FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A20DBA3F-BD1E-484D-AFE9-016B63ED00FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A20DBA3F-BD1E-484D-AFE9-016B63ED00FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A20DBA3F-BD1E-484D-AFE9-016B63ED00FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
