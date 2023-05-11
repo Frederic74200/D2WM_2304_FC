@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_5_2_Bis_convertisseur_ki
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_5_3_1__Convertisseur_Fahrenheit_Celsius", "..\ex_5_3_1__Convertisseur_Fahrenheit_Celsius\ex_5_3_1__Convertisseur_Fahrenheit_Celsius.csproj", "{A20DBA3F-BD1E-484D-AFE9-016B63ED00FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_5_3_2_Far_Cel_plage", "..\ex_5_3_2_Far_Cel_plage\ex_5_3_2_Far_Cel_plage.csproj", "{1AE253C3-FE6B-44A7-BA3D-87AF17D984DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{A20DBA3F-BD1E-484D-AFE9-016B63ED00FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A20DBA3F-BD1E-484D-AFE9-016B63ED00FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A20DBA3F-BD1E-484D-AFE9-016B63ED00FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AE253C3-FE6B-44A7-BA3D-87AF17D984DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AE253C3-FE6B-44A7-BA3D-87AF17D984DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AE253C3-FE6B-44A7-BA3D-87AF17D984DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AE253C3-FE6B-44A7-BA3D-87AF17D984DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
