@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex_6_2_jeu_0_2", "..\ex_6_2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_6_3_Calcul_Nombre_Personnes", "..\ex_6_3_Calcul_Nombre_Personnes\ex_6_3_Calcul_Nombre_Personnes.csproj", "{6E8D96D8-0130-410B-8809-84C17906685E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex_6_4_nombre_voyelles_nombre_consonnes_", "..\ex_6_4_nombre_voyelles_nombre_consonnes_\ex_6_4_nombre_voyelles_nombre_consonnes_.csproj", "{69F6C434-58C4-4FEF-B0EA-8F6A9CFD7EA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6E8D96D8-0130-410B-8809-84C17906685E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E8D96D8-0130-410B-8809-84C17906685E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E8D96D8-0130-410B-8809-84C17906685E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69F6C434-58C4-4FEF-B0EA-8F6A9CFD7EA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69F6C434-58C4-4FEF-B0EA-8F6A9CFD7EA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69F6C434-58C4-4FEF-B0EA-8F6A9CFD7EA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69F6C434-58C4-4FEF-B0EA-8F6A9CFD7EA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
