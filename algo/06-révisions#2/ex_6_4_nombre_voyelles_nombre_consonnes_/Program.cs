@@ -10,8 +10,8 @@
 
             int compteurVoyelles = 0;
             int compteurConsonnes = 0;
-             int compteurChiffres = 0;
-         
+            int compteurChiffres = 0;
+
             double totalChiffres = 0;
             String chiffresDansChaine = "";
 
@@ -39,8 +39,6 @@
                                 compteurVoyelles++;
                                 saisie.Remove(j);
                             }
-
-                          
                         }
                     }
                     #endregion#RechercheVoyelles
@@ -54,7 +52,7 @@
                             {
                                 compteurConsonnes++;
                                 saisie.Remove(j);
-                            }                           
+                            }
                         }
                     }
                     #endregion#RechercheConsonnes
@@ -63,20 +61,19 @@
                     #region#RechercheChiffres
                     for (int i = 0; i < CHIFFRES.Length; i++)
                     {
-                        for (int j =0; j< saisie.Length; j++)
+                        for (int j = 0; j < saisie.Length; j++)
                         {
                             if (CHIFFRES[i] == saisie[j])
                             {
                                 compteurChiffres++;
                                 chiffresDansChaine += saisie[j];
-
                             }
-                        }                        
-                    }                   
+                        }
+                    }
                     #endregion#RechercheChiffres
 
 
-                    saisieOk = true;
+                    saisieOk = true; // sortie boucle do while
 
                 }
                 else
@@ -103,7 +100,8 @@
                     case 48:
                         totalChiffres += 0;
                         break;
-                    case 49 : totalChiffres += 1;
+                    case 49:
+                        totalChiffres += 1;
                         break;
                     case 50:
                         totalChiffres += 2;
@@ -139,11 +137,11 @@
 
 
             #region#Affichage
-            Console.WriteLine("le texte saisie compte : \n\r"+
-                              compteurConsonnes+" consonnes. \n\r"+
-                              compteurVoyelles+" voyelles. \n\r"+
-                              +compteurChiffres+" chiffres. \n\r"+
-                              "La moyenne des chiffres est : "+totalChiffres/compteurChiffres);
+            Console.WriteLine("le texte saisie compte : \n\r" +
+                              compteurConsonnes + " consonnes. \n\r" +
+                              compteurVoyelles + " voyelles. \n\r" +
+                              +compteurChiffres + " chiffres. \n\r" +
+                              "La moyenne des chiffres est : " + totalChiffres / compteurChiffres);
             #endregion#Affichage
         }
     }
