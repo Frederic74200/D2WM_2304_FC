@@ -6,38 +6,30 @@ namespace ex_9_9_test
     {
         static void Main(string[] args)
         {
+            // test 
+
+            int[] tableau = new int[20];
+            Console.WriteLine("test");
+            string saisie = Console.ReadLine();
+
+            try
+            {
+                tableau = saisie.Split(" ").Select(int.Parse).ToArray();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erreur");    
+            }
 
 
-            CultureInfo culture1 = CultureInfo.CurrentCulture;
-            var textinfo = culture1.TextInfo;
 
-
-            List<string> legumes = new List<string>();
-            List<int> tableau2 = new List<int>();
-
-
-            //  tableau1.Add(tableauDepart[i]);
-
-
-            String test = "frederic";
-            string test2 = textinfo.ToTitleCase(test);
-            Console.WriteLine(test2);
-           Console.WriteLine("test2 0 " + test2[0]);
-
-
-            NumberFormatInfo nfi = culture1.NumberFormat;
-
-            double nb = 69.000;
-
-            bool ok;
-            nfi.CurrencyDecimalDigits = 2;
+            foreach (int i in tableau) { Console.WriteLine(i); }
 
 
 
 
 
-
-           
+           // Split(';').Select(n => Convert.ToInt32(n)).ToArray();
         }
     }
 }
