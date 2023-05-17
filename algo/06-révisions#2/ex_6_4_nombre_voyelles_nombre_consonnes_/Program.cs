@@ -1,19 +1,25 @@
-﻿namespace ex_6_4_nombre_voyelles_nombre_consonnes_
+﻿using System.Globalization;
+
+namespace ex_6_4_nombre_voyelles_nombre_consonnes_
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            const String VOYELLES = "aeiouy";
+
+            CultureInfo cultureFr = CultureInfo.InvariantCulture;
+
+
+            const string VOYELLES = "aeiouy";
             const string CONSONNES = "bcdfghjklmnpqrstvwxz";
-            const String CHIFFRES = "0123456789";
+            const string CHIFFRES = "0123456789";
 
             int compteurVoyelles = 0;
             int compteurConsonnes = 0;
             int compteurChiffres = 0;
 
-            double totalChiffres = 0;
-            String chiffresDansChaine = "";
+            double totalChiffres = 0;           
+            List<int> listeChiffres = new List<int>();
 
             bool saisieOk = false;
 
@@ -23,7 +29,7 @@
             {
                 Console.WriteLine("Programme de comptage des types de caractères");
                 Console.WriteLine("Saisissez un texte de 100 caractères minimum :");
-                String? saisie = Console.ReadLine().ToLower();
+                string? saisie = Console.ReadLine().ToLower();
 
                 #region#SaisieNotNullEtSupp100Char
                 if (saisie != null && saisie.Length >= 100)
@@ -36,8 +42,7 @@
                         {
                             if (saisie[j] == VOYELLES[i])
                             {
-                                compteurVoyelles++;
-                                saisie.Remove(j);
+                                compteurVoyelles++;                          
                             }
                         }
                     }
@@ -50,8 +55,7 @@
                         {
                             if (saisie[j] == CONSONNES[i])
                             {
-                                compteurConsonnes++;
-                                saisie.Remove(j);
+                                compteurConsonnes++;                            
                             }
                         }
                     }
@@ -66,7 +70,10 @@
                             if (CHIFFRES[i] == saisie[j])
                             {
                                 compteurChiffres++;
-                                chiffresDansChaine += saisie[j];
+
+                                int chiffre =  Convert.ToInt32(new String(saisie[j],1));
+
+                                listeChiffres.Add(chiffre);
                             }
                         }
                     }
@@ -90,48 +97,9 @@
 
 
             #region#totalChiffres
-            for (int i = 0; i < chiffresDansChaine.Length; i++)
+           foreach (int i in listeChiffres)
             {
-
-                int askiiChiffres = chiffresDansChaine[i];
-
-                switch (askiiChiffres)
-                {
-                    case 48:
-                        totalChiffres += 0;
-                        break;
-                    case 49:
-                        totalChiffres += 1;
-                        break;
-                    case 50:
-                        totalChiffres += 2;
-                        break;
-                    case 51:
-                        totalChiffres += 3;
-                        break;
-                    case 52:
-                        totalChiffres += 4;
-                        break;
-                    case 53:
-                        totalChiffres += 5;
-                        break;
-                    case 54:
-                        totalChiffres += 6;
-                        break;
-                    case 55:
-                        totalChiffres += 7;
-                        break;
-                    case 56:
-                        totalChiffres += 8;
-                        break;
-                    case 57:
-                        totalChiffres += 9;
-                        break;
-                    default:
-                        totalChiffres += 0;
-                        break;
-
-                }
+                totalChiffres += i;
             }
             #endregion#totalChiffres
 
@@ -141,7 +109,13 @@
                               compteurConsonnes + " consonnes. \n\r" +
                               compteurVoyelles + " voyelles. \n\r" +
                               +compteurChiffres + " chiffres. \n\r" +
-                              "La moyenne des chiffres est : " + totalChiffres / compteurChiffres);
+                              "La moyenne des chiffres est : " + totalChiffres / compteurChiffres+" \n\r"+
+                              "La liste des chiffres est : \n\r");
+            foreach (int i in listeChiffres)
+            {
+                Console.Write("{0} ", i);
+            }
+
             #endregion#Affichage
         }
     }

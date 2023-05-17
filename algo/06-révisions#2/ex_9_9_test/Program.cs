@@ -1,4 +1,8 @@
 ﻿using System.Globalization;
+using System.Security.Cryptography.X509Certificates;
+using static System.Net.Mime.MediaTypeNames;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ex_9_9_test
 {
@@ -6,72 +10,25 @@ namespace ex_9_9_test
     {
         static void Main(string[] args)
         {
-            // test 
 
-            /* int[] tableau = new int[20];
-             Console.WriteLine("test");
-             string saisie = Console.ReadLine();
+            string imput = "è à ù ô ç";
+            string oputput;
 
-             try
-             {
-                 tableau = saisie.Split(" ").Select(int.Parse).ToArray();
-             }
-             catch (Exception e)
-             {
-                 Console.WriteLine("Erreur");    
-             }
+            imput = imput.ToLower();
 
 
-
-             foreach (int i in tableau) { Console.WriteLine(i); }
-            */
-
-            String chaine = "12a 3 , 4";
-            int total = 0;
-            int chiffres  ;
-            
-            
-            if (char.IsNumber(chaine[1]) ) {
-
-                chiffres = chaine[1];
-                Console.WriteLine(chiffres);
-            }
-
-            /*
-            foreach (char ch in chaine)
-            {
-                if (char.IsNumber(ch, total))
-                {
-
-                    total += ch;
-
-                    Console.WriteLine(ch);
+            imput.Replace('à', 'a');
+            imput.Replace('é', 'e');
+            imput.Replace('î', 'i');
+            imput.Replace('ô', 'o');
+            imput.Replace('ù', 'u');
+            imput.Replace('ç', 'c');
 
 
-                }
-            }
-            */
-
-            /*
-
-             for (int i = 0; i < chaine.Length; i++)
-            {
-                if (char.IsNumber(chaine[i] ))
-                {
-                  chiffres = chaine[i] - '0';
-                    Console.WriteLine(chiffres);
-                    total += chiffres;
-
-
-                }
-            }
             
 
-            Console.WriteLine("Total : "+ total);
+            Console.WriteLine(imput);
 
-
-
-           // Split(';').Select(n => Convert.ToInt32(n)).ToArray(); */
         }
     }
 }
