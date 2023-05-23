@@ -6,6 +6,7 @@
         {
 
             Jeu_0_2 mainJeu_0_2 = new Jeu_0_2();
+            //  Jeu_0_2 nouveaauJeu = new Jeu_0_2(0, -2,12);
 
 
             bool sortirDuJeu = false;
@@ -18,7 +19,7 @@
             do
             {
                 bool siaiseOK = false;
-
+                //top
                 do
                 {
                     Console.WriteLine(".................................................................\n\r" +
@@ -32,11 +33,11 @@
 
                 int jeuJoueur = mainJeu_0_2.getNombreHumain();
                 sortirDuJeu = mainJeu_0_2.quitterJeu(jeuJoueur);
-                int jeuPC = mainJeu_0_2.NombreOrdi();
+                int jeuPC = mainJeu_0_2.setNombreOrdi();
 
 
-                Console.WriteLine("Vous avez joué : " + jeuJoueur + "\n\r"
-                                  + "L'ordinateur a joué : " + jeuPC);
+                //Console.WriteLine("Vous avez joué : " + jeuJoueur + "\n\r"
+                //                  + "L'ordinateur a joué : " + jeuPC);
 
 
                 mainJeu_0_2.phaseDeJeu();

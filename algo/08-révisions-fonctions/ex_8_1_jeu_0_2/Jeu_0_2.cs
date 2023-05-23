@@ -20,7 +20,7 @@ namespace ex_8_1_jeu_0_2
         private int scroreAatteindre;
 
         public int ScroreHumain { get => scoreHumain; set => scoreHumain = value; }
-
+      
 
 
         // constructeurs  --------------------------------------------------------------------------------
@@ -65,22 +65,23 @@ namespace ex_8_1_jeu_0_2
 
 
         // fonctions --------------------------------------------------------------------------------------------
-
-        public int NombreOrdi()
+        //modifieur pour nombre ordinateur
+        public int setNombreOrdi()
         {
             this.nombreOrdi = new Random().Next(3);
             return this.nombreOrdi;
         }
 
 
-
-        public Boolean verificationSaisie(string saisieUtilisateur)
+        // verification valeur numerique et <3 et non vide
+        public bool verificationSaisie(string saisieUtilisateur)
         {
             int chiffreJeuHumain;
 
 
             if (saisieUtilisateur == null)
             {
+                Console.WriteLine("Erreur saisie ! recommencez !");
                 return false;
             }
             else if (int.TryParse(saisieUtilisateur, out chiffreJeuHumain))
@@ -92,7 +93,7 @@ namespace ex_8_1_jeu_0_2
                 if (this.nombreHumain > 2)
                 {
                     return false;
-                    Console.WriteLine("Erreur siaise ! recommencez !");
+                    Console.WriteLine("Erreur saisie ! recommencez !");
                 }
                 else
                 {
@@ -102,11 +103,14 @@ namespace ex_8_1_jeu_0_2
             }
             else
             {
+                Console.WriteLine("Erreur saisie ! recommencez !");
                 return false;
             }
         }
 
-        public Boolean quitterJeu(int siaiseNegative)
+
+        // quitter le  jeu avant son terme par volonté joueur
+        public bool quitterJeu(int siaiseNegative)
         {
             if (siaiseNegative >= 0)
             {
@@ -119,9 +123,10 @@ namespace ex_8_1_jeu_0_2
         }
 
 
-        public Boolean scoreAtteint()
+        // quitter  le  jeu score maxi atteint machine ou joueur
+        public bool scoreAtteint()
         {
-            if (this.scoreHumain == 10 || this.scoreOrdi == 10)
+            if (this.scoreHumain == this.scroreAatteindre || this.scoreOrdi == this.scroreAatteindre)
             {
                 return true;
             }
@@ -132,6 +137,7 @@ namespace ex_8_1_jeu_0_2
 
         }
 
+        // phase dde jeu avec incrémentation des scores
         public void phaseDeJeu()
         {
 
@@ -146,7 +152,7 @@ namespace ex_8_1_jeu_0_2
                     }
                     else
                     {
-                        this.scoreHumain++;
+                        this.scoreOrdi++;
                     }
                     break;
 
@@ -167,24 +173,24 @@ namespace ex_8_1_jeu_0_2
                     break;
 
                 default:
-                    Console.WriteLine("erreur ! !");
+                    Console.WriteLine("erreur !");
                     break;
             }
         }
 
-
+        // affichage du résultat final 
         public void affichageApresJeu()
         {
 
-            if (this.scoreHumain == 10)
+            if (this.scoreHumain == this.scroreAatteindre)
             {
-                Console.WriteLine("Bavo ! Vous Avez gaggné ! \n\r" +
+                Console.WriteLine("Bavo ! Vous Avez gagné ! \n\r" +
                                    "Votre sore : " + this.scoreHumain + "\n\r" +
                                    "Score de l'ordinateur : " + this.scoreOrdi);
             }
-            else if (this.scoreOrdi == 10)
+            else if (this.scoreOrdi == this.scroreAatteindre)
             {
-                Console.WriteLine("L'ordinateur a gaggné ! \n\r" +
+                Console.WriteLine("L'ordi. gagne  essai encore! \n\r" +
                                    "Votre sore : " + this.scoreHumain + "\n\r" +
                                    "Score de l'ordinateur : " + this.scoreOrdi);
             }

@@ -8,7 +8,7 @@
 
 
             TableauTri tbtr = new TableauTri();
-            TableauTri tbtr2 = new TableauTri(new List<int> { 13, 545, 89, 81, 2, 789, 123 });
+            TableauTri tbtr2 = new TableauTri(new List<int> { 13, 545, 89, 81, 2, 789, 123, 54, 755, 7, 333, 1});
 
             tbtr.printTableau();
             Console.WriteLine("\n\r");
