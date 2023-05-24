@@ -4,7 +4,17 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+           
+            JeuDuPendu jouonsAuPendu = new JeuDuPendu();
+
+
+
+            jouonsAuPendu.jouerAuPendu();
+
+
+
+
+
         }
     }
 }

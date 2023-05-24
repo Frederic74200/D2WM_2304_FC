@@ -40,23 +40,11 @@ namespace ex_8_3_Jeu_Du_Pendu
 
 
 
-        // Accesseurs ----------------------------------------------------------------------------
-
-        public int getNombreEssaisRestants()
-        {
-            return this.nombreMaxiEssais;
-        }
-
-       
-       
-
-
-
         // Fonctions ----------------------------------------------------------------------------
 
         // Saisie mot à trouver et vérification + transformation mot avec tirets
 
-        public void saisieMotAtrouver()
+        private void saisieMotAtrouver()
         {
             bool saisieOk = false;
 
@@ -103,19 +91,19 @@ namespace ex_8_3_Jeu_Du_Pendu
             #region#remplacerLettresParTirets
             this.motAvecTirets = new List<char>();
 
-            for (int i = 1; i < this.motAtrouver.Length; i++)
+            for (int i = 0; i < this.motAtrouver.Length; i++)
             {
                 if (i == 0)
                 {
-                    motAvecTirets.Add(this.motAtrouver[i]);
+                    this.motAvecTirets.Add(this.motAtrouver[i]);
                 }
                 else if (i < this.motAtrouver.Length - 1)
                 {
-                    motAvecTirets.Add('-');
+                    this.motAvecTirets.Add('-');
                 }
                 else
                 {
-                    motAvecTirets.Add(this.motAtrouver[i]);
+                    this.motAvecTirets.Add(this.motAtrouver[i]);
                 }
             }
             #endregion#remplacerLettresParTirets
@@ -123,18 +111,35 @@ namespace ex_8_3_Jeu_Du_Pendu
         }
 
 
-        // siaise lettre + recherche lettre 
+        // affichage mot avec tirets
 
-        public void saisieLettreJouee()
+        private string motAvecTiretsToString()
+        {
+            string motTiretsString = "";
+            
+            for (int i = 0; i < this.motAvecTirets.Count; i++)
+            {
+                motTiretsString += motAvecTirets[i].ToString();
+            }
+
+            return motTiretsString;
+        }
+
+
+        // siaise lettre + recherche lettre + compteur essais
+
+        private void saisieLettreJouee()
         {
             bool saisieOk = false;
 
             #region#VerificationSaisie
             do
             {
-                Console.WriteLine(
-                    "Quelle lettre voulez-vous jouée ? " +
-                                   "Vous avez déjà joué" + lettresDejaJouees);
+                Console.WriteLine("-----------------------------------------------------------------------  \n\r"+
+                                    "Il vous reste : " + this.nombreMaxiEssais + " essais \n\r" +
+                                    "Les lettres que vous avez déjà joué : " + lettresDejaJouees + "\n\r" +
+                                    "Mot à deviner : " + motAvecTiretsToString() + "\n\r" +
+                                    "Quelle lettre voulez-vous jouée ? ");
                 string? saisie = Console.ReadLine();
 
                 string temp;
@@ -186,55 +191,69 @@ namespace ex_8_3_Jeu_Du_Pendu
         }
 
 
-                
 
-       // /---------------------------------------------------------------------------------------------
+
+        // /---------------------------------------------------------------------------------------------
 
         // Verifier s'il reste des tirets
 
-        public bool verifierResteDesTirets()
+        private bool verifierResteDesTirets()
         {
-            bool tiret = false;
+            //bool tiret = false;
             for (int i = 0; i < this.motAvecTirets.Count; i++)
             {
                 if (this.motAvecTirets[i] == '-')
                 {
-                    tiret = true;
+                    //tiret = true;
+                    return true;
                 }
             }
-            if (tiret)
-            {
-                return true;
-            }
-            else
-            {
+           
+                Console.WriteLine("Bravo ! Vous avez gagné en : " + nombreMaxiEssais);
                 return false;
-            }
+            
         }
 
         // gagné ou perdu 
 
-        public bool verifierSiGagne()
+        private bool verifierSiPerdu()
         {
             if (this.nombreMaxiEssais == 0)
             {
                 Console.WriteLine("Vous avez perdu ! \n\r" +
                                    "Le mot à trouver était : " + this.motAtrouver);
-                return false;
+                return true;
             }
             else
             {
-               
-                Console.WriteLine("Bravo ! Vous avez gagné en : " + nombreMaxiEssais); 
-                return true;
+                return false;
             }
 
         }
 
 
-        // affichages ---------------------------------------------------------------------------
+        // Jouer au pendu ---------------------------------------------------------------------------
+
+        public void jouerAuPendu()
+        {
+            saisieMotAtrouver();
+
+            bool resteDesTirets = true;
+            bool perdu = false;
+
+            do
+            {
+                saisieLettreJouee();
+
+                resteDesTirets = verifierResteDesTirets();
+                perdu = verifierSiPerdu();
 
 
+
+            } while (resteDesTirets && !perdu);
+
+
+        }
 
     }
 }
