@@ -1,35 +1,10 @@
-﻿namespace ex_6_revisions_2
+﻿namespace ex_8_revisions_fonctions
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            Console.WriteLine("Hello, World!");
         }
     }
 }

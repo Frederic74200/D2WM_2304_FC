@@ -44,3 +44,6 @@ for (int i=0; i<alphabet.Length; i++)
     }
 }
 #endregion
+
+Console.WriteLine("Appuyer sur une touche pour quitter");
+    Console.ReadLine();
