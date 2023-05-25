@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace ex_9_9_tests
@@ -41,15 +43,17 @@ namespace ex_9_9_tests
               */
 
 
-
+            /*
             
             List<List<double>> myList = new List<List<double>>();
-            myList.Add(new List<double> { 0, 1, 2, 3 });
-            myList.Add(new List<double> {337.4, 23.756, 47,5, 16.33 });
-            myList.Add(new List<double> { 123, 47.55, 14.18, 45 });
-            myList.Add(new List<double> { 0.01, 0.1});
+            myList.Add(new List<double> { 0, 1, 2, 3,5 , 6 ,7 });
+            myList.Add(new List<double> { 0, 1, 2, 3, 5, 6, 7 });
+            myList.Add(new List<double> { 0, 1, 2, 3, 5, 6, 7 });
+            myList.Add(new List<double> { 0, 1, 2, 3, 5, 6, 7 });
 
             // To iterate over it.
+
+            /*
             foreach (List<double> subList in myList)
             {
                 
@@ -62,7 +66,53 @@ namespace ex_9_9_tests
                 Console.Write("\n\r");
             }
 
-            
+            */
+
+            /*
+            int nblignes = myList[0].Count;
+
+            int nbcolonnes = myList.Count;
+
+
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+
+
+
+                    Console.Write(String.Format(" {0,10} ", "------"));
+                
+
+            }
+
+             Console.Write(" \n\r");
+            //-------------------------------------
+            for (int i = 0; i < nblignes; i++)
+            {
+
+
+                for (int j = 0; j < nbcolonnes ; j++)
+                {
+                   
+
+                    Console.Write(String.Format("|{0,9} ", myList[j][i]));
+                }
+                Console.Write("| \n\r");
+
+
+            }
+            //----------------------------------------------
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+
+
+
+                Console.Write(String.Format(" {0,9} ", "------"));
+
+
+            }
+
+            Console.Write(" \n\r");
+
 
             /*
 
@@ -72,6 +122,67 @@ namespace ex_9_9_tests
             String.Format("|{0,5}|{1,5}|{2,5}|{3,5}|", arg0, arg1, arg2, arg3) );
 
             */
+
+
+
+
+
+            /*
+            int nbcolonnes =5;
+
+            List<string> nomColonnes = new list<string> { "Numéro mois", "Part intérêts", "Part Capital", "Capital dû", "Mensualité" };
+
+
+
+            // table header 
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+                Console.Write(String.Format("  {0,14} ", "------------"));
+            }
+            Console.Write(" \n\r");
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+                Console.Write(String.Format("| {0,14} ", nomColonnes[i]));
+            }
+            Console.Write("| \n\r");
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+                Console.Write(String.Format("  {0,14} ", "------------"));
+            }
+            Console.Write(" \n\r");
+            // table body
+
+
+            // table footer
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+                Console.Write(String.Format("  {0,14} ", "------------"));
+            }
+            Console.Write(" \n\r");
+            */
+
+
+            List<List<double>> myList = new List<List<double>>();
+            myList.Add(new List<double>());
+
+            for (int i = 0; i < 10; i++)
+            {
+                double j = Convert.ToDouble(i);
+                myList[0].Add(j);
+            }
+
+            foreach (List<double> subList in myList)
+            {
+
+
+                foreach (double item in subList)
+                {
+                    Console.Write(String.Format("|{0,9} ", item));
+                }
+
+                Console.Write("\n\r");
+            }
+
 
         }
     }

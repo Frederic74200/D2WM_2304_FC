@@ -5,6 +5,14 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
+
+
+            AmortissementEmprunt amp = new AmortissementEmprunt();
+
+            amp.construireTableau();
+            amp.remplirColonnesIndex_1_2_3();
+
+            amp.afficherLeTableau(); 
         }
     }
 }

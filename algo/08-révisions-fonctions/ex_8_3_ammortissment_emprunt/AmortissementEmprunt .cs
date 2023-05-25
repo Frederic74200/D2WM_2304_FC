@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -17,7 +18,7 @@ namespace ex_8_3_ammortissment_emprunt
         private double tauxInteretAnnuel;
 
         private double mois;
-
+        private double tauxInteretmensuel;
 
         // tableau dynamique 2 dimensiosn 
 
@@ -47,9 +48,25 @@ namespace ex_8_3_ammortissment_emprunt
         }
 
 
-        // accesseurs ----------------------------------------------------------------------------------------------
+        // accesseurs ----------------------------------------------------------------------------------
 
 
+
+
+
+        // petis calculs ----------------------------------------------------------------------------------------
+
+        public double getMois()
+        {
+            this.mois = this.nbrAnneeRbmt * 12;
+            return this.mois;
+        }
+
+        public double getTauxMensuel()
+        {
+            this.tauxInteretmensuel = this.tauxInteretAnnuel / 12 / 100;
+            return this.tauxInteretmensuel;
+        }
 
         // mutateurs ------------------------------------------------------------------------------------------
 
@@ -104,18 +121,7 @@ namespace ex_8_3_ammortissment_emprunt
 
         // fonctions --------------------------------------------------------------------------------------------
 
-        // construction tableau 
 
-        public List<List<double>> construireTableau()
-        {
-            tableau.Add(new List<double>());
-            tableau.Add(new List<double>());
-            tableau.Add(new List<double>());
-            tableau.Add(new List<double>());
-
-
-            return this.tableau;
-        }
 
 
         // Saisie capital, nombre années, taux
@@ -132,15 +138,14 @@ namespace ex_8_3_ammortissment_emprunt
         public double calculerMensualite()
         {
             double mensualite;
+            double tm = getTauxMensuel();
 
-            double tauxInteretmensuel;
             double nbMoisNegatif;
 
             this.mois = this.nbrAnneeRbmt * 12;
             nbMoisNegatif = 0 - this.mois;
-            tauxInteretmensuel = this.tauxInteretAnnuel / 12 / 100;
 
-            mensualite = (this.capitalEmprunte * tauxInteretmensuel) / (1 - Math.Pow((1 + tauxInteretmensuel), nbMoisNegatif));
+            mensualite = (this.capitalEmprunte * tm / (1 - Math.Pow((1 + tm), nbMoisNegatif)));
 
             return Math.Round(mensualite, 2);
 
@@ -149,15 +154,220 @@ namespace ex_8_3_ammortissment_emprunt
 
 
 
+        // construction tableau ----------------------------------------------
+        public List<List<double>> construireTableau()
+        {
+            tableau.Add(new List<double>());
+            tableau.Add(new List<double>());
+            tableau.Add(new List<double>());
+            tableau.Add(new List<double>());
+            tableau.Add(new List<double>());
+
+
+            return this.tableau;
+        }
+
+        // remplissage colonne mois 
+        public void remplirColonneMois()
+        {
+            this.mois = this.nbrAnneeRbmt / 12;
+            for (int i = 0; i < this.mois + 1; i++)
+            {
+                this.tableau[0].Add(i);
+            }
+
+        }
+
+        // remplissage colonne mensualité
+        public void remplirColonneMensualite()
+        {
+
+            for (int i = 0; i < getMois() + 1; i++)
+            {
+                if (i > 0)
+                {
+                    this.tableau[4].Add(calculerMensualite());
+                }
+                else
+                {
+                    this.tableau[4].Add(0);
+                }
+            }
+
+        }
+
+        // remplissage colonne part d'intêret 
+        public void remplirColonnePartInterets()
+        {
+
+            for (int i = 0; i < getMois() ; i++)
+            {
+                if (i > 0)
+                {
+
+                    double interetsMensuel = this.tableau[3][i - 1] * i * getTauxMensuel();
+
+
+                    this.tableau[1].Add(Math.Round(interetsMensuel, 1));
+                }
+                else
+                {
+                    this.tableau[1].Add(0);
+                }
+            }
+
+        }
+
+        // remplissage colonne part capital 
+        public void remplirColonnePartCapital()
+        {
+            for (int i = 0; i < getMois() + 1; i++)
+            {
+                if (i > 0)
+                {
+                    double amortissementMois = calculerMensualite() - this.tableau[1][i];
+
+                    this.tableau[2].Add(Math.Round(amortissementMois, 1));
+                }
+                else
+                {
+                    this.tableau[2].Add(0);
+                }
+            }
+
+        }
+
+        // remplissage colonne capital restant dû 
+        public void remplirColonneCapitalrestantDu()
+        {
+            this.tableau[3].Add(Convert.ToDouble(this.capitalEmprunte));
+
+            for (int i = 1; i < getMois() + 1; i++)
+            {
+
+
+                double capitalRestantDu = this.tableau[3][i - 1] - this.tableau[2][i];
+
+
+                this.tableau[3].Add(Math.Round(capitalRestantDu, 0));
+
+            }
+
+        }
+
+        // reprise remplisage tableau 
+
+
+
+
+        public void remplirColonnesIndex_1_2_3()
+        {
+            
+
+            for (int i = 0; i < getMois() + 1; i++)
+            {
+
+                if (i == 0)
+                {
+                    double j = 0;
+                    this.tableau[4].Add(j);
+                    this.tableau[3].Add(Convert.ToDouble(this.capitalEmprunte));
+                    this.tableau[2].Add(j);
+                    this.tableau[1].Add(j);
+                    this.tableau[0].Add(j);
+
+                }
+                else
+                {
+
+
+
+
+                    this.tableau[0].Add(i);
+
+                    double interetsMensuel = this.tableau[3][i - 1] * i * getTauxMensuel();
+                    this.tableau[1].Add(Math.Round(interetsMensuel, 1));
+
+                    double amortissementMois = calculerMensualite() - this.tableau[1][i];
+                    this.tableau[2].Add(Math.Round(amortissementMois, 1));
+
+
+                    double capitalRestantDu = this.tableau[3][i - 1] - this.tableau[2][i];
+                    this.tableau[3].Add(Math.Round(capitalRestantDu, 0));
+
+                    this.tableau[4].Add(calculerMensualite());
+                }
+ 
+            }
+
+
+
+
+
+
+        }
 
 
 
         // affichages ---------------------------------------------------------------------------------------------
 
+        // afficher tableau
+        public void afficherLeTableau()
+        {
+            int nblignes =this.tableau[0].Count;
+
+            int nbcolonnes = this.tableau.Count;
+
+            List<string> nomColonnes = new List<string>(){ "Numéro mois", "Part intérêts", "Part Capital", "Capital dû", "Mensualité" };
 
 
 
+            // table header 
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+                Console.Write(String.Format("  {0,14} ", "------------"));
+            }
+            Console.Write(" \n\r");
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+                Console.Write(String.Format("| {0,14} ", nomColonnes[i]));
+            }
+            Console.Write("| \n\r");
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+                Console.Write(String.Format("  {0,14} ", "------------"));
+            }
+            Console.Write(" \n\r");
+            // table body
+
+
+            for (int i = 0; i < nblignes; i++)
+            {
+                for (int j = 0; j < nbcolonnes; j++)
+                {
+
+
+                    Console.Write(String.Format("| {0,14} ", this.tableau[j][i]));
+                }
+                Console.Write("| \n\r");
+            }
+
+
+            // table footer
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+                Console.Write(String.Format("  {0,14} ", "------------"));
+            }
+            Console.Write(" \n\r");
+
+
+
+        }
+
+
+        // afficher une ligne spécifique
 
 
     }
+
 }
