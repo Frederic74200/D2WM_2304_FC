@@ -209,7 +209,8 @@ namespace ex_8_3_Jeu_Du_Pendu
                 }
             }
            
-                Console.WriteLine("Bravo ! Vous avez gagné en : " + nombreMaxiEssais);
+                Console.WriteLine("Bravo ! Vous avez gagné en : " + nombreMaxiEssais+"\n\r"+
+                                   "Le mot recherché était : "+this.motAtrouver);
                 return false;
             
         }
