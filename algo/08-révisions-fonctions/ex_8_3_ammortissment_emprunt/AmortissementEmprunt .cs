@@ -24,7 +24,7 @@ namespace ex_8_3_ammortissment_emprunt
 
         List<List<double>> tableau = new List<List<double>>();
 
-
+        private int moisAconsulter;
 
 
 
@@ -36,7 +36,7 @@ namespace ex_8_3_ammortissment_emprunt
         {
             this.capitalEmprunte = 12000;
             this.nbrAnneeRbmt = 5;
-            this.tauxInteretAnnuel = 0.06;
+            this.tauxInteretAnnuel = 6;
         }
 
         // avec paramètres
@@ -53,20 +53,6 @@ namespace ex_8_3_ammortissment_emprunt
 
 
 
-
-        // petis calculs ----------------------------------------------------------------------------------------
-
-        public double getMois()
-        {
-            this.mois = this.nbrAnneeRbmt * 12;
-            return this.mois;
-        }
-
-        public double getTauxMensuel()
-        {
-            this.tauxInteretmensuel = this.tauxInteretAnnuel / 12 / 100;
-            return this.tauxInteretmensuel;
-        }
 
         // mutateurs ------------------------------------------------------------------------------------------
 
@@ -122,6 +108,20 @@ namespace ex_8_3_ammortissment_emprunt
         // fonctions --------------------------------------------------------------------------------------------
 
 
+        // petis calculs 
+
+        public double getMois()
+        {
+            this.mois = this.nbrAnneeRbmt * 12;
+            return this.mois;
+        }
+
+        public double getTauxMensuel()
+        {
+            this.tauxInteretmensuel = this.tauxInteretAnnuel / 12 / 100;
+            return this.tauxInteretmensuel;
+        }
+
 
 
         // Saisie capital, nombre années, taux
@@ -147,7 +147,7 @@ namespace ex_8_3_ammortissment_emprunt
 
             mensualite = (this.capitalEmprunte * tm / (1 - Math.Pow((1 + tm), nbMoisNegatif)));
 
-            return Math.Round(mensualite, 2);
+            return mensualite;
 
         }
 
@@ -167,102 +167,13 @@ namespace ex_8_3_ammortissment_emprunt
             return this.tableau;
         }
 
-        // remplissage colonne mois 
-        public void remplirColonneMois()
-        {
-            this.mois = this.nbrAnneeRbmt / 12;
-            for (int i = 0; i < this.mois + 1; i++)
-            {
-                this.tableau[0].Add(i);
-            }
-
-        }
-
-        // remplissage colonne mensualité
-        public void remplirColonneMensualite()
-        {
-
-            for (int i = 0; i < getMois() + 1; i++)
-            {
-                if (i > 0)
-                {
-                    this.tableau[4].Add(calculerMensualite());
-                }
-                else
-                {
-                    this.tableau[4].Add(0);
-                }
-            }
-
-        }
-
-        // remplissage colonne part d'intêret 
-        public void remplirColonnePartInterets()
-        {
-
-            for (int i = 0; i < getMois() ; i++)
-            {
-                if (i > 0)
-                {
-
-                    double interetsMensuel = this.tableau[3][i - 1] * i * getTauxMensuel();
-
-
-                    this.tableau[1].Add(Math.Round(interetsMensuel, 1));
-                }
-                else
-                {
-                    this.tableau[1].Add(0);
-                }
-            }
-
-        }
-
-        // remplissage colonne part capital 
-        public void remplirColonnePartCapital()
-        {
-            for (int i = 0; i < getMois() + 1; i++)
-            {
-                if (i > 0)
-                {
-                    double amortissementMois = calculerMensualite() - this.tableau[1][i];
-
-                    this.tableau[2].Add(Math.Round(amortissementMois, 1));
-                }
-                else
-                {
-                    this.tableau[2].Add(0);
-                }
-            }
-
-        }
-
-        // remplissage colonne capital restant dû 
-        public void remplirColonneCapitalrestantDu()
-        {
-            this.tableau[3].Add(Convert.ToDouble(this.capitalEmprunte));
-
-            for (int i = 1; i < getMois() + 1; i++)
-            {
-
-
-                double capitalRestantDu = this.tableau[3][i - 1] - this.tableau[2][i];
-
-
-                this.tableau[3].Add(Math.Round(capitalRestantDu, 0));
-
-            }
-
-        }
 
         // reprise remplisage tableau 
 
 
-
-
         public void remplirColonnesIndex_1_2_3()
         {
-            
+
 
             for (int i = 0; i < getMois() + 1; i++)
             {
@@ -271,41 +182,56 @@ namespace ex_8_3_ammortissment_emprunt
                 {
                     double j = 0;
                     this.tableau[4].Add(j);
-                    this.tableau[3].Add(Convert.ToDouble(this.capitalEmprunte));
+                    this.tableau[3].Add(this.capitalEmprunte);
                     this.tableau[2].Add(j);
                     this.tableau[1].Add(j);
                     this.tableau[0].Add(j);
 
                 }
+
                 else
                 {
-
-
-
-
                     this.tableau[0].Add(i);
 
-                    double interetsMensuel = this.tableau[3][i - 1] * i * getTauxMensuel();
-                    this.tableau[1].Add(Math.Round(interetsMensuel, 1));
+
+                    double interetsMensuel = this.tableau[3][i - 1] * getTauxMensuel();
+                    this.tableau[1].Add(interetsMensuel);
 
                     double amortissementMois = calculerMensualite() - this.tableau[1][i];
-                    this.tableau[2].Add(Math.Round(amortissementMois, 1));
+                    this.tableau[2].Add(amortissementMois);
 
 
                     double capitalRestantDu = this.tableau[3][i - 1] - this.tableau[2][i];
-                    this.tableau[3].Add(Math.Round(capitalRestantDu, 0));
+                    this.tableau[3].Add(capitalRestantDu);
 
                     this.tableau[4].Add(calculerMensualite());
                 }
- 
+
             }
-
-
-
-
-
-
         }
+
+
+        // siaise mois à consulter
+
+        public int consulterUnMois()
+        {
+            bool saisieOk = false;
+
+            do
+            {
+                Console.WriteLine("Saisissez le numéro du mois à consulter : ");
+                string? saisie = Console.ReadLine();
+
+                saisieOk = int.TryParse(saisie, out this.moisAconsulter);
+
+
+            } while (!saisieOk);
+
+
+            return this.moisAconsulter;
+        }
+
+
 
 
 
@@ -314,11 +240,11 @@ namespace ex_8_3_ammortissment_emprunt
         // afficher tableau
         public void afficherLeTableau()
         {
-            int nblignes =this.tableau[0].Count;
+            int nblignes = this.tableau[0].Count;
 
             int nbcolonnes = this.tableau.Count;
 
-            List<string> nomColonnes = new List<string>(){ "Numéro mois", "Part intérêts", "Part Capital", "Capital dû", "Mensualité" };
+            List<string> nomColonnes = new List<string>() { "Numéro mois", "Part intérêts", "Part Capital", "Capital dû", "Mensualité" };
 
 
 
@@ -347,7 +273,7 @@ namespace ex_8_3_ammortissment_emprunt
                 {
 
 
-                    Console.Write(String.Format("| {0,14} ", this.tableau[j][i]));
+                    Console.Write(String.Format("| {0,14} ", Math.Round(this.tableau[j][i], 2)));
                 }
                 Console.Write("| \n\r");
             }
@@ -366,6 +292,111 @@ namespace ex_8_3_ammortissment_emprunt
 
 
         // afficher une ligne spécifique
+
+        public void afficherUnmois()
+        {
+
+            int nblignes = this.moisAconsulter;
+
+            int nbcolonnes = this.tableau.Count;
+
+            List<string> nomColonnes = new List<string>() { "Numéro mois", "Part intérêts", "Part Capital", "Capital dû", "Mensualité" };
+
+
+
+            // table header 
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+                Console.Write(String.Format("  {0,14} ", "------------"));
+            }
+            Console.Write(" \n\r");
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+                Console.Write(String.Format("| {0,14} ", nomColonnes[i]));
+            }
+            Console.Write("| \n\r");
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+                Console.Write(String.Format("  {0,14} ", "------------"));
+            }
+            Console.Write(" \n\r");
+            // table body
+
+
+            for (int i = nblignes; i < nblignes + 1; i++)
+            {
+                for (int j = 0; j < nbcolonnes; j++)
+                {
+                    Console.Write(String.Format("| {0,14} ", Math.Round(this.tableau[j][i], 2)));
+                }
+                Console.Write("| \n\r");
+            }
+
+
+            // table footer
+            for (int i = 0; i < nbcolonnes; i++)
+            {
+                Console.Write(String.Format("  {0,14} ", "------------"));
+            }
+            Console.Write(" \n\r");
+        }
+
+
+        // afficher coût du crédit 
+
+        public void affciherCoutCredit()
+        {
+            double totalInterets = 0;
+            double fraisDeDossier = 50;
+
+            for (int i = 1; i < this.mois + 1; i++)
+            {
+                totalInterets += this.tableau[1][i];
+            }
+
+            Console.WriteLine("\n\r --------------------------------------------" +
+                                "\n\rLe total des intérêts est : " + Math.Round(totalInterets, 2) + "\n\r" +
+                               "Les frais de dossier sont : " + fraisDeDossier + "\n\r" +
+                               "Coût global du crédit : " + Math.Round( (this.capitalEmprunte + totalInterets + fraisDeDossier), 2) + "\n\r" +
+                               "------------------------------------------- \n\r");
+        }
+
+
+        // interaction utlisateur ----------------------------------------------------------------------------------
+
+
+        public void interagirAvecLeProgramme()
+        {
+
+            saisirInfos();
+
+            construireTableau();
+
+            remplirColonnesIndex_1_2_3();
+
+            afficherLeTableau();
+
+            affciherCoutCredit();
+
+            string quit = "";
+
+            do
+            {
+                consulterUnMois();
+                afficherUnmois();
+
+                Console.WriteLine("Appuyer sur Q pour quitter le programme \n\r" +
+                                   "Ou sur une autre touche pour continuer.");
+                quit = Console.ReadLine().ToLower();
+
+            } while (quit != "q");
+
+
+
+
+
+        }
+
 
 
     }
