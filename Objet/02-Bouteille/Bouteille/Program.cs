@@ -11,6 +11,9 @@
             BouteilleClass flaconSavonMains = new BouteilleClass("Flacon de savon pour les mains", true, 50, 18);
 
 
+            Console.WriteLine("Nombres bouteilles instenciées : "+BouteilleClass.nombreBouteillesInstenciees);
+
+            Console.WriteLine("--------------------------------- états initiaux  -----------------");
             bouteilleVerreJusFruit.AfficherEtatBouteille();
             gourdeRandonnee.AfficherEtatBouteille();
             flaconSavonMains.AfficherEtatBouteille();
