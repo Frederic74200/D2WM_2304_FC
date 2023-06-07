@@ -9,7 +9,8 @@
             BouteilleClass bouteilleVerreJusFruit = new BouteilleClass();
             BouteilleClass gourdeRandonnee = new BouteilleClass("Gourde pour la randonnée", false, 100,100);
             BouteilleClass flaconSavonMains = new BouteilleClass("Flacon de savon pour les mains", true, 50, 18);
-
+            BouteilleClass nouvelleBouteilleJusFruit = new BouteilleClass(bouteilleVerreJusFruit);
+            BouteilleClass nouvelleGourdeRando = new BouteilleClass(gourdeRandonnee);    
 
             Console.WriteLine("Nombres bouteilles instenciées : "+BouteilleClass.nombreBouteillesInstenciees);
 
@@ -17,6 +18,8 @@
             bouteilleVerreJusFruit.AfficherEtatBouteille();
             gourdeRandonnee.AfficherEtatBouteille();
             flaconSavonMains.AfficherEtatBouteille();
+            nouvelleBouteilleJusFruit.AfficherEtatBouteille();
+            nouvelleGourdeRando.AfficherEtatBouteille();
 
 
             bouteilleVerreJusFruit.OuvrirLaBouteille();
@@ -27,19 +30,33 @@
 
             flaconSavonMains.RemplirTout();
 
-            Console.WriteLine("--------------------------------- Nouveaux états  -----------------");
+            nouvelleBouteilleJusFruit.OuvrirLaBouteille();
+            nouvelleBouteilleJusFruit.AjouterQuantiteChoisieLiquide(75);
+
+            nouvelleGourdeRando.OuvrirLaBouteille();
+            nouvelleGourdeRando.ViderTout();
+
+            Console.WriteLine("--------------------------------- Nouveaux états  ------------------------------------");
 
             bouteilleVerreJusFruit.AfficherEtatBouteille();
             gourdeRandonnee.AfficherEtatBouteille();
             flaconSavonMains.AfficherEtatBouteille();
+            nouvelleBouteilleJusFruit.AfficherEtatBouteille();
+            nouvelleGourdeRando.AfficherEtatBouteille();
 
 
             bouteilleVerreJusFruit.ViderTout();
             bouteilleVerreJusFruit.FermerLaBouteille();
 
-            Console.WriteLine("--------------------------------- Nouveaux états  -----------------");
-            bouteilleVerreJusFruit.AfficherEtatBouteille();
+            nouvelleBouteilleJusFruit.RemplirTout();
+            nouvelleBouteilleJusFruit.FermerLaBouteille();
 
+            BouteilleClass troisiemeBouteilleJusFruit = new BouteilleClass(nouvelleBouteilleJusFruit);
+
+            Console.WriteLine("--------------------------------- Nouveaux états  ------------------------------");
+            bouteilleVerreJusFruit.AfficherEtatBouteille();
+            nouvelleBouteilleJusFruit.AfficherEtatBouteille();
+            troisiemeBouteilleJusFruit.AfficherEtatBouteille();
 
 
 

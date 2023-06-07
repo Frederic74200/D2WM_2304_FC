@@ -39,6 +39,16 @@ namespace Bouteille
             nombreBouteillesInstenciees++;
         }
 
+        // à cloner 
+        public BouteilleClass(BouteilleClass bouteilleClone)
+        {
+            this.nomBouteille = bouteilleClone.nomBouteille;
+            this.estOuverte = bouteilleClone.estOuverte;
+            this.capaciteMaxiCentilitres= bouteilleClone.capaciteMaxiCentilitres;
+            this.qantiteLiquidePresentCl = bouteilleClone.qantiteLiquidePresentCl;
+            nombreBouteillesInstenciees++;
+        }
+
 
         //   fonctions ------------------------------------------------------------
 
