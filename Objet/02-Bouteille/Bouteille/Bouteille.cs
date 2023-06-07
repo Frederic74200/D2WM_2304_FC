@@ -84,7 +84,7 @@ namespace Bouteille
         }
 
         // - vider()
-        private bool vider()
+        private bool PossibiliteDVider()
         {
             if (qantiteLiquidePresentCl > 0 && estOuverte)
             {
@@ -97,7 +97,7 @@ namespace Bouteille
         }
 
         // - Remplir() 
-        private bool Remplir()
+        private bool PossibiliteDeRemplir()
         {
             if (qantiteLiquidePresentCl < capaciteMaxiCentilitres && estOuverte)
             {
@@ -113,7 +113,7 @@ namespace Bouteille
         // + RetirerQuantiteChoisieLiquide() : uint
         public uint RetirerQuantiteChoisieLiquide(uint volumeAretirer)
         {
-            if (vider() == true &&  volumeAretirer <= qantiteLiquidePresentCl)
+            if (PossibiliteDVider() == true &&  volumeAretirer <= qantiteLiquidePresentCl)
                 {
                     qantiteLiquidePresentCl -= volumeAretirer;
                 }
@@ -127,7 +127,7 @@ namespace Bouteille
         // + AjouterQuantiteChoisieLiquide() : uint
         public uint AjouterQuantiteChoisieLiquide(uint volumeAajouter)
         {
-            if (Remplir() == true && volumeAajouter <= capaciteMaxiCentilitres - qantiteLiquidePresentCl)
+            if (PossibiliteDeRemplir() == true && volumeAajouter <= capaciteMaxiCentilitres - qantiteLiquidePresentCl)
             {
                 qantiteLiquidePresentCl += volumeAajouter;
             }
@@ -141,7 +141,7 @@ namespace Bouteille
         // + ViderTout() : bool
         public bool ViderTout()
         {
-          if (vider() == true)
+          if (PossibiliteDVider() == true)
             {
                 qantiteLiquidePresentCl = 0;
                 return true;
@@ -155,7 +155,7 @@ namespace Bouteille
         // + RemplirTout() : bool
         public bool RemplirTout()
         {
-            if(Remplir() == true)
+            if(PossibiliteDeRemplir() == true)
             {
                 qantiteLiquidePresentCl = capaciteMaxiCentilitres;  
                 return true;
@@ -165,26 +165,6 @@ namespace Bouteille
                 return false; 
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

@@ -26,7 +26,6 @@ namespace TestProjectBouteille
             Assert.IsTrue(ferme);
         }
 
-
         [TestMethod]
         public void TestMethod_RetirerQuantiteChoisieLiquide()
         {
@@ -119,13 +118,6 @@ namespace TestProjectBouteille
             bool toutRemplir = testBouteille.ViderTout();
             Assert.IsFalse(!toutRemplir);
         }
-
-
-
-
-
-
-
 
 
     }
