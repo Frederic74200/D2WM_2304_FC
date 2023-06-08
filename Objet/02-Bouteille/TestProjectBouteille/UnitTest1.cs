@@ -7,6 +7,58 @@ namespace TestProjectBouteille
     public class UnitTest1
     {
 
+
+        // tests get 
+        [TestMethod]
+        public void TestMethod_GetNomBouteille()
+        {
+            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", false, 100, 50);
+            string nomBouteille = testBouteille.NomBouteille;
+            Assert.IsTrue(nomBouteille == "Bouteille de test");
+            Assert.IsFalse(nomBouteille != "Bouteille de test");
+        }
+
+        [TestMethod]
+        public void TestMethod_GetEstOverte()
+        {
+            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 50);
+            bool ouverte = testBouteille.EstOuverte;
+            Assert.IsTrue(ouverte);
+            Assert.IsFalse(!ouverte);
+        }
+
+        [TestMethod]
+        public void TestMethod_GetapaciteMaxiCentilitres()
+        {
+            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 50);
+            uint capacite = testBouteille.CapaciteMaxiCentilitres;
+            Assert.IsTrue(capacite == 100);
+            Assert.IsFalse(capacite != 100);
+        }
+
+
+        [TestMethod]
+        public void TestMethod_GetQantiteLiquidePresentCl()
+        {
+            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 50);
+            uint quantite = testBouteille.QantiteLiquidePresentCl;
+            Assert.IsTrue(quantite == 50);
+            Assert.IsFalse(quantite != 50);
+        }
+
+        [TestMethod]
+        public void TestMethod_GetNombreBouteillesInstenciees()
+        {
+            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 50);
+            uint nbBouteilles = testBouteille.GetNombreBouteillesInstenciees();
+            Assert.IsTrue(nbBouteilles == 1);
+            Assert.IsFalse(nbBouteilles != 1);
+        }
+
+
+
+
+
         // Tests Vrais -----------------------------------------
         [TestMethod]
         public void TestMethod_OuvrirLaBouteille()
@@ -31,8 +83,8 @@ namespace TestProjectBouteille
         {
             Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 50);
 
-            uint quantiteRestante = testBouteille.RetirerQuantiteChoisieLiquide(25);
-            Assert.IsTrue(quantiteRestante == 25);
+            bool retirerLiquide = testBouteille.RetirerQuantiteChoisieLiquide(25);
+            Assert.IsTrue(retirerLiquide);
         }
 
         [TestMethod]
@@ -40,8 +92,8 @@ namespace TestProjectBouteille
         {
             Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 50);
 
-            uint quantiteRestante = testBouteille.AjouterQuantiteChoisieLiquide(25);
-            Assert.IsTrue(quantiteRestante == 75);
+           bool ajouterLiquide = testBouteille.AjouterQuantiteChoisieLiquide(25);
+            Assert.IsTrue(ajouterLiquide);
         }
 
         [TestMethod]
@@ -67,19 +119,19 @@ namespace TestProjectBouteille
         [TestMethod]
         public void TestMethod_Faux_OuvrirLaBouteille()
         {
-            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", false, 100, 50);
+            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 50);
 
             bool ouvert = testBouteille.OuvrirLaBouteille();
-            Assert.IsFalse(!ouvert);
+            Assert.IsFalse(ouvert);
         }
 
         [TestMethod]
         public void TestMethod_Faux_FermerLaBouteille()
         {
-            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 50);
+            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", false, 100, 50);
 
             bool ferme = testBouteille.FermerLaBouteille();
-            Assert.IsFalse(!ferme);
+            Assert.IsFalse(ferme);
         }
 
 
@@ -88,8 +140,8 @@ namespace TestProjectBouteille
         {
             Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 50);
 
-            uint quantiteRestante = testBouteille.RetirerQuantiteChoisieLiquide(25);
-            Assert.IsFalse(quantiteRestante != 25);
+            bool retirerLiquide  = testBouteille.RetirerQuantiteChoisieLiquide(25);
+            Assert.IsFalse(!retirerLiquide);
         }
 
         [TestMethod]
@@ -97,23 +149,23 @@ namespace TestProjectBouteille
         {
             Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 50);
 
-            uint quantiteRestante = testBouteille.AjouterQuantiteChoisieLiquide(25);
-            Assert.IsFalse(quantiteRestante != 75);
+           bool ajouterLiquide= testBouteille.AjouterQuantiteChoisieLiquide(75);
+            Assert.IsFalse(ajouterLiquide);
         }
 
         [TestMethod]
         public void TestMethod_Faux_ViderTout()
         {
-            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 50);
+            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 0);
 
             bool toutVider = testBouteille.ViderTout();
-            Assert.IsFalse(!toutVider);
+            Assert.IsFalse(toutVider);
         }
 
         [TestMethod]
         public void TestMethod_Faux_RemplirTout()
         {
-            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 50);
+            Bouteille.BouteilleClass testBouteille = new Bouteille.BouteilleClass("Bouteille de test", true, 100, 100);
 
             bool toutRemplir = testBouteille.ViderTout();
             Assert.IsFalse(!toutRemplir);

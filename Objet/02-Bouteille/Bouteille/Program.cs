@@ -31,7 +31,7 @@
             flaconSavonMains.RemplirTout();
 
             nouvelleBouteilleJusFruit.OuvrirLaBouteille();
-            nouvelleBouteilleJusFruit.AjouterQuantiteChoisieLiquide(75);
+            nouvelleBouteilleJusFruit.AjouterQuantiteChoisieLiquide(99);
 
             nouvelleGourdeRando.OuvrirLaBouteille();
             nouvelleGourdeRando.ViderTout();
