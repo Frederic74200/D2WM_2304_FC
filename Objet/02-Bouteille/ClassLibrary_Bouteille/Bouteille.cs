@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,39 +16,52 @@ namespace Bouteille
         private  bool estOuverte;
         private  uint capaciteMaxiCentilitres;
         private  uint qantiteLiquidePresentCl;
-        public static uint nombreBouteillesInstenciees = 0; 
+        public static uint nombreBouteillesInstenciees = 0;
+
 
         // Constructeurs ---------------------------------------------------------
 
         // par défaut
+       
         public BouteilleClass()
-        {
-            nomBouteille = "Bouteille en verre pour jus de fruit";
-            estOuverte = false;
-            capaciteMaxiCentilitres = 100;
-            qantiteLiquidePresentCl = 0;
-            nombreBouteillesInstenciees++;
+            :this("Bouteille en verre pour jus de fruit", false, 100, 0)
+        {            
         }
 
-        // avec paramètres 
-        public BouteilleClass(string _nomBouteille, bool _estOuverte, uint _capaciteMaxiCentilitres, uint _qantiteLiquidePresentCl)
+            // avec paramètres 
+         public BouteilleClass(string _nomBouteille, bool _estOuverte, uint _capaciteMaxiCentilitres, uint _qantiteLiquidePresentCl)   
         {
             nomBouteille = _nomBouteille;
             estOuverte = _estOuverte;
             capaciteMaxiCentilitres = _capaciteMaxiCentilitres;
             qantiteLiquidePresentCl = _qantiteLiquidePresentCl;
-            nombreBouteillesInstenciees++;
+            nombreBouteillesInstenciees++; 
         }
 
-        // à cloner 
-        public BouteilleClass(BouteilleClass bouteilleClone)
-        {
-            this.nomBouteille = bouteilleClone.nomBouteille;
-            this.estOuverte = bouteilleClone.estOuverte;
-            this.capaciteMaxiCentilitres= bouteilleClone.capaciteMaxiCentilitres;
-            this.qantiteLiquidePresentCl = bouteilleClone.qantiteLiquidePresentCl;
-            nombreBouteillesInstenciees++;
+
+        // à cloner                 
+        public BouteilleClass(BouteilleClass bouteilleACloner)
+            :this(bouteilleACloner.nomBouteille, bouteilleACloner.EstOuverte, bouteilleACloner.capaciteMaxiCentilitres, bouteilleACloner.qantiteLiquidePresentCl)
+        {        
         }
+        
+
+        // accesseurs -----------------------------------------------------------
+
+
+
+        public string NomBouteille { get => nomBouteille; set => nomBouteille = value; }
+        public bool EstOuverte { get => estOuverte; set => estOuverte = value; }
+        public uint CapaciteMaxiCentilitres { get => capaciteMaxiCentilitres; }
+        public uint QantiteLiquidePresentCl { get => qantiteLiquidePresentCl; set => qantiteLiquidePresentCl = value; }
+
+        
+        
+        public uint GetNombreBouteillesInstenciees()
+        { 
+            return nombreBouteillesInstenciees;
+        }
+        
 
 
         //   fonctions ------------------------------------------------------------
@@ -62,6 +76,22 @@ namespace Bouteille
                                "Capacité maxi cl : " + capaciteMaxiCentilitres + "\n\r" +
                                "Quantité présente dans bouteille : " + qantiteLiquidePresentCl); ;
         }
+
+        // bouteeille to string 
+
+        public string bouteilleToString()
+        {
+            string bouteilleString = "------------------------------------------ \n\r" +
+                                "Nom bouteille : " + nomBouteille + "\n\r" +
+                               "Est ouverte ? " + estOuverte + "\n\r" +
+                               "Capacité maxi cl : " + capaciteMaxiCentilitres + "\n\r" +
+                               "Quantité présente dans bouteille : " + qantiteLiquidePresentCl;
+
+            return bouteilleString; 
+        }
+
+
+
 
         // + OuvrirLaBouteille() : bool
         public  bool OuvrirLaBouteille()
@@ -121,31 +151,33 @@ namespace Bouteille
         }
 
         // + RetirerQuantiteChoisieLiquide() : uint
-        public uint RetirerQuantiteChoisieLiquide(uint volumeAretirer)
+        public Boolean RetirerQuantiteChoisieLiquide(uint volumeAretirer)
         {
             if (PossibiliteDVider() == true &&  volumeAretirer <= qantiteLiquidePresentCl)
                 {
                     qantiteLiquidePresentCl -= volumeAretirer;
+                return true;
                 }
             else
             {
-                Console.WriteLine(" Valuer incorrecte ! ");
+                return false; 
             }
-            return qantiteLiquidePresentCl;
+           
         }
 
         // + AjouterQuantiteChoisieLiquide() : uint
-        public uint AjouterQuantiteChoisieLiquide(uint volumeAajouter)
+        public Boolean AjouterQuantiteChoisieLiquide(uint volumeAajouter)
         {
             if (PossibiliteDeRemplir() == true && volumeAajouter <= capaciteMaxiCentilitres - qantiteLiquidePresentCl)
             {
                 qantiteLiquidePresentCl += volumeAajouter;
+                return true;
             }
             else
             {
-                Console.WriteLine(" Valuer incorrecte ! ");
+                return false; 
             }
-            return qantiteLiquidePresentCl;
+           
         }
 
         // + ViderTout() : bool

@@ -16,7 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bouteille\Bouteille.csproj" />
+    <ProjectReference Include="..\Bouteille\Console_Bouteille.csproj" />
+    <ProjectReference Include="..\ClassLibrary_Bouteille\ClassLibrary_Bouteille.csproj" />
   </ItemGroup>
 
 </Project>
