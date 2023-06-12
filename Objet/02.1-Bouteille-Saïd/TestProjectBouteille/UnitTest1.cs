@@ -120,7 +120,7 @@ namespace TestProjectBouteille
             Assert.IsFalse(remplirOK);
         }
 
-        /-------------------------
+        //-------------------------
         // ViderTout true
         [TestMethod]
         public void TestMethodViderToutTrue()

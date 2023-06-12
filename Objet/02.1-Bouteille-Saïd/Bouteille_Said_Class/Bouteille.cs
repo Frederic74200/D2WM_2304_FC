@@ -119,7 +119,7 @@ namespace Bouteille_Said_Class
         // remplurTout
         public Boolean RemplirTout()
         {
-            if (volumeActuelEnLitres > volumeMaxEnLitres && bouteilleOuverte)
+            if (volumeActuelEnLitres < volumeMaxEnLitres && bouteilleOuverte)
             {
                 volumeActuelEnLitres = volumeMaxEnLitres; 
                 return true;
