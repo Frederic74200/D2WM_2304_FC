@@ -43,6 +43,67 @@ namespace TestProjectBouteille
             Assert.IsFalse(contenuBouteille != "test");
         }
 
+        // tests constructeurs -------------------------------------------------------------------------
+
+        [TestMethod]
+        public void TestMethod_Constructeur_parametres()
+        {
+            Bouteille bouteilleTest = new Bouteille(true, 1.33f, 0.88f, "test");
+            bool ouverte = bouteilleTest.BouteilleOuverte;
+            Assert.IsTrue(ouverte);
+
+            float maxi = bouteilleTest.VolumeMaxEnLitres;
+            Assert.IsTrue(maxi == 1.33f);
+
+            float actuel = bouteilleTest.VolumeActuelEnLitres;
+            Assert.IsTrue(actuel == 0.88f);
+
+            string nomBtll = bouteilleTest.ContenuBouteille;
+            Assert.IsTrue(nomBtll == "test");
+        }
+
+
+
+        [TestMethod]
+        public void TestMethod_Constructeur_defaut()
+        {
+            Bouteille bouteilleTest = new Bouteille();
+            bool ouverte = bouteilleTest.BouteilleOuverte;
+            Assert.IsTrue(ouverte);
+
+            float maxi = bouteilleTest.VolumeMaxEnLitres;
+            Assert.IsTrue(maxi == 0.5f);
+
+            float actuel = bouteilleTest.VolumeActuelEnLitres;
+            Assert.IsTrue(actuel == 0.2f);
+
+            string nomBtll = bouteilleTest.ContenuBouteille;
+            Assert.IsTrue(nomBtll == "eau");
+        }
+
+
+
+        [TestMethod]
+        public void TestMethod_Constructeur_a_cloner()
+        {
+            Bouteille bouteilleTest = new Bouteille();
+            Bouteille clone = new Bouteille(bouteilleTest); 
+
+            bool ouverte = clone.BouteilleOuverte;
+            Assert.IsTrue(ouverte);
+
+            float maxi = clone.VolumeMaxEnLitres;
+            Assert.IsTrue(maxi == 0.5f);
+
+            float actuel = clone.VolumeActuelEnLitres;
+            Assert.IsTrue(actuel == 0.2f);
+
+            string nomBtll = clone.ContenuBouteille;
+            Assert.IsTrue(nomBtll == "eau");
+        }
+
+
+
         // tests fonctions -----------------------------------------------------------------------------------------
 
         // ouvrir true
@@ -51,7 +112,9 @@ namespace TestProjectBouteille
         {
             Bouteille bouteilleTest = new Bouteille(false, 1.33f, 0.88f, "test");
             bool ouvrirOk = bouteilleTest.Ouvrir();
-            Assert.IsTrue(ouvrirOk);           
+            bool estOuverte = bouteilleTest.BouteilleOuverte;
+            Assert.IsTrue(ouvrirOk);   
+            Assert.IsTrue(estOuverte);
         }
 
         // ouvrir false 
@@ -60,7 +123,9 @@ namespace TestProjectBouteille
         {
             Bouteille bouteilleTest = new Bouteille(true, 1.33f, 0.88f, "test");
             bool ouvrirOk = bouteilleTest.Ouvrir();
+            bool estOuverte = bouteilleTest.BouteilleOuverte;
             Assert.IsFalse(ouvrirOk);
+            Assert.IsFalse(estOuverte);
         }
 
         //--------------------------
@@ -70,7 +135,9 @@ namespace TestProjectBouteille
         {
             Bouteille bouteilleTest = new Bouteille(true, 1.33f, 0.88f, "test");
             bool fermerOk = bouteilleTest.Fermer();
+            bool estOuverte = bouteilleTest.BouteilleOuverte;
             Assert.IsTrue(fermerOk);
+            Assert.IsTrue(!estOuverte);
         }
 
         // Fermer false 
@@ -79,7 +146,11 @@ namespace TestProjectBouteille
         {
             Bouteille bouteilleTest = new Bouteille(false, 1.33f, 0.88f, "test");
             bool fermerOk = bouteilleTest.Fermer();
+            bool estOuverte = bouteilleTest.BouteilleOuverte;
+
             Assert.IsFalse(fermerOk);
+            Assert.IsFalse(estOuverte);
+
         }
 
         //-------------------------
