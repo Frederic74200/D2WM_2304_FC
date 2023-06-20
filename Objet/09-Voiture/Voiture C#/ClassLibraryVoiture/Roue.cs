@@ -10,42 +10,20 @@ namespace ClassLibraryVoiture
     {
 
         // Attributs -----------------------------------------------------------------------------
-        private int diametreEnPouce;
-        private double pressionEnBar;
-        private static int nombreRouesInstenciees;
+        bool peutTournerAvant;
+        bool peutTournerArrierre;
 
 
         // accesseurs mutaeurs -------------------------------------------------------------------
-
-        public int DiametreEnPouce { get => diametreEnPouce; set => diametreEnPouce = value; }
-        public double PressionEnBar { get => pressionEnBar; set => pressionEnBar = value; }
-        public static int NombreRouesInstenciees { get => nombreRouesInstenciees; set => nombreRouesInstenciees = value; }
 
 
 
         // Connstructeurs ------------------------------------------------------------------------
 
-        // Avec paramètres 
-        public Roue (int _diametreEnPouce, double _pressionEnBar)
-        {
-            this.diametreEnPouce = _diametreEnPouce;    
-            this.pressionEnBar = _pressionEnBar;
-            nombreRouesInstenciees++; 
-        }
+        public Roue() { }
 
-        // Par défaut
-        public Roue()
-            : this(17, 1.9)
-        {
-
-        }
-
-        // Clonage 
-        public Roue(Roue RoueAdupliquer)
-            : this(RoueAdupliquer.diametreEnPouce, RoueAdupliquer.pressionEnBar)
-        {
-
-        }
+        public Roue(Roue RoueAcloner) :this() { }
+      
 
 
         // Fonctions -------------------------------------------------------------------------------
