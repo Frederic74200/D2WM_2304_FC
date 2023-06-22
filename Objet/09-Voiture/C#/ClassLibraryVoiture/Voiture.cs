@@ -14,28 +14,39 @@ namespace ClassLibraryVoiture
         // Attributs --------------------------------------------------------------------------------
 
         private string marque;
-        private Moteur moteur;
-        private List<Roue> roues;
+        private Moteur sonMoteur;
+        private List<Roue> ses4roues;
 
         public string Marque { get => marque; set => marque = value; }
 
 
         // Constructeurs ---------------------------------------------------------------------------
-        public Voiture(Moteur _moteur, List<Roue> _roues, string _marque)
+        private Voiture(Moteur _moteur, List<Roue> _roues, string _marque)
         {
-            moteur = _moteur;
-            roues = _roues; 
+            sonMoteur = _moteur;
+            ses4roues = _roues; 
             marque = _marque;
         }
 
 
+        public Voiture(Moteur _moteur,bool tourne, string _marque)
+           : this(new Moteur(),
+                new List<Roue>(){new Roue(tourne),
+                               new Roue(tourne),
+                               new Roue(tourne),
+                               new Roue(tourne)},
+              _marque)
+        {
 
+
+
+        }
         public Voiture(Voiture voitureAcopier)
-            : this(new Moteur(voitureAcopier.moteur),
-                 new List<Roue>(){new Roue(voitureAcopier.roues[0]),
-                                new Roue(voitureAcopier.roues[1]),
-                                new Roue(voitureAcopier.roues[2]),
-                                new Roue(voitureAcopier.roues[3])},
+            : this(new Moteur(voitureAcopier.sonMoteur),
+                 new List<Roue>(){new Roue(voitureAcopier.ses4roues[0]),
+                                new Roue(voitureAcopier.ses4roues[1]),
+                                new Roue(voitureAcopier.ses4roues[2]),
+                                new Roue(voitureAcopier.ses4roues[3])},
                  voitureAcopier.marque)
         {
 
@@ -53,7 +64,7 @@ namespace ClassLibraryVoiture
         public bool DemarrerLeMoteur()
         {
 
-            if (moteur.Demarrer() == true) { return true; }
+            if (sonMoteur.Demarrer() == true) { return true; }
             else { return false; }
 
         }
@@ -62,11 +73,11 @@ namespace ClassLibraryVoiture
         public bool Avancer()
         {
 
-            if ( moteur.EntrainerRoues(roues[0], roues[1]) == true)
+            if (sonMoteur.EntrainerRoues(ses4roues[0], ses4roues[1]) == true)
             {
-                moteur.EntrainerRoues(roues[0], roues[1]);
-                roues[2].Tourner();
-                roues[3].Tourner();
+                sonMoteur.EntrainerRoues(ses4roues[0], ses4roues[1]);
+                ses4roues[2].Tourner();
+                ses4roues[3].Tourner();
 
                 return true;
             }
@@ -91,11 +102,11 @@ namespace ClassLibraryVoiture
         public bool Freiner()
         {
 
-            if (moteur.ArreterRoues(roues[0], roues[1]) == true)
+            if (sonMoteur.ArreterRoues(ses4roues[0], ses4roues[1]) == true)
             {
-                moteur.ArreterRoues(roues[0], roues[1]);
-                roues[2].Stopper();
-                roues[3].Stopper();
+                sonMoteur.ArreterRoues(ses4roues[0], ses4roues[1]);
+                ses4roues[2].Stopper();
+                ses4roues[3].Stopper();
 
                 return true;
             }
@@ -112,11 +123,11 @@ namespace ClassLibraryVoiture
         {
             string voitureToString = "-----------------------------------------------\n\r" +
                                     "Marque Voiture : " + marque + "\n\r" +
-                                    moteur.moteurToString() +
-                                    roues[0].roueToString() +
-                                     roues[1].roueToString() +
-                                     roues[2].roueToString() +
-                                      roues[3].roueToString() +
+                                    sonMoteur.moteurToString() +
+                                    ses4roues[0].roueToString() +
+                                     ses4roues[1].roueToString() +
+                                     ses4roues[2].roueToString() +
+                                      ses4roues[3].roueToString() +
                                      "-----------------------------------------------\n\r";
             return voitureToString;
         }

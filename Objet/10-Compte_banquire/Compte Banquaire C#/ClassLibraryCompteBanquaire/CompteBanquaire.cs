@@ -40,6 +40,16 @@
             return CompteToString;
         }
 
+        // overirde ToString
+        public override string ToString()
+        {
+            return "N° compte : " + numeroDeCompte.ToString() + "\n\r" +
+                                    "Nom Propriétaire : " + nomPropriétaireCompte + "\n\r" +
+                                    "Solde Actuel : " + solde.ToString() + "\n\r" +
+                                    "Découvert autorisé : " + decouvertAutorise.ToString() + "\n\r";
+          
+        }
+
         // CrediterUnMontant 
         public void CrediterUnMontant(double montantAcrediter)
         {

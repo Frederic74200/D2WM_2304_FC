@@ -53,7 +53,10 @@ namespace ConsoleAppCompteBanquaire
             }
 
 
-
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine(c1);
+            Console.WriteLine(c2);
+            Console.WriteLine(c3);
         }
     }
 }
