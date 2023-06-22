@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="ClassLibraryVoiture.Moteur">
+    <Position X="7.5" Y="4" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAABAAAAAAAAAAAABACAAAAAAAACAAAAAgAAgAAAA=</HashCode>
+      <FileName>Moteur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibraryVoiture.Roue">
+    <Position X="7.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAKAAAAAAAAAQAAAAAAACAAAAAAAAAACAAAAAgAA=</HashCode>
+      <FileName>Roue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibraryVoiture.Voiture">
+    <Position X="1.25" Y="1.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAEACAAAAAAAAACAAACEAAABAAAA=</HashCode>
+      <FileName>Voiture.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="moteur" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="roues" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
