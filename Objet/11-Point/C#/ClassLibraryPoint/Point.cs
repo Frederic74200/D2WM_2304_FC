@@ -8,12 +8,11 @@
         private double abscisseX;
         private double ordonneeY;
 
-        public double AbscisseX { get => abscisseX; set => abscisseX = value; }
-        public double OrdonneeY { get => ordonneeY; set => ordonneeY = value; }
-
 
         // get set -----------------------------------------------------------------------
 
+        public double AbscisseX { get => abscisseX; set => abscisseX = value; }
+        public double OrdonneeY { get => ordonneeY; set => ordonneeY = value; }
 
 
         // constructeurs -------------------------------------------------------------------
@@ -39,21 +38,38 @@
         {
             return "Position x : "+abscisseX+" Position Y : "+ordonneeY+"]";
         }
+    
+       public Point ConstruirePointSymetriqueOrdonnee()
+        {       
 
-        public void ConstruirePointSymetriqueOrdonnee()
-        {
-            ordonneeY -= 2 * ordonneeY; 
+           double nouveauX = abscisseX;
+           double nouveauY = ordonneeY - 2 * ordonneeY;
+
+            Point _point = new Point(nouveauX, nouveauY);
+            return _point;
         }
 
-        public void ConstruirePointSymetriqueAbscisse()
+        public Point ConstruirePointSymetriqueAbscisse()
         {
-           abscisseX -= 2 * abscisseX;
+            double nouveauX = abscisseX - 2 * abscisseX; 
+            double nouveauY = ordonneeY ;
+
+            Point _point = new Point(nouveauX, nouveauY);
+
+            return _point;
         }
 
-        public void ConstruirePointSymetriqueOrigine()
+        public Point ConstruirePointSymetriqueOrigine()
         {
-            ConstruirePointSymetriqueAbscisse();
-            ConstruirePointSymetriqueOrdonnee();
+            Point Xpoint = ConstruirePointSymetriqueAbscisse();
+            Point Ypoint = ConstruirePointSymetriqueOrdonnee();
+
+            double nouveauX = Xpoint.AbscisseX;
+            double nouveauY = Ypoint.OrdonneeY;
+
+            Point _point = new Point(nouveauX, nouveauY);
+
+            return _point;
         }
 
         public void PermuterCoordonnes()
