@@ -21,10 +21,7 @@
 
         public Fraction() : this(0, 1) { }
 
-        public Fraction(int _numerator) : this(_numerator, 1)
-        {
-
-        }
+        public Fraction(int _numerator) : this(_numerator, 1)  { }
 
         public Fraction(Fraction fractionAcopier) : this(fractionAcopier.numerator, fractionAcopier.denominator) { }
 
@@ -37,13 +34,13 @@
             return numerator + " / " + denominator;
         }
 
-
+        // opposer positf --> négatif et inversement 
         public void Oppose()
         {
             numerator -= 2 * numerator;
         }
 
-
+        // inverser numérateur et dénominateur 
         public void Inverse()
         {
             int tmp = numerator;
@@ -51,6 +48,8 @@
             denominator = tmp;
         }
 
+
+        // fraction 1 sup à fraction 2 ? 
         public bool SuperieurA(Fraction _fraction)
         {
             double calcul1 = numerator / denominator;
@@ -65,6 +64,8 @@
                 return false;
             }
         }
+
+        // fraction 1 égale à fraction 2 ? 
 
         public bool EgalA(Fraction _fraction)
         {
@@ -81,7 +82,7 @@
             }
         }
 
-
+        // obtenir plus grand dénominateur commun 
         public int GetPgcd()
         {
             int a = this.numerator;
@@ -108,7 +109,7 @@
         }
 
 
-
+        // réduire une fraction 
         public void Reduire()
         {
             int pgdc = GetPgcd();
@@ -129,8 +130,7 @@
 
         }
 
-
-
+        // additionner deux fractions 
 
         public Fraction Plus(Fraction _fraction)
         {
@@ -149,6 +149,7 @@
             return plus;
         }
 
+        // soustraire deux fractions 
 
         public Fraction Moins(Fraction _fraction)
         {
@@ -167,6 +168,7 @@
             return moins;
         }
 
+        // Multiplier  deux fractions 
 
         public Fraction Multiplie(Fraction _fraction)
         {
@@ -183,6 +185,7 @@
         }
 
 
+        // diviser deux fractions 
 
         public Fraction Divise(Fraction _fraction)
         {
@@ -194,7 +197,6 @@
 
             return Divise;
         }
-
 
 
     }
