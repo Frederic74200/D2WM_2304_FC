@@ -189,13 +189,17 @@
 
         public Fraction Divise(Fraction _fraction)
         {
-            _fraction.Inverse();
 
-            Fraction Divise = Multiplie(_fraction);
+            Fraction _fraction1 = new Fraction(_fraction);
 
-            Divise.Reduire();
 
-            return Divise;
+            _fraction1.Inverse();
+
+            Fraction divise = Multiplie(_fraction1);
+
+            divise.Reduire();
+
+            return divise;
         }
 
 

@@ -1,0 +1,20 @@
+
+CREATE TABLE livres 
+(
+isbn CHAR(13) NOT NULL UNIQUE ,
+titre VARCHAR(255) NOT NULL, 
+
+PRIMARY KEY (isbn)
+);
+
+
+CREATE TABLE exemplaires 
+(
+num_emp TINYINT AUTO_INCREMENT NOT NULL UNIQUE ,
+isbn CHAR(13) NOT NULL,
+etat VARCHAR(255) NOT NULL, 
+
+PRIMARY KEY (num_emp, isbn),
+
+FOREIGN KEY (isbn) REFERENCES livres(isbn)
+);
