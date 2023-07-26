@@ -1,0 +1,4 @@
+CREATE TABLE [dbo].[emp]
+(
+  [Id] INT NOT NULL PRIMARY KEY
+)

@@ -7,21 +7,23 @@ namespace TestProjectPoint
     public class UnitTest1
     {
         // tests construceurs  ***************************************************************************************************
-        // test construteur avec paramètres 
+        // test construteur avec paramÃ¨tres 
         [TestMethod]
         public void TestConstructeurAvecParametres()
         {
             Point p = new Point(4, -2);
 
-           double x = p.AbscisseX;
+
+            double x = p.AbscisseX;
             double y = p.OrdonneeY;
 
             Assert.IsTrue(x == 4);
-            Assert.IsTrue(y == -2 );
+            Assert.IsTrue(y == -2);
+
         }
 
 
-        // test construceur par défaut 
+        // test construceur par dÃ©faut 
         [TestMethod]
         public void TestConstructeurParDefaut()
         {
@@ -34,13 +36,15 @@ namespace TestProjectPoint
             Assert.IsTrue(y == 0);
         }
 
-        // test constructeur à copier 
+        // test constructeur Ã  copier 
 
         [TestMethod]
         public void TestConstructeurAcopier()
         {
             Point p = new Point(31.23, 12.44);
-           Point p1 = new Point(p);
+
+            Point p1 = new Point(p);
+
 
             double x = p.AbscisseX;
             double y = p.OrdonneeY;
@@ -59,11 +63,13 @@ namespace TestProjectPoint
         {
             Point p = new Point();
 
-             p.AbscisseX = -14.3;
-             p.OrdonneeY =123.4;
 
-            double x = p.AbscisseX ;
-            double y = p.OrdonneeY ;
+            p.AbscisseX = -14.3;
+            p.OrdonneeY = 123.4;
+
+            double x = p.AbscisseX;
+            double y = p.OrdonneeY;
+
 
             Assert.IsTrue(x == -14.3);
             Assert.IsTrue(y == 123.4);
@@ -72,15 +78,16 @@ namespace TestProjectPoint
 
 
         // tests fonctions  ***************************************************************************************************
-        
-        
-        // test se déplacer  -----------------------------------    
+
+        // test se dÃ©placer  -----------------------------------    
         [TestMethod]
         public void TestSeDeplacer()
         {
             Point p = new Point();
 
-            p.SeDeplacer(-14.3, 123.4);                    
+
+            p.SeDeplacer(-14.3, 123.4);
+
 
             double x = p.AbscisseX;
             double y = p.OrdonneeY;
@@ -98,35 +105,42 @@ namespace TestProjectPoint
         {
             Point p = new Point(31.23, 12.44);
 
-            p.ConstruirePointSymetriqueOrdonnee();
 
-            double y = p.OrdonneeY;
+            Point p1 = p.ConstruirePointSymetriqueOrdonnee();
+
+            double y = p1.OrdonneeY;
+
 
             Assert.IsTrue(y == -12.44);
         }
 
-        // nombre négatif 
+
+        // nombre nÃ©gatif 
         [TestMethod]
         public void TestConstruirePointSymetriqueOrdonneerYnegaatif()
         {
             Point p = new Point(31.23, -12.44);
 
-            p.ConstruirePointSymetriqueOrdonnee();
 
-            double y = p.OrdonneeY;
+            Point p1 = p.ConstruirePointSymetriqueOrdonnee();
+
+            double y = p1.OrdonneeY;
+
 
             Assert.IsTrue(y == 12.44);
         }
 
-        // nombre zéro 
+        // nombre zÃ©ro 
         [TestMethod]
         public void TestConstruirePointSymetriqueOrdonneerYvautZero()
         {
             Point p = new Point(31.23, 0);
 
-            p.ConstruirePointSymetriqueOrdonnee();
 
-            double y = p.OrdonneeY;
+            Point p1 = p.ConstruirePointSymetriqueOrdonnee();
+
+            double y = p1.OrdonneeY;
+
 
             Assert.IsTrue(y == 0);
         }
@@ -140,50 +154,57 @@ namespace TestProjectPoint
         {
             Point p = new Point(31.23, -12.44);
 
-            p.ConstruirePointSymetriqueAbscisse();
 
-            double x = p.AbscisseX;        
+            Point p1 = p.ConstruirePointSymetriqueAbscisse();
 
-            Assert.IsTrue(x == -31.23);           
+            double x = p1.AbscisseX;
+
+            Assert.IsTrue(x == -31.23);
+
         }
 
-        // nombre négatif 
+        // nombre nÃ©gatif 
         [TestMethod]
         public void TestConstruirePointSymetriqueAbscisseXnegaatif()
         {
             Point p = new Point(-31.23, -12.44);
 
-            p.ConstruirePointSymetriqueAbscisse();
+            Point p1 = p.ConstruirePointSymetriqueAbscisse();
 
-            double x = p.AbscisseX;           
+            double x = p1.AbscisseX;
 
-            Assert.IsTrue(x == 31.23);           
+            Assert.IsTrue(x == 31.23);
+
         }
 
-        // nombre zéro 
+        // nombre zÃ©ro 
         [TestMethod]
         public void TestConstruirePointSymetriqueAbscisseXvautZero()
         {
             Point p = new Point(0, 0.2);
 
-            p.ConstruirePointSymetriqueAbscisse();
+            Point p1 = p.ConstruirePointSymetriqueAbscisse();
 
-            double x = p.AbscisseX;          
+            double x = p1.AbscisseX;
 
-            Assert.IsTrue(x == 0);          
+            Assert.IsTrue(x == 0);
         }
+
+
 
         // test ConstruirePointSymetriqueOrigine -------------------
 
         [TestMethod]
         public void TestConstruirePointSymetriqueOrigine()
         {
-            Point p = new Point(23,12);
 
-            p.ConstruirePointSymetriqueOrigine();
+            Point p = new Point(23, 12);
 
-            double x = p.AbscisseX;
-            double y = p.OrdonneeY;
+            Point p1 = p.ConstruirePointSymetriqueOrigine();
+
+            double x = p1.AbscisseX;
+            double y = p1.OrdonneeY;
+
 
             Assert.IsTrue(x == -23);
             Assert.IsTrue(y == -12);
@@ -196,7 +217,8 @@ namespace TestProjectPoint
         {
             Point p = new Point(-23, 12);
 
-            p.PermuterCoordonnes(); 
+
+            p.PermuterCoordonnes();
 
             double x = p.AbscisseX;
             double y = p.OrdonneeY;
