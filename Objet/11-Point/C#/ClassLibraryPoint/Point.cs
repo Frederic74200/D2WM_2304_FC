@@ -15,6 +15,7 @@
         public double OrdonneeY { get => ordonneeY; set => ordonneeY = value; }
 
 
+
         // constructeurs -------------------------------------------------------------------
         public Point(double _abscisseX, double _ordonneeY )
         {
@@ -38,6 +39,7 @@
         {
             return "Position x : "+abscisseX+" Position Y : "+ordonneeY+"]";
         }
+
     
        public Point ConstruirePointSymetriqueOrdonnee()
         {       
@@ -70,6 +72,7 @@
             Point _point = new Point(nouveauX, nouveauY);
 
             return _point;
+
         }
 
         public void PermuterCoordonnes()
