@@ -18,13 +18,7 @@ JOIN employes ON employes.emp_matricule = projets.emp_matricule
 WHERE employes.emp_nom =p_nom;
 
 ELSE 
-
 SELECT p_nom,  metier; 
-
--- fonctions.fonction_nom
--- FROM fonctions
--- JOIN employes ON employes.fonction_id = fonctions.fonction_id  
--- WHERE  employes.emp_nom = p_nom; 
 
 END if; 
 END |
