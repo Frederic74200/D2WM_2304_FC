@@ -1,0 +1,10 @@
+.rond {
+    height: 300px;
+    width: 300px;
+    margin: 100px;
+    background-color: #0A4662;
+    border: #005525 solid 3px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 100px;
+}
