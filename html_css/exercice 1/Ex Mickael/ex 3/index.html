@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+</head>
+
+<body>
+    <h1>Formulaire d'inscription</h1>
+    <h2>Votre compte configuré en 2 minutes</h2>
+
+    <form method="get" action="http://127.0.0.1:5500/" id="formulaire">
+
+        <fieldset>
+            <legend>Etat Civil</legend>
+            <label for="nom">Nom :*</label>
+            <input type="text" required="required" name="nom" id="nom"></imput>
+            <br>
+            <label for="Prenom">Prenom :</label>
+            <input type="text" name="Prenom" id="Prenom"></imput>
+            <br>
+            <label for="date_naissance">Date de naissance : *</label>
+            <input type="date" required="required" name="date_naissance" id="date_naissance"></imput>
+        </fieldset>
+
+        <fieldset>
+            <legend>Informations de contact</legend>
+            <label for="email">Adresse Email : *</label>
+            <input type="email" required="required" name="email" id="email"></imput>
+            <br>
+            <label for="telephone">Téléphone :</label>
+            <input type="tel" name="telephone" id="Prenom"></imput>
+        </fieldset>
+
+        <fieldset>
+            <input type="checkbox" required="required" name="cgu" id="cgu"></imput>
+            <label for="cgu"> J'accepte les <a href="https://www.legalplace.fr/guides/cgu-exemple/"
+                    target="_blank">Conditions d'utilisations</a> </label>
+            <br>
+            <input id="envoi" type="submit" name="envoyer" value="Envoyer"> </imput>
+        </fieldset>
+    </form>
+</body>
+
+</html>
