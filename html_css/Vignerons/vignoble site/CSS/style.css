@@ -34,8 +34,7 @@ header {
     border-bottom: 2px solid #ffffff;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
+    float: right;
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
@@ -54,14 +53,17 @@ header {
 
     display: flex;
     flex-direction: row;
+    position: absolute;
+    right: 0;
+    top: 3vh;
 }
 
 header li {
     list-style: none;
-    width: 12vw;
+    width: 11vw;
     margin-left: 1vw;
-    letter-spacing: 0.8rem;
-    font-size: 1.2rem;
+
+
     text-align: center;
 
 }
@@ -69,6 +71,8 @@ header li {
 header a {
     text-decoration: none;
     color: #ffffff;
+    font-size: 1.2rem;
+    letter-spacing: 0.8rem;
 }
 
 header a:hover,
@@ -77,18 +81,31 @@ header li:hover {
 }
 
 
-#nav_principal>ul>li>ul {
+.sous_menu {
     display: none;
+    position: relative;
+    left: 4vw;
+    width: 14vw;
 }
 
-/*
+.sous_menu a {
+    font-size: 1rem;
 
-#nav_principal>ul>li>ul:hover {
+}
+
+header li:hover .sous_menu {
     display: block;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    width: 14vw;
 }
 
-*/
+header li .sous_menu li {
 
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin-left: 0;
+    width: 14vw;
+}
 
 main {
 
@@ -100,30 +117,25 @@ main {
     margin-top: 10vh;
     margin-left: auto;
     margin-right: auto;
-    width: 55vw;
+    width: 66vw;
     height: auto;
 }
 
 .jumbotron {
-    width: 53vw;
+    width: 60vw;
     height: auto;
     margin-top: 2vh;
-
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    background-color: rgba(0, 0, 0, 0.2);
     margin-left: auto;
     margin-right: auto;
-
-
 }
 
 .jumboton_img {
     display: block;
     object-fit: cover;
-    max-width: 50vw;
+    max-width: 60vw;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 .title_jumbotron {
@@ -135,24 +147,21 @@ main {
     font-size: 1.6rem;
     margin-left: auto;
     margin-right: auto;
-    max-width: 50vw;
+    max-width: 60vw;
     margin-bottom: 2vh;
 
 }
 
 .preview {
     height: auto;
-    width: 53vw;
+    width: 60vw;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-
-
-
 }
 
 .section_preview {
@@ -163,8 +172,8 @@ main {
     background-size: contain;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    background-color: rgba(255, 255, 255, 0.1);
+    /* border: 1px solid rgba(255, 255, 255, 0.4); */
+    background-color: rgba(0, 0, 0, 0.2);
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 2fr 3fr 2fr;
@@ -174,7 +183,6 @@ main {
 }
 
 .title_preview {
-
     grid-area: titre;
     margin: auto;
     font-size: 1.6rem;
@@ -187,14 +195,11 @@ main {
     margin: auto;
 }
 
-
-
 .p_preview {
     grid-area: texte;
     text-align: center;
     padding: 1%;
     font-size: 1rem;
-
 }
 
 .a_preview {
@@ -211,24 +216,62 @@ main {
     font-size: 1rem;
 }
 
+.a_preview:hover {
+    color: #e94037;
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: rotate(15deg);
+    transition-duration: 1000ms;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    size: 180%;
+}
 
 .wine {
     height: auto;
-    width: 50vw;
+    width: 60vw;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(0, 0, 0, 0.2);
-
+    background-color: rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
 
 .selection_wine {
+    height: 40vh;
     grid-column: 1;
     padding: 5%;
-    background-color: rgba(255, 255, 255, 0.1);
+    margin: 2vh 1vw 2vh 2vw;
+    background-color: rgba(0, 0, 0, 0.2);
 }
+
+.selection_wine ul {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+
+.selection_wine li {
+    font-size: 1.6rem;
+    color: #222222;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    list-style-image: url(../images/liste.png);
+    padding-left: 3vw;
+    list-style-position: inside;
+
+    line-height: 3;
+}
+
+/*
+
+.selection_wine li::marker {
+    position: relative;
+    left: -5vw;
+}
+
+*/
 
 .h2_wine {
     font-size: 1.6rem;
@@ -238,6 +281,103 @@ main {
 
 .cadeaux {
     grid-column: 2;
-    padding: 5%;
+    height: 40vh;
+    padding: 3%;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 2vh 2vw 2vh 1vw;
+
+    display: grid;
+    grid-template-columns: 3fr 5fr;
+    grid-template-rows: 2fr 1fr 5fr 2fr;
+    grid-template-areas: "a a"
+        "b c"
+        "b d"
+        "b e";
+}
+
+.cadeaux .h2_wine {
+    grid-area: a;
+}
+
+
+.cadeaux img {
+    grid-area: b;
+    margin-top: 2vh;
+    border: 5px solid #ffffff;
+
+}
+
+.cadeaux .h3_wine {
+    grid-area: c;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.cadeaux .p_cadeaux {
+    grid-area: d;
+    font-size: 1rem;
+    margin-left: 2vw;
+    margin-top: 1vh;
+    text-align: justify;
+    color: #000000;
+}
+
+.cadeaux .a_preview {
+    grid-area: e;
+}
+
+footer {
+    height: auto;
+    width: 60vw;
     background-color: rgba(255, 255, 255, 0.1);
+    background-image: url(../images/footer-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: opacity(20%);
+    margin: 2vw auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+
+footer menu ul {
+    display: flex;
+    flex-direction: row;
+
+}
+
+footer menu ul li {
+
+    list-style-type: none;
+
+
+}
+
+footer menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-left: 2vw;
+}
+
+footer menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-left: 2vw;
+}
+
+footer menu ul li a:hover {
+    color: #e94037;
+
+}
+
+#img_foot {
+    display: block;
+    margin: auto auto 0 auto;
+    opacity: 0.8;
+
 }
