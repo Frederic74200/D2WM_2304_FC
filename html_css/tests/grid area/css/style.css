@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-size: xx-large;
+    color: white;
+    text-align: center;
+
+}
+
+.box {
+    background-color: #123456;
+
+    border: 2px solid white;
+}
+
+
+/* ------------------------------------------------------------------------- */
+
+@media (orientation: landscape) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 2fr 1fr 5fr 2fr;
+        grid-template-areas: "logo header"
+            "nav nav"
+            "aside main"
+            "footer footer";
+    }
+
+    #logo {
+        grid-area: logo;
+    }
+
+
+    header {
+        grid-area: header;
+    }
+
+
+    nav {
+        grid-area: nav;
+    }
+
+    aside {
+        grid-area: aside;
+    }
+
+
+    footer {
+        grid-area: footer;
+    }
+
+    main {
+        display: grid;
+        grid-area: main;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "a a b"
+            "c d d";
+    }
+
+    #section_a {
+        grid-area: a;
+    }
+
+    #section_b {
+        grid-area: b;
+    }
+
+    #section_c {
+        grid-area: c;
+    }
+
+    #section_d {
+        grid-area: d;
+    }
+}
+
+/* -----------------------------------------------------------------------------*/
+
+@media (orientation: portrait) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 2fr 1fr 2fr 4fr 1fr;
+        grid-template-areas: "logo header"
+            "nav nav"
+            "aside aside"
+            "main main"
+            "footer footer";
+    }
+
+    #logo {
+        grid-area: logo;
+    }
+
+
+    header {
+        grid-area: header;
+    }
+
+
+    nav {
+        grid-area: nav;
+    }
+
+    aside {
+        grid-area: aside;
+    }
+
+
+    footer {
+        grid-area: footer;
+    }
+
+    main {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "a b b"
+            "c c d";
+    }
+
+    #section_a {
+        grid-area: a;
+    }
+
+    #section_b {
+        grid-area: b;
+    }
+
+    #section_c {
+        grid-area: c;
+    }
+
+    #section_d {
+        grid-area: d;
+    }
+
+
+
+}

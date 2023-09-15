@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Work+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:hover {
+    filter: brightness(105%);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-image: url(../images/1681970510513.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.6rem;
+    color: white;
+    text-shadow: 1px 1px black;
+    width: 100vw;
+}
+
+
+
+#logo {
+    display: block;
+    max-height: 8vh;
+}
+
+h1,
+h2 {
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
+}
+
+header {
+    width: 100vw;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 1px 1px white;
+}
+
+#burger {
+    text-decoration: none;
+    font-weight: 900;
+    color: white;
+    font-size: 3.2rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid black;
+
+    border-radius: 50%;
+    height: 8vh;
+    width: 8vh;
+    display: block;
+    text-align: center;
+    padding-top: 1.5vh;
+    letter-spacing: 0.6rem;
+    rotate: 90deg;
+}
+
+section {
+    width: 75vw;
+    margin-left: 10vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    box-shadow: 1px 1px 1px white, -1px -1px 1px white;
+}
+
+.image img {
+    max-width: 15vw;
+    min-height: 11vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    box-shadow: 1px 1px 1px white, -1px -1px 1px white;
+
+}
+
+
+.image img:hover {
+    border-radius: 50%;
+    animation: 3s ease-in 1s infinite reverse both running slidein;
+
+}
+
+section h2 {
+    padding: 1%;
+    font-size: 2.5rem;
+}
+
+section p {
+    padding: 2%;
+    margin-bottom: 1vh;
+}
+
+.bouton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5vw;
+    height: 4vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    padding-top: 0.8vh;
+    border: 1px solid black;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px white, -1px -1px 1px white;
+
+}
+
+
+
+section:nth-child(2n+0) {
+    width: 75vw;
+    margin-left: 15vw;
+    display: flex;
+    flex-direction: row-reverse;
+
+}
+
+
+footer {
+    width: 100vw;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid black;
+    box-shadow: 1px -1px 1px white;
+
+}

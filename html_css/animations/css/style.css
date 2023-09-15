@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100VW;
+    height: 100VH;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.divun {
+    border: 3px solid #3d3d3d;
+    width: 50vw;
+    height: 50vh;
+}
+
+#carre {
+    width: 15vh;
+    height: 15vh;
+    background-color: #104C82;
+    position: absolute;
+    top: 4vh;
+    left: 4vh;
+}
+
+
+#carre:hover {
+
+    animation: 3s ease infinite alternate sun-rise;
+}
+
+
+@keyframes sun-rise {
+    from {
+        /* pushes the sun down past the viewport */
+        transform: translate(0, 0) scale(1, 1);
+
+    }
+
+    to {
+        /* returns the sun to its default position */
+        transform: translate(15vw, 15vw) scale(1.5, 1.5);
+
+        border-radius: 50%;
+        background-color: #FEA500;
+    }
+}
+
+#anim2 {
+    background-color: #3d3d3d;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#anim2 img {
+    max-height: 10vh;
+    display: block;
+}
+
+#anim2 img:nth-child(1) {
+    animation: preloader 1s ease-in-out alternate infinite;
+
+}
+
+#anim2 img:nth-child(2) {
+    animation: preloader 1s ease-in-out alternate .2s infinite;
+
+}
+
+#anim2 img:nth-child(3) {
+    animation: preloader 1s ease-in-out alternate .4s infinite;
+
+}
+
+@keyframes preloader {
+    from {
+        /* pushes the sun down past the viewport */
+        transform: scale(1, 1);
+        opacity: 0.3;
+
+    }
+
+    to {
+        /* returns the sun to its default position */
+        transform: scale(1.2, 1.2);
+        opacity: 1;
+    }
+}
+
+
+
+#anim3 {
+    color: white;
+    background-color: #3d3d3d;
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+#anim3 a {
+    background-color: #3d3d3d;
+    color: #466E88;
+    height: 10vh;
+    width: 15vw;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-top: 5px solid #466E88;
+    border-right: 5px solid #222;
+    border-bottom: 5px solid #466E88;
+    border-left: 5px solid #555;
+    z-index: 0;
+}
+
+#anim3 a img {
+    display: none;
+}
+
+#anim3 a img:active {
+    display: block;
+    z-index: 10;
+}
+
+#anim3 a:active {
+
+    color: transparent;
+    background-color: #466E88;
+    border: 5px solid white;
+    background-position-x: center;
+    z-index: 2;
+    animation: 3s linear 0s infinite none valid;
+
+}
+
+
+@keyframes valid {
+    from {
+        transform: scale(1, 1);
+    }
+
+    to {
+
+        transform: scale(0.66, 1);
+
+        border-radius: 50%;
+    }
+}
