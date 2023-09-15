@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+
+@media only screen and (min-width: 1080px) {
+
+    body {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 1fr 1fr 2fr 1fr;
+        gap: 1%;
+    }
+
+    .logo {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .menu {
+        grid-column: 2/span 6;
+        grid-row: 1;
+    }
+
+    .fil {
+        width: 100vw;
+        grid-column: 1 /span 6;
+        grid-row: 2;
+    }
+
+    .main {
+        height: 40vh;
+        grid-column: 1/span 4;
+        grid-row: 3;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 1vh;
+        column-gap: 1vw;
+
+    }
+
+    .sidebar {
+        height: 40vh;
+        grid-column: 5/span 6;
+        grid-row: 3;
+    }
+
+    .footer {
+        width: 100vw;
+        grid-column: 1/span 6;
+        grid-row: 4;
+    }
+
+}
+
+@media only screen and (max-width: 1080px) {
+    body {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(9, 1fr);
+        row-gap: 1vh;
+        column-gap: 1vw;
+    }
+
+
+    .logo {
+        width: 100vw;
+        height: 11vh;
+        grid-column: 1/ span 2;
+        grid-row: 1;
+    }
+
+    .menu {
+        width: 100vw;
+        height: 11vh;
+        grid-column: 1/ span 2;
+        grid-row: 2;
+    }
+
+    .fil {
+        width: 100vw;
+        height: 11vh;
+        grid-column: 1/ span 2;
+        grid-row: 3;
+    }
+
+    .main {
+        width: 100vw;
+        height: 44vh;
+
+        grid-column: 1/ span 2;
+        grid-row: 4/ span 7;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1%;
+    }
+
+    main .box {
+
+        height: 20vh;
+        grid-row: auto;
+        grid-column: auto;
+    }
+
+    .sidebar {
+        width: 100vw;
+        height: 11vh;
+        grid-column: 1/span 2;
+        grid-row: 8;
+    }
+
+    .footer {
+        width: 100vw;
+        height: 11vh;
+        grid-column: 1/span 2;
+        grid-row: 9;
+    }
+
+
+}

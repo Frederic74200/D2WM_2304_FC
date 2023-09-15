@@ -1,8 +1,7 @@
 @font-face {
     font-family: 'chanel';
-    src: url('/fonts/channel-webfont.ttf') format('woff');
+    src: url('/fonts/channel-webfont.woff') format('woff');
 }
-
 
 * {
     margin: 0;
@@ -14,15 +13,18 @@ html {
     font-size: 62.5%;
 }
 
+::selection {
+
+    background: #e94037;
+}
 
 body {
     background-image: url(../images/bg_motif.gif);
     background-repeat: repeat;
     background-attachment: fixed;
-    /* height: 100vh; */
     width: 100vw;
     color: #ffffff;
-    font-family: chanel;
+    font-family: "satisfy";
     font-size: 1.6rem;
 
 }
@@ -34,7 +36,7 @@ header {
     border-bottom: 2px solid #ffffff;
     display: flex;
     flex-direction: row;
-    float: right;
+    /*  float: right; */
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
@@ -42,15 +44,15 @@ header {
 }
 
 #logo {
-    position: absolute;
+    position: fixed;
     top: 8vh;
-    left: 10vw;
+    left: 8vw;
+    z-index: 8888;
 
 }
 
 
 #nav_principal>ul {
-
     display: flex;
     flex-direction: row;
     position: absolute;
@@ -62,10 +64,8 @@ header li {
     list-style: none;
     width: 11vw;
     margin-left: 1vw;
-
-
     text-align: center;
-
+    font-family: chanel;
 }
 
 header a {
@@ -73,13 +73,13 @@ header a {
     color: #ffffff;
     font-size: 1.2rem;
     letter-spacing: 0.8rem;
+    font-family: chanel;
 }
 
 header a:hover,
 header li:hover {
     color: #e94037;
 }
-
 
 .sous_menu {
     display: none;
@@ -89,8 +89,7 @@ header li:hover {
 }
 
 .sous_menu a {
-    font-size: 1rem;
-
+    font-size: 0.8rem;
 }
 
 header li:hover .sous_menu {
@@ -101,16 +100,17 @@ header li:hover .sous_menu {
 }
 
 header li .sous_menu li {
-
     border: 1px solid rgba(255, 255, 255, 0.5);
     margin-left: 0;
+    padding: 1%;
     width: 14vw;
 }
 
 main {
 
     background-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.3); */
+    box-shadow: -10px 0px 4px rgba(0, 0, 0, 0.5), 10px 0px 4px rgba(0, 0, 0, 0.5);
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     display: flex;
     flex-direction: column;
@@ -132,14 +132,17 @@ main {
 
 .jumboton_img {
     display: block;
-    object-fit: cover;
-    max-width: 60vw;
+    object-fit: contain;
+    width: 60vw;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
 }
 
 .title_jumbotron {
     color: #750e09;
+    font-family: chanel;
+
     background-color: #ffffff;
     text-align: center;
     margin-top: 1vh;
@@ -165,14 +168,16 @@ main {
 }
 
 .section_preview {
-    width: 15vw;
+    width: 18vw;
     height: auto;
     background-image: url(/images/bg_g.png);
     background-repeat: no-repeat;
     background-size: contain;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    /* border: 1px solid rgba(255, 255, 255, 0.4); */
+
+    padding-top: 1vh;
+    padding-bottom: 1vh;
     background-color: rgba(0, 0, 0, 0.2);
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -183,6 +188,7 @@ main {
 }
 
 .title_preview {
+    font-family: chanel;
     grid-area: titre;
     margin: auto;
     font-size: 1.6rem;
@@ -198,12 +204,15 @@ main {
 .p_preview {
     grid-area: texte;
     text-align: center;
+    margin-bottom: 1vh;
     padding: 1%;
-    font-size: 1rem;
+    font-size: 1.8rem;
+    color: #000000;
 }
 
 .a_preview {
     grid-area: bouton;
+    font-family: chanel;
     margin: auto;
     color: #ffffff;
     text-decoration: none;
@@ -220,9 +229,10 @@ main {
     color: #e94037;
     background-color: rgba(0, 0, 0, 0.2);
     transform: rotate(15deg);
-    transition-duration: 1000ms;
+    transition-duration: 1500ms;
+    transform-origin: 50% 50%;
     border: 1px solid rgba(255, 255, 255, 0.4);
-    size: 180%;
+    zoom: 110%;
 }
 
 .wine {
@@ -247,21 +257,17 @@ main {
 .selection_wine ul {
     margin-top: 5%;
     display: flex;
-    flex-direction: column;
-
-
-}
+    flex-direction: column;}
 
 
 .selection_wine li {
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: #222222;
     border-top: 1px solid rgba(255, 255, 255, 0.4);
     list-style-image: url(../images/liste.png);
     padding-left: 3vw;
     list-style-position: inside;
-
-    line-height: 3;
+    line-height: 2.5;
 }
 
 /*
@@ -275,6 +281,7 @@ main {
 
 .h2_wine {
     font-size: 1.6rem;
+    font-family: chanel;
     text-align: center;
 }
 
@@ -285,7 +292,6 @@ main {
     padding: 3%;
     background-color: rgba(0, 0, 0, 0.2);
     margin: 2vh 2vw 2vh 1vw;
-
     display: grid;
     grid-template-columns: 3fr 5fr;
     grid-template-rows: 2fr 1fr 5fr 2fr;
@@ -302,20 +308,22 @@ main {
 
 .cadeaux img {
     grid-area: b;
+    display: block;
     margin-top: 2vh;
     border: 5px solid #ffffff;
-
+    box-shadow: -15px 5px 8px #222222;
 }
 
 .cadeaux .h3_wine {
     grid-area: c;
     font-size: 1.2rem;
     text-align: center;
+    font-family: chanel;
 }
 
 .cadeaux .p_cadeaux {
     grid-area: d;
-    font-size: 1rem;
+    font-size: 1.8rem;
     margin-left: 2vw;
     margin-top: 1vh;
     text-align: justify;
@@ -368,6 +376,8 @@ footer menu ul li a {
     text-decoration: none;
     font-size: 1.2rem;
     margin-left: 2vw;
+    font-family: chanel;
+
 }
 
 footer menu ul li a:hover {
