@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Heure</title>
+    <script src="/scripts/script.js"></script>
+</head>
+
+<body>
+
+
+    <form method="post" ENCTYPE="text/plain" action="mailto:frederic.chaput@gmail.com" id="formulaire">
+
+        <fieldset>
+            <legend>date</legend>
+            <label for="date">Date : *</label>
+            <input type="date" required="required" name="datee" id="date"></imput>
+            <button id="bouton_date" onclick="imput_date()">Date</button>
+        </fieldset>
+
+        <fieldset>
+            <legend>Heure</legend>
+            <label for="Heure">Heure *</label>
+            <input type="time" required="required" name="heure" id="heure"></imput>
+            <button id="bouton_heure" onclick="imput_time()">Heure</button>
+        </fieldset>
+    </form>
+
+</body>
+
+</html>
