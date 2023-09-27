@@ -1,0 +1,38 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 3ù;
+    background-color: #FFFFFF;
+}
+
+
+#bloc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 40vw;
+    background-color: darkgreen;
+    border: 3px solid #fff;
+    padding: 1%
+}
+
+#input_btn {
+    display: flex;
+    flex-direction: column;
+}
+
+
+input {
+    display: block;
+    margin-bottom: 2vh;
+}
+
+button {
+    cursor: pointer;
+}
+
+h2 {
+    color: #fff;
+    font-size: 1.2em;
+    text-align: center;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription HTML</title>
+    <script src="script/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+
+
+        <h1>Evaluation Cours JvaScript</h1>
+        <h2>Formulaire avec traitement JS </h2>
+
+        <div>
+            <label for="texte libre">Texte libre : </label>
+        </div>
+        <div>
+            <textarea name="texteLibre" id="texteLibre" cols="30" rows="10"></textarea>
+        </div>
+
+
+        <form action="#" method="get" id="formulaire">
+            <div class="divForm">
+                <label for="Nom Utilisateur : ">Nom Utilisateur : </label>
+                <input type="text" class="required" required="required" name="nom" id="nom">
+            </div>
+            <div class="divForm">
+                <label for="prenom">Prénom :</label>
+                <input type="text" class="required" required="required" name="prenom" id="prenom">
+
+                <label for="email">Email : </label>
+                <input type="email" class="required" required="required" name="email" id="email">
+            </div>
+
+            <div class="divForm" id="divDate">
+                <label for="date">Date de naissance :</label>
+                <input type="date" class="required" required="required" name="date" id="date">
+
+            </div>
+            <div class="divForm">
+                <label for="Afficher pseudo ">Afficher Pseudo :</label>
+                <input type="text" name="pseudo" id="pseudo" readonly>
+            </div>
+            <div class="divForm" id="divbtn">
+                <input id="validation" type="submit" value="Validation" />
+                <input id="annule" type="reset" value="Annuler" />
+            </div>
+        </form>
+
+
+
+    </main>
+</body>
+
+</html>
