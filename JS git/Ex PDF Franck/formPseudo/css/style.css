@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #313B45;
+
+}
+
+main {
+    width: 60vw;
+    height: auto;
+    background-color: white;
+    border: 8px solid #709BA1;
+    box-shadow: -10px -10px 4px rgba(0, 0, 0, 0.5), 10px 10px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+    background-color: #313B45;
+    height: 5vh;
+    border-bottom: 1px solid #709BA1;
+}
+
+h2 {
+    color: #709BA1;
+    text-align: center;
+    height: 4vh;
+    margin-top: 1vh;
+}
+
+
+label {
+    color: #709BA1;
+    display: block;
+    padding-left: 2vw;
+    height: 4vh;
+    font-size: 1.3em;
+}
+
+textarea {
+    width: 54vw;
+    height: 10vh;
+    border: 1px solid #313B45;
+    margin-left: 2vw;
+    margin-bottom: 2vh;
+    margin-top: 1vh;
+}
+
+
+input {
+    border: 1px solid #313B45;
+    margin-left: 2vw;
+    margin-right: 3vw;
+    width: 20vw;
+    height: 3vh;
+    display: block;
+}
+
+textarea:focus,
+input:focus {
+    box-shadow: -2px -2px 2px #709BA1, 2px 2px 2px #709BA1;
+    outline: none;
+    border: 1px solid #709BA1;
+}
+
+#nom,
+#pseudo {
+    width: 41vw;
+}
+
+#prenom,
+#email {
+    width: 23vw;
+}
+
+.divForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2vh 3vw 0 3vw;
+    border-bottom: 1px solid #709BA1;
+}
+
+#divbtn {
+    height: 5vh;
+    margin: 3vh 5vw 1vh 5vw
+}
+
+#divDate {
+    justify-content: center;
+}
+
+.divForm:last-child {
+    border-bottom: 1px solid transparent;
+}
+
+#validation {
+    color: #fff;
+    background-color: #4cc8b0;
+    border-color: #313B45;
+    cursor: pointer;
+    /*/ opacity: 0.3; */
+}
+
+#annule {
+    color: #fff;
+    background-color: #fe5d53;
+    border-color: #313B45;
+    cursor: pointer;
+}
+
+#validation:hover,
+#annule:hover {
+    box-shadow: -2px -2px 2px #709BA1, 2px 2px 2px #709BA1;
+    zoom: 110%;
+    border-radius: 5%
+}

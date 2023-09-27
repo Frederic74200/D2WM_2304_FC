@@ -1,0 +1,58 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<head>
+    <title>Les maths amusantes</title>
+    <script>
+        function registerEvents() {
+            document.mathWiz.operate.addEventListener('click', doTheMath);
+        }
+        function doTheMath() {
+            var first =
+                parseInt(document.mathWiz.numberOne.value);
+            var second =
+                parseInt(document.mathWiz.numberTwo.value);
+            var operator =
+                document.mathWiz.operator.value;
+            switch (operator) {
+                case "add":
+                    var answer = first + second;
+                    break;
+                case "subtract":
+                    var answer = first - second;
+                    break;
+                case "multiply":
+                    var answer = first * second;
+                    break;
+                case "divide":
+                    var answer = first / second;
+                    break;
+            }
+            document.mathWiz.theResult.value =
+                answer;
+        }
+    </script>
+</head>
+
+<body onload="registerEvents();">
+    <form name="mathWiz">
+        <label>Premier nombre : <input type="number" name="numberOne"></label><br>
+        <br>
+        <label>Second nombre : <input type="number" name="numberTwo"></label><br>
+        <br>
+        <label>Opérateur :
+            <select name="operator">
+                <option value="add"> + </option>
+                <option value="subtract"> -
+                </option>
+                <option value="multiply"> *
+                </option>
+                <option value="divide"> / </option>
+            </select></label>
+        <br><br>
+        <input type="button" name="operate" value="Faites le calcul !"><br><br>
+        <label>Résultat : <input type="number" name="theResult"></label>
+    </form>
+</body>
+
+</html>
