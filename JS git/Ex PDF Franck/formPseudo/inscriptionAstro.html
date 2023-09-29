@@ -13,7 +13,7 @@
     <main>
 
 
-        <h1>Evaluation Cours JvaScript</h1>
+        <h1>Evaluation Cours JavaScript</h1>
         <h2>Formulaire avec traitement JS </h2>
 
         <div>
@@ -44,7 +44,11 @@
             </div>
             <div class="divForm">
                 <label for="Afficher pseudo ">Afficher Pseudo :</label>
-                <input type="text" name="pseudo" id="pseudo" readonly>
+                <input type="text" class="required" name="pseudo" id="pseudo" readonly>
+            </div>
+            <div class="divForm">
+                <label for="Luminosité ">Luminosité : </label>
+                <input type="range" id="lum" name="lumin" min="0.1" max="1.5" step="0.1" value="0.5" />
             </div>
             <div class="divForm" id="divbtn">
                 <input id="validation" type="submit" value="Validation" />
