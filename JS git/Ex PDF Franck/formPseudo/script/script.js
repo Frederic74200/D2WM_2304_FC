@@ -12,32 +12,26 @@ const signAstro = ["Capricorne", "Verseau", "Poisson", "Belier", "Taureau", "Gé
 var formValid = 0;
 var pseudo = "";
 
-var dateDuJour = new Date();
-
-// date minimum date max 
+// date minimum date max -----------------------------------------
 
 function minDate() {
+    let date = new Date();
 
-    let minDate = new Date(dateDuJour.getFullYear() - 70, dateDuJour.getMonth(), dateDuJour.getDate());
-    let maxDate = new Date(dateDuJour.getFullYear() - 18, dateDuJour.getMonth(), dateDuJour.getDate());
-    minDate = minDate.toUTCString();
-    maxDate = maxDate.toUTCString();
+    let minDate = (date.getFullYear() - 70) + "-" + ((date.getMonth() + 1).length != 2 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + (date.getDate().length < 2 ? "0" + date.getDate() : date.getDate());
+
+    let maxDate = (date.getFullYear() - 18) + "-" + ((date.getMonth() + 1).length != 2 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + (date.getDate().length < 2 ? "0" + date.getDate() : date.getDate());
 
     document.querySelector('#date').setAttribute('min', minDate);
-
     document.querySelector('#date').setAttribute('max', maxDate);
-
-    console.log(minDate);
-
 }
-
 
 
 // désactiver submit  -----------------------------------------------
 function dislabSubmit() {
     document.querySelector('#validation').disabled = true;
-    document.querySelector('#validation').style.opacity = '0.2';
+    document.querySelector('#validation').style.opacity = '0';
 }
+
 
 
 // fonction controle que des lettres -------------------------------------------
@@ -61,7 +55,6 @@ function valnum() {
         total += prenomMag.charCodeAt(i);
         total += -64;
     }
-    console.log(total);
 }
 
 // fonction calculer le signe astro ---------------------------------------------
@@ -96,20 +89,77 @@ function calculPseudo() {
     if (formValid === 0 && pseudo != "") {
         document.querySelector('#validation').disabled = false;
         document.querySelector('#validation').style.opacity = '1';
+        document.querySelector('#validation').style.cursor = 'pointer';
+    }
+    console.log(pseudo);
+}
+
+// difeerence en jours avec l'anniv 
+function nbJoursAnniv(date) {
+    let dateForm = document.querySelector('#' + date).value;
+    let dateN = new Date(dateForm);
+    let dateDuJour = new Date();
+    let dateAnniv = new Date(dateDuJour.getFullYear(), dateN.getMonth(), dateN.getDate());
+
+    let diff = dateAnniv.getTime() - dateDuJour.getTime();
+    let diffDays = diff / (1000 * 24 * 3600);
+    diffDays = Math.trunc(diffDays);
+
+    if (diffDays == -0) {
+        diffDays = Math.abs(diffDays);
+    }
+
+    else if (diffDays < 0) {
+        dateAnniv = new Date((dateDuJour.getFullYear() + 1), dateN.getMonth(), dateN.getDate());
+        diff = dateAnniv.getTime() - dateDuJour.getTime();
+        diffDays = diff / (1000 * 24 * 3600);
+        diffDays = Math.round(diffDays);
     }
 }
 
 
+// régler luminosité 
+function lumin() {
+
+    let nivLum = document.querySelector('#lum').value;
+    let nivLumStg = ' brightness(' + nivLum + ')';
+    document.body.style.filter = nivLumStg;
+}
+
+
+
+document.querySelector('#lum').addEventListener('change', function () { lumin(); });
 
 
 
 
 
-document.querySelector('#prenom').addEventListener('blur', function () { controle('prenom'); valnum(); });
+// nom utili = prenom contole saise -------------------
+document.querySelector('#nom').addEventListener('blur', function () { controle('nom'); forOk(); });
+document.querySelector('#prenom').addEventListener('blur', function () { controle('prenom'); valnum(); calculPseudo(); forOk(); });
+
+// mail ------------------------------------
+document.querySelector('#email').addEventListener('blur', function () { forOk(); });
+
+// date      ----------------------------------------------------------------------------------------
+document.querySelector('#date').addEventListener('blur', function () { calculSigne('date'); calculPseudo(); forOk() });
+
+// pseudo -------------------------------------
+document.querySelector('#pseudo').addEventListener('input', function () { forOk() });
 
 
-document.querySelector('#date').addEventListener('blur', function () { calculSigne('date'); forOk(); calculPseudo(); });
+document.querySelector('#validation').addEventListener('click', function () { dislabSubmit(); forOk() });
 
+// --------------------------------------
+
+
+
+
+nbJoursAnniv('date');
 minDate();
 
-dislabSubmit();
+
+
+
+
+
