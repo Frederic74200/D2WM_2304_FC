@@ -11,15 +11,17 @@ var signe;
 const signAstro = ["Capricorne", "Verseau", "Poisson", "Belier", "Taureau", "Gémeaux", "Cancer", "Lion", "Vierge", "Balance", "Scorpion", "Sagittaire"];
 var formValid = 0;
 var pseudo = "";
+var valeurs = new Map();
+var valstr = '';
 
 // date minimum date max -----------------------------------------
 
 function minDate() {
     let date = new Date();
 
-    let minDate = (date.getFullYear() - 70) + "-" + ((date.getMonth() + 1).length != 2 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + (date.getDate().length < 2 ? "0" + date.getDate() : date.getDate());
+    let minDate = (date.getFullYear() - 70) + "-" + ((date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate());
 
-    let maxDate = (date.getFullYear() - 18) + "-" + ((date.getMonth() + 1).length != 2 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + (date.getDate().length < 2 ? "0" + date.getDate() : date.getDate());
+    let maxDate = (date.getFullYear() - 18) + "-" + ((date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate());
 
     document.querySelector('#date').setAttribute('min', minDate);
     document.querySelector('#date').setAttribute('max', maxDate);
@@ -76,6 +78,7 @@ function forOk() {
             required[i].style.border = '1px solid #fe5d53';
         }
         else {
+            formValid = 0;
             required[i].style.border = '1px solid #4cc8b0';
         }
     }
@@ -115,23 +118,47 @@ function nbJoursAnniv(date) {
         diffDays = diff / (1000 * 24 * 3600);
         diffDays = Math.round(diffDays);
     }
+    return diffDays;
 }
 
 
 // régler luminosité 
 function lumin() {
-
     let nivLum = document.querySelector('#lum').value;
     let nivLumStg = ' brightness(' + nivLum + ')';
     document.body.style.filter = nivLumStg;
 }
-
-
-
 document.querySelector('#lum').addEventListener('change', function () { lumin(); });
 
+function getValeurs() {
+
+    valeurs.set('Nom', document.querySelector('#nom').value);
+    valeurs.set('Prénom', document.querySelector('#prenom').value);
+    valeurs.set('Date naissance', document.querySelector('#date').value);
+    valeurs.set('pseudo', document.querySelector('#pseudo').value);
+    valeurs.set('Nombre jours', nbJoursAnniv);
+    return valeurs;
+}
 
 
+// cookie ---------------------------------------------------------------------------
+
+function newCoockie(nom, valeur) {
+
+    let dateJour = new Date();
+    let dateExpir = new Date(dateJour.getFullYear(), (dateJour.getMonth() + 2), (dateJour.getDate() + 2));
+    dateExpir = dateExpir.toUTCString();
+    document.cookie = nom + '=' + valeur + "expires=" + dateExpir + ";samesite=lax";
+}
+
+
+
+
+
+
+minDate();
+
+dislabSubmit();
 
 
 // nom utili = prenom contole saise -------------------
@@ -148,15 +175,25 @@ document.querySelector('#date').addEventListener('blur', function () { calculSig
 document.querySelector('#pseudo').addEventListener('input', function () { forOk() });
 
 
-document.querySelector('#validation').addEventListener('click', function () { dislabSubmit(); forOk() });
 
-// --------------------------------------
+document.querySelector('#validation').addEventListener('click', function () {
+    getValeurs();
+    newCoockie('nom', document.querySelector('#nom').value);
+    // document.forms["formulaire"].submit();
+    window.location.href = '../accueil.html';
+});
 
 
 
 
-nbJoursAnniv('date');
-minDate();
+
+
+
+
+
+
+
+
 
 
 
