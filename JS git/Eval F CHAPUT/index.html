@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prénom âge</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/script.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <h1>Saissisez un prénom et un âge</h1>
+        <form action="#" method="get" id="formulaire">
+            <label for="prenom">Prénom : </label>
+            <input type="text" name="prenom" id="inputPrenom" value="">
+            <label for="age">Âge : </label>
+            <input type="number" name="Age" id="inputAge" value="">
+            <button type="button" id="valid">Valider</button>
+            <input id="vider" type="reset" value="Vider" />
+        </form>
+        <hr>
+        <p id="completForm">Complétez / corrigez le formulaire</p>
+        <p id="bonjour" class="result">bonjour <span id="spanPrm">Pierre</span>, votre âge est : <span
+                id="spanAge">64</span>
+        </p>
+        <p id="majeur" class="result">Vous êtes <span id="spanMaj">Majeure</span></p>
+        <p id="retraite" class="result">Vous prenez votre retraitre cette année ! </p>
+
+    </main>
+
+</body>
+
+</html>
