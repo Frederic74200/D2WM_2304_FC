@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 1.6rem;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 67.5%;
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    width: 60vw;
+    height: auto;
+    margin: 2vh auto 0 auto;
+    border: 1px solid blue;
+    padding: 2%;
+
+}
+
+h1 {
+    margin-bottom: 2%;
+}
+
+label,
+input,
+button {
+    margin-right: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
+}
+
+
+input,
+button {
+    border: 1px solid blue;
+}
+
+#valid,
+#vider {
+    color: blue;
+}
+
+hr {
+    height: 5px;
+    background-color: black;
+    margin-top: 1%;
+
+}
+
+p {
+    margin-top: 1%;
+}
+
+.result {
+    display: none;
+}
+
+span {
+    color: blue;
+    font-weight: 900;
+}

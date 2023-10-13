@@ -2,17 +2,22 @@ console.log('toto');
 
 // impoter Json 
 
-var promise;
-function getJson() {
-    promise = fetch("../json/cardeGame.json")
-        .then(response => response.json())
-        .then(response => console.log(JSON.stringify(response)))
-        .catch(error => console.log("Erreur : " + error));
+async function getJson() {
 
-    for (let val in promise) {
+    // 1) Création du lien vers le fichier Json. https://arfp.github.io/tp/web/frontend/cardgame/cardgame.json
+    // fetch() est une méthode asyncrone, il nécessite donc l'opérateur await.
+    const reponse = await fetch('https://arfp.github.io/tp/web/html-css-js/02-cardgame/cardgame.json');
+    console.log(reponse);
 
+    // 3 méthodes de récupération de fichier, il faut savoir de quel type est le fichier. Json, Xml ou Text. ici c'est du Json.(le Json est un format Text).
+    const json = await reponse.json(); // converti le Json en donnée JavaScript
+
+
+    for (let i = 0; i < json.length; i++) {
+        delete json[i].description;
     }
-    return promise;
+    console.log(json);
+    return json;
 }
 
 
@@ -61,4 +66,10 @@ function createArray() {
 
 getJson();
 
-createArray(); 
+createArray();
+
+
+/* // 1) Création du lien vers le fichier Json. https://arfp.github.io/tp/web/frontend/cardgame/cardgame.json
+// fetch() est une méthode asyncrone, il nécessite donc l'opérateur await.
+const reponse = await fetch('https://arfp.github.io/tp/web/frontend/cardgame/cardgame.json');
+console.log(reponse)*/
