@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion dates</title>
+    <link rel="stylesheet" href="asserts/css/style.css">
+    <script src="asserts/js/main.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Gestion des dates et intervals</h1>
+        <form id="form1">
+            <label for="dateDuJour">Date actuelle : </label>
+            <input type="date" readonly id="dateDuJour">
+            <label for="heureCorante">Heure actuelle : </label>
+            <input type="time" readonly id="heureCourante">
+            <button type="button" id="afficherDate">Afficher Date du jour</button>
+        </form>
+        <hr>
+        <div id="afficherDateHeure"></div>
+        <hr>
+        <form id="form2">
+            <h2>Sélectionner une date et une heure :</h2>
+            <label for="selectDate">Date : </label>
+            <input type="datetime-local" id="selectDate">
+            <button type="button" id="calculer">Calculer l'interval</button>
+        </form>
+        <div id="resultat"></div>
+    </main>
+
+</body>
+
+</html>

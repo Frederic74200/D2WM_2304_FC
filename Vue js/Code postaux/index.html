@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code postal</title>
+    <!--   https://unpkg.com/vue@3/dist/vue.global.js -->
+    <script src="asserts/js/vue.global.js"></script>
+    <script src="asserts/js/main.js" type="module"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Recherche de villes / codes postaux</h1>
+        <form>
+            <label for="codePost">Saisissez un code postal : </label>
+            <input type="search">
+            <datalist>
+                <option value=""></option>
+            </datalist>
+            <button type="button">Valider</button>
+        </form>
+        <hr>
+        <div id="resultat"></div>
+    </div>
+</body>
+
+</html>
