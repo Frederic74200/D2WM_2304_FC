@@ -46,21 +46,7 @@ function createTable() {
 
 
 
-function parag() {
-    // Créer un élément de paragraphe
-    const p = document.createElement('p');
 
-    // Créer un élément de texte
-    const tx = document.createTextNode('test p');
-
-    // Ajouter l'élément de texte à l'élément de paragraphe
-    p.appendChild(tx);
-
-    // Ajouter l'élément de paragraphe au corps de la page
-    document.querySelector('body').appendChild(p);
-}
-let maVariable = 1;
-parag(maVariable);
 
 
 
