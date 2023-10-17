@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pompe à essence</title>
+    <script src="assert/js/vue.global.js"></script>
+    <script src="assert/js/main.js" type="module"></script>
+</head>
+
+<body>
+    <h1>Pompe à essence</h1>
+    <div id="app">
+        <p>Prix au litre : <span id="pl"> {{ prixLitre }}</span> €</p>
+        <p>Volume : <span id="qt"> {{ volume }}</span> l</p>
+        <p>Montant : <span id="mt"> {{ montant }}</span></p>
+        <button @mouseDown="updateChrono">Pressez le bouton ! </button>
+        <p> {{ timer }}</p>
+    </div>
+
+</body>
+
+</html>
