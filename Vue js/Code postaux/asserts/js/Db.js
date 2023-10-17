@@ -1,11 +1,12 @@
 class Db {
+
     /**
      * charger Json 
-     * @param {*} _url url du json 
+     * @param {string} _url url du json 
      */
     async fetchDb(_url) {
-        const reponse = await fetch(_url);
-        const dataBase = await reponse.json();
+        let reponse = await fetch(_url);
+        let dataBase = await reponse.json();
         return dataBase;
     }
 
