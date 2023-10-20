@@ -1,10 +1,13 @@
 import { Db } from "./Db.js";
 import { CodPost } from "./CodPost.js";
 import { Recherche } from "./Recherche.js";
+import { VerifNb } from "./VerifNb.js";
 
 
 
-const appUrl = 'https://arfp.github.io/tp/web/html-css-js/03-zipcodes/zipcodes.json';
+
+const appUrl = "https://arfp.github.io/tp/web/html-css-js/03-zipcodes/zipcodes.json";
+// const appUrl = "./zipcodes.json";
 const { createApp } = Vue;
 
 
@@ -15,25 +18,36 @@ const postCode = {
         return {
             liste: [],
             myInput: "",
-            myOutput: ""
+            myOutput: "",
+            test: ""
+
         }
 
     },
-    async monted() {
+    async mounted() {
         let json = await Db.fetchDb(appUrl);
 
         for (let item of json) {
             let c = new CodPost(item);
             this.liste.push(c);
         }
-        console.log(this.liste);
-        this.myOutput = Recherche.RechercheCp(myInput, liste.codePostal, liste.nomCommune);
-        console.log(this.myOutput);
+
+        let verif = new VerifNb();
+        this.test = verif.verifNb(this.myInput);
 
 
+
+        /*
+                let recherche = new Recherche();
+                this.myOutput = recherche.rechercheCP(this.myInput, this.liste.codePostal, this.liste.nomCommune);
+                console.log(this.myOutput);
+        
+        */
 
     },
     methods: {
+
+
 
     }
 
