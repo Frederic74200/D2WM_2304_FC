@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vols</title>
+    <link rel="stylesheet" href="assserts/css/style.css">
+    <script src="assserts/js/vue.global.js"></script>
+    <script src="assserts/js/main.js" type="module"></script>
+</head>
+<body>
+
+    <h1>Vols Aériens</h1>
+    <div id="app">
+
+<table>
+<thead>
+    <th>Flight ID</th>
+    <th>Start City</th>
+    <th>Arrival City</th>
+    <th>Start Time </th>
+    <th>Arrival Time</th>
+    <th>Flight Duration</th>
+    <th>Airline Name</th>
+    <th>Plane Marker</th>
+    <th>Plane Ref</th>
+    <th>Plane Type</th>
+    <th>plane Capacity</th>
+    <th>Seats Free</th>
+    <th>Duration hh/mm/ss</th>
+
+</thead>
+
+<tbody>
+    <tr v-for=" flight of flights">
+        <td> {{ flight.flight_id }} </td>
+        <td> {{ flight.start_city }} </td>
+        <td>  {{ flight.arrival_city }} </td>
+        <td> {{ flight.start_time }} </td>
+        <td>  {{ flight.arrival_time }} </td>
+        <td> {{  flight.flight_duration }} </td>
+        <td> {{ flight.airline_name }} </td>
+        <td> {{ flight.plane_maker }} </td>
+        <td> {{ flight.plane_ref }} </td>
+        <td> {{ flight.plane_type }} </td>
+        <td> {{ flight.plane_capacity }} </td>
+        <td>  {{ flight.seats_free }} </td>
+
+        
+        <!-- <td> {{  getDuration(flight.flight_duration) }} </td> -->
+    </tr>
+</tbody>
+
+</table>
+
+<form>
+<label for="seachCompagny"> Search a compagny : </label>
+<input type="search" v-modul="compagny">
+
+</form>
+    </div>
+    
+</body>
+</html>
