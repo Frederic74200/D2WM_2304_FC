@@ -12,8 +12,12 @@
 
     <h1>Vols Aériens</h1>
     <div id="app">
-
-<table>
+        <form>
+            <label for="seachCompagny"> Search a compagny : </label>
+            <input type="search" v-model="airline" placeholder="Search">            
+            </form>
+            <p> {{ airline }}</p>
+<table >
 <thead>
     <th>Flight ID</th>
     <th>Start City</th>
@@ -32,7 +36,8 @@
 </thead>
 
 <tbody>
-    <tr v-for=" flight of flights">
+    <tr v-for=" flight of flights" :key="flight.flight_id" >
+        
         <td> {{ flight.flight_id }} </td>
         <td> {{ flight.start_city }} </td>
         <td>  {{ flight.arrival_city }} </td>
@@ -44,20 +49,14 @@
         <td> {{ flight.plane_ref }} </td>
         <td> {{ flight.plane_type }} </td>
         <td> {{ flight.plane_capacity }} </td>
-        <td>  {{ flight.seats_free }} </td>
+        <td>  {{ flight.seats_free }} </td>        
+        <td> {{  getDuration(flight.flight_duration) }} </td> 
 
-        
-        <!-- <td> {{  getDuration(flight.flight_duration) }} </td> -->
     </tr>
 </tbody>
 
 </table>
 
-<form>
-<label for="seachCompagny"> Search a compagny : </label>
-<input type="search" v-modul="compagny">
-
-</form>
     </div>
     
 </body>

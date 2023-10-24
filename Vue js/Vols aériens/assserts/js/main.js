@@ -13,36 +13,40 @@ data() {
 
     return { 
         flights : [], 
-        compagny : ""
+       
+        airline : ""
 }
 },
 computed: { 
-  /*
- getDuration(_duration) {
-       
-let minutes =_duration % 60;
-let hours = (_duration - minutes) / 60;
-return hours.toString() + " : " + (minutes < 10 ? "0" + minutes.toString(): minutes.toString()) + " : 00"; 
+    
+   
 }
-*/
-},
+
+,
  async mounted() {
     let json = await Db.fetchJson(flithsUrl);
     for(let item of json) {
         let f = new Flight(item);
         this.flights.push(f);
     }
-
-    console.log(this.flights);
+    
+      
+  
 },
 methods: {
 
+    getDuration(_duration) {  
+    
+     let minutes =_duration % 60;
+     let hours = (_duration - minutes) / 60;
+     
+    return hours + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : 00"; 
+     },
+
+   
+
 
 }
-
-
-
-
 
 
 }
