@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,56 +9,77 @@
     <script src="assserts/js/vue.global.js"></script>
     <script src="assserts/js/main.js" type="module"></script>
 </head>
+
 <body>
 
     <h1>Vols Aériens</h1>
     <div id="app">
-        <form>
-            <label for="seachCompagny"> Search a compagny : </label>
-            <input type="search" v-model="airline" placeholder="Search">            
-            </form>
-            <p> {{ airline }}</p>
-<table >
-<thead>
-    <th>Flight ID</th>
-    <th>Start City</th>
-    <th>Arrival City</th>
-    <th>Start Time </th>
-    <th>Arrival Time</th>
-    <th>Flight Duration</th>
-    <th>Airline Name</th>
-    <th>Plane Marker</th>
-    <th>Plane Ref</th>
-    <th>Plane Type</th>
-    <th>plane Capacity</th>
-    <th>Seats Free</th>
-    <th>Duration hh/mm/ss</th>
 
-</thead>
+        <label for="seachCompagny"> Search a compagny : </label>
+        <input type="search" list="byCompagny" v-model="airline" @input="byAirline" placeholder="Search">
 
-<tbody>
-    <tr v-for=" flight of flights" :key="flight.flight_id" >
-        
-        <td> {{ flight.flight_id }} </td>
-        <td> {{ flight.start_city }} </td>
-        <td>  {{ flight.arrival_city }} </td>
-        <td> {{ flight.start_time }} </td>
-        <td>  {{ flight.arrival_time }} </td>
-        <td> {{  flight.flight_duration }} </td>
-        <td> {{ flight.airline_name }} </td>
-        <td> {{ flight.plane_maker }} </td>
-        <td> {{ flight.plane_ref }} </td>
-        <td> {{ flight.plane_type }} </td>
-        <td> {{ flight.plane_capacity }} </td>
-        <td>  {{ flight.seats_free }} </td>        
-        <td> {{  getDuration(flight.flight_duration) }} </td> 
+        <p> {{ airline }}</p>
+        <table>
+            <thead>
+                <th>Flight ID</th>
+                <th>Start City</th>
+                <th>Arrival City</th>
+                <th>Start Time </th>
+                <th>Arrival Time</th>
+                <th>Flight Duration</th>
+                <th>Airline Name</th>
+                <th>Plane Marker</th>
+                <th>Plane Ref</th>
+                <th>Plane Type</th>
+                <th>plane Capacity</th>
+                <th>Seats Free</th>
+                <th>Duration hh/mm/ss</th>
 
-    </tr>
-</tbody>
+            </thead>
 
-</table>
+
+            <tbody v-if=" airline == '' ">
+                <tr v-for=" flight of flights">
+                    <td> {{ flight.flight_id }} </td>
+                    <td> {{ flight.start_city }} </td>
+                    <td> {{ flight.arrival_city }} </td>
+                    <td> {{ flight.start_time }} </td>
+                    <td> {{ flight.arrival_time }} </td>
+                    <td> {{ flight.flight_duration }} </td>
+                    <td> {{ flight.airline_name }} </td>
+                    <td> {{ flight.plane_maker }} </td>
+                    <td> {{ flight.plane_ref }} </td>
+                    <td> {{ flight.plane_type }} </td>
+                    <td> {{ flight.plane_capacity }} </td>
+                    <td> {{ flight.seats_free }} </td>
+                    <td> {{ getDuration(flight.flight_duration) }} </td>
+                </tr>
+
+            <tbody id="byCompagny" v-else>
+                <tr v-for=" flight of results">
+                    <td> {{ flight.flight_id }} </td>
+                    <td> {{ flight.start_city }} </td>
+                    <td> {{ flight.arrival_city }} </td>
+                    <td> {{ flight.start_time }} </td>
+                    <td> {{ flight.arrival_time }} </td>
+                    <td> {{ flight.flight_duration }} </td>
+                    <td> {{ flight.airline_name }} </td>
+                    <td> {{ flight.plane_maker }} </td>
+                    <td> {{ flight.plane_ref }} </td>
+                    <td> {{ flight.plane_type }} </td>
+                    <td> {{ flight.plane_capacity }} </td>
+                    <td> {{ flight.seats_free }} </td>
+                    <td> {{ getDuration(flight.flight_duration) }} </td>
+                </tr>
+
+
+
+            </tbody>
+
+        </table>
 
     </div>
-    
+
 </body>
+
 </html>

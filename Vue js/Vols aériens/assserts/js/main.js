@@ -1,8 +1,8 @@
 import { Db } from "./Db.js";
-import { Flight } from "./Flight.js";
 
 
-const dayDate = new Date(); 
+
+
 const flithsUrl = "https://arfp.github.io/tp/web/html-css-js/04-flights/flights.json";
 const { createApp } = Vue;
 
@@ -13,23 +13,15 @@ data() {
 
     return { 
         flights : [], 
-       
-        airline : ""
+        airline : "",
+        results : []
 }
-},
-computed: { 
-    
-   
 }
 
 ,
  async mounted() {
-    let json = await Db.fetchJson(flithsUrl);
-    for(let item of json) {
-        let f = new Flight(item);
-        this.flights.push(f);
-    }
-    
+    this.flights = await Db.fetchJson(flithsUrl);
+   
       
   
 },
@@ -43,9 +35,17 @@ methods: {
     return hours + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : 00"; 
      },
 
+    byAirline() {
+        this.results = this.flights.filter( flight => flight.airline_name  == this.airline); 
+    console.log("ok");
+         }
+       
+
+}
+,
+computed: { 
    
-
-
+    
 }
 
 

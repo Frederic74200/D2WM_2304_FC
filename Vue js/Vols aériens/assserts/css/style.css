@@ -1,4 +1,27 @@
-* {
-   
-    padding: 6px;
+body {
+
+    background-color: #2d2949;
+ color: #ffffff;
 }
+
+table {
+   
+    background-color: #3b3b3b;
+    border : 2px solid #c1c1c1;
+    width: 100vw;
+   }
+
+
+   th, td {
+    padding: 1.5%;
+    margin-left: 1%;
+    border-left : 1px solid #c1c1c1;
+    border-bottom : 1px solid #c1c1c1;
+   }
+
+  tbody  tr:nth-child(2n) {
+    background-color: #313040;
+   }
+   tbody  tr:nth-child(2n-1) {
+    background-color: #3f3e47;
+   }

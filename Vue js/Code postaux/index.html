@@ -15,9 +15,9 @@
         <h1>Recherche de villes / codes postaux</h1>
         <form>
             <label for="codePost">Saisissez un code postal : </label>
-            <input type="search" v-model="myInput">
-            <datalist>
-                <option value=""> {{ myOutput }} </option>
+            <input type="search" list="listPostCode" v-model="myInput">
+            <datalist id="listPostCode"  >
+                <option  value="" > {{ myOutput }} </option>
             </datalist>
             <button type="button">Valider</button>
         </form>

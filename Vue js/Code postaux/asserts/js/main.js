@@ -1,5 +1,5 @@
 import { Db } from "./Db.js";
-import { CodPost } from "./CodPost.js";
+// import { CodPost } from "./CodPost.js";
 import { Recherche } from "./Recherche.js";
 import { VerifNb } from "./VerifNb.js";
 
@@ -25,24 +25,10 @@ const postCode = {
 
     },
     async mounted() {
-        let json = await Db.fetchDb(appUrl);
+        this.liste = await Db.fetchDb(appUrl);
 
-        for (let item of json) {
-            let c = new CodPost(item);
-            this.liste.push(c);
-        }
-
-        let verif = new VerifNb();
-        this.test = verif.verifNb(this.myInput);
-
-
-
-        /*
-                let recherche = new Recherche();
-                this.myOutput = recherche.rechercheCP(this.myInput, this.liste.codePostal, this.liste.nomCommune);
-                console.log(this.myOutput);
+       
         
-        */
 
     },
     methods: {
