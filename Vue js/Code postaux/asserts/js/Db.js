@@ -1,4 +1,5 @@
-class Db {
+class Db 
+{
 
     /**
      * charger Json 

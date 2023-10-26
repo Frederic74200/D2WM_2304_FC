@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employes</title>
+  <link rel="stylesheet" href="asserts/css/style.css">
+  <script src="asserts/js/vue.global.js"></script>
+  <script src="asserts/js/main.js" type="module"></script>
+</head>
+
+<body>
+
+  <h1>Employees</h1>
+  <h2>This is the current list of Employees</h2>
+
+  <div id="app">
+    <p> {{ toto }}</p>
+    <table>
+      <thead>
+        <th>EID</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Monthly Salary <button>⇳</button></th>
+        <th>Year of birth</th>
+        <th> action</th>
+      </thead>
+
+      <tbody>
+
+        <tr v-for="emp of empList">
+          <td> {{ emp.id }} </td>
+          <td> {{ emp.employee_name }} </td>
+          <td> {{ createMail( emp.employee_name) }} </td>
+          <td> {{ monthSal( emp.employee_salary) }} </td>
+          <td> {{ yearBirht( emp.employee_age ) }} </td>
+          <td> {{ emp.id }} </td>
+        </tr>
+
+
+      </tbody>
+      <tfoot>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td> {{ salSum }}</td>
+        <td></td>
+        <td></td>
+
+      </tfoot>
+
+
+
+
+    </table>
+
+
+
+  </div>
+
+
+</body>
+
+</html>
