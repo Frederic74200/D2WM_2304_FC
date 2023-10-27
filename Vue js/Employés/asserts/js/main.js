@@ -1,4 +1,6 @@
 import { Db } from "./Db.js";
+import { CreateMail } from "./CreateMail.js";
+import { SalMounth } from "./SalMonth.js";
 
 const apiUrl = "https://arfp.github.io/tp/web/html-css-js/05-employees/employees.json";
 const { createApp } = Vue;
@@ -12,8 +14,6 @@ const empTable = {
             empList: [],
             empBirth: 0,
             empTotal: 0,
-            monthSalUnit: [],
-            salSum: 0,
             dayDate: new Date(),
             toto: 'toto'
         }
@@ -26,27 +26,17 @@ const empTable = {
 
     },
     methods: {
-        createMail(_fullname) {
-            let name = _fullname.split(' ');
-            let firstName = name[0];
-            return firstName[0].toLowerCase() + "." + name[1].toLowerCase() + '@email.com';
-        },
-        monthSal(_yearSal) {
-            let monthSalary = _yearSal / 12;
-            this.monthSalUnit.push(monthSalary);
 
-            return monthSalary.toFixed(2) + ' €';
-        },
+
         yearBirht(_age) {
             let cuurentYear = this.dayDate.getFullYear();
             return cuurentYear - _age;
 
+        },
+        createMail(_name) {
+            let mail = new CreateMail(_name);
+            return mail.createEMail();
         }
-
-
-
-
-
 
     },
     computed: {
