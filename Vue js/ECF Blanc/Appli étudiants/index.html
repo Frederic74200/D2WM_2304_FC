@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etudiants</title>
+    <link rel="icon" href="asserts/img/46955.png" />
+    <link rel="stylesheet" href="asserts/css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="asserts/js/main.js" type="module"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>résultats de l'évaluation</h1>
+
+        <fieldset>
+            <legend> Ajouter une note</legend>
+            <div class="labinp">
+                <label for="nomPrenon"> Nom Prénom : </label>
+                <input type="text" v-model="inputNom">
+            </div>
+            <div class="labinp">
+                <label for="note">Note : </label>
+                <input type="number" v-model="inputNote">
+            </div>
+            <button type="button">Ajouter</button>
+        </fieldset>
+
+        <table>
+
+            <thead>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Note</th>
+                <th>Obtenu</th>
+            </thead>
+            <tbody>
+                <tr v-for=" etudiant of liste">
+                    <td> {{ nom(etudiant.fullname )}}</td>
+                    <td> {{ prenom(etudiant.fullname )}}</td>
+                    <td> {{ etudiant.grade }} {{ cumul(etudiant.grade)}} {{dessusMoy(etudiant.grade) }}</td>
+                    <td> {{ obtenu(etudiant.grade )}}</td>
+
+                </tr>
+            </tbody>
+
+        </table>
+
+        <ul>
+            <li>Nombre d'étudiants : {{ nbEtudiants }} </li>
+            <li> {{ total }}</li>
+            <li>Moyenne de la classe : {{ moyenneClasse }}</li>
+            <li>Nombre d'étudiants au dessus de la moyenne : {{ dessusMoy }} </li>
+            <li>Note éliminattoire : {{ noteElim }} </li>
+        </ul>
+
+
+
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
