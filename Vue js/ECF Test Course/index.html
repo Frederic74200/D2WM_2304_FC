@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+
+</head>
+
+<body>
+    <main id="app">
+
+        <h1>Résultat de la course</h1>
+
+        <div id="partcipantsGagnant">
+            <p class="infos"> {{ nbParticipants }} participants</p>
+            <p class="infos">Gagnant : {{ nomGagnant }} {{ prenomGagnant }}</p>
+        </div>
+
+        <h2>Filters</h2>
+
+        <div id="filtres">
+            <div id="inputLab" v-for="pays of listePays">
+                <input type="checkbox" :id="pays" @change="trierpPays" :value="pays" v-model="inputPays">
+                <label :for="pays"> {{ pays }}</label>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Pays</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Temps final</th>
+                </tr>
+            </thead>
+            <tbody v-if=" inputPays.length === 0 ">
+                <tr v-for=" participant of donneesCourse ">
+                    <td> {{ participant.pays }} </td>
+                    <td> {{ participant.nomPartic }} </td>
+                    <td> {{ participant.prenomPartic }} </td>
+                    <td> {{ participant.minutes }} min {{ participant.secondes }} sec </td>
+                </tr>
+            </tbody>
+            <tbody v-esle>
+                <tr v-for=" participant of triParPays">
+                    <td> {{ participant.pays }} </td>
+                    <td> {{ participant.nomPartic }} </td>
+                    <td> {{ participant.prenomPartic }} </td>
+                    <td> {{ participant.minutes }} min {{ participant.secondes }} sec </td>
+                </tr>
+            </tbody>
+
+
+
+        </table>
+
+
+
+
+
+    </main>
+
+
+
+
+
+</body>
+
+</html>
