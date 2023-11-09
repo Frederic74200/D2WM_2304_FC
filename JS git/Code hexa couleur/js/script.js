@@ -16,7 +16,6 @@ function validInput(inputColor) {
         document.querySelector('#' + inputColor).value = '';
         document.querySelector('#' + inputColor).focus();
     }
-
 }
 
 // chnager la couleur du body en fonction de la saisie 
