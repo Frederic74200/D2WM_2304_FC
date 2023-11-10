@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Céréales</title>
+    <link rel="icon" href="assets/images/cereales.png" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="assets/js/main.js" type="module"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+
+        <header>
+            <button @click="dysplayInconsole"> Allo console </button>
+            <p> {{ searchValue }} {{ columnName }} {{ delVal}} </p>
+
+            <h1> Cereals</h1>
+            <div id="search">
+
+                <fieldset>
+                    <legend>Search</legend>
+                    <input type="text" placeholder="Cereal name" v-model="searchValue">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Filter</legend>
+
+
+                    <fieldset>
+                        <legend>Nutriscore</legend>
+                        <div>
+                            <label for=""> </label>
+                            <input type="checkbox">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Category</legend>
+                        <select name="" id="">
+                            <option value="All">All</option>
+                            <option value="Sugar free">Sugar free</option>
+                            <option value="Low in salt">Low in salt</option>
+                            <option value="Booost">Booost</option>
+                        </select>
+                    </fieldset>
+
+
+                </fieldset>
+            </div>
+        </header>
+
+        <main>
+            <button type="button" @click="resteTable">Reset</button>
+            <table>
+
+                <thead>
+                    <tr>
+                        <th v-for=" item in headTable " role="button" @click=" columnSort(item ) " :id="item"
+                            :value="item" v-model="columnName">
+                            {{ item }}
+                        </th>
+
+                    </tr>
+
+
+                </thead>
+
+                <tbody>
+                    <tr v-for=" item of baseCerealsCopy ">
+                        <td> {{ item.id }} </td>
+                        <td> {{ item.name }} </td>
+                        <td> {{ item.calories }} </td>
+                        <td> {{ item.protein }} </td>
+                        <td> {{ item.sodium }} </td>
+                        <td> {{ item.fiber }} </td>
+                        <td> {{ item.carbo }} </td>
+                        <td> {{ item.sugars }} </td>
+                        <td> {{ item.potass }} </td>
+                        <td> {{ item.vitamins }} </td>
+                        <td> {{ item.rating }} </td>
+                        <td :style="item.hexa"> {{ item.nutriscore }} </td>
+                        <td role="button" :value="item.id" :id="item.id" :vmodel="delVal" @click="delRow(delVal)"
+                            style="  cursor: pointer;"> X
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

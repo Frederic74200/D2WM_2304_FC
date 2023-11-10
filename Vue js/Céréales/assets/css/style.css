@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(99, 99, 170);
+}
+
+button {
+    cursor: pointer;
+
+}
+
+th:nth-child(13) {
+    display: none;
+}
