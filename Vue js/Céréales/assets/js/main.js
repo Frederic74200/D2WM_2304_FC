@@ -17,8 +17,11 @@ const cereals = {
             baseCerealsCopy: [],
             headTable: [],
             searchValue: "",
-            columnName: '',
-            delVal: ""
+            sortTable: true,
+            typesOfNS: [],
+            inputNS: [],
+            category: "0"
+
 
         }
 
@@ -32,14 +35,36 @@ const cereals = {
         };
 
         for (let key in this.baseCereals[1]) {
-            this.headTable.push(key)
+            let titleCase = (key.charAt(0).toUpperCase() + key.slice(1));
+
+            this.headTable.push(titleCase);
         };
 
-        this.columnName == '' ? this.baseCerealsCopy = [...this.baseCereals] : columnSort(this.columnName)
+        for (let item of this.baseCereals) {
+            this.typesOfNS.push(item.nutriscore)
+        }
+        this.typesOfNS.sort();
+        this.typesOfNS = new Set(this.typesOfNS);
+
+        console.log(this.typesOfNS);
+        this.baseCerealsCopy = [...this.baseCereals]
+
     },
     computed: {
 
+        entries() {
 
+            return this.baseCerealsCopy.length;
+        },
+
+        calAvg() {
+            let total = 0;
+            for (let item of this.baseCerealsCopy) {
+                total += item.calories
+            }
+            let avg = total / this.entries;
+            return avg.toFixed(0);
+        }
 
 
     },
@@ -58,33 +83,110 @@ const cereals = {
             }
 
         },
-        columnSort(_item) {
+        columnSort(event) {
+            let attribute = event.target.id;
+            attribute = attribute.toLowerCase();
 
-            if (this.columnName != _item) {
-                this.columnName = _item;
+            let sortMethod = (a, b) => {
+                if (a[attribute] > b[attribute]) {
+                    return 1;
+                }
+                else if (a[attribute] < b[attribute]) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+            this.baseCerealsCopy = this.baseCereals.sort(sortMethod)
 
 
-                this.baseCerealsCopy = this.baseCereals.slice(this.baseCereals.sort((a, b) => a[this.columnName] - b[this.columnName]));
+            if (!this.sortTable) {
+                this.baseCerealsCopy.reverse();
 
             }
-            else {
-                this.baseCerealsCopy.reverse()
-            }
+            this.sortTable = !this.sortTable;
         },
         resteTable() {
-            location.reload();
+            return this.baseCerealsCopy = [...this.baseCereals];
         },
-        delRow(_val) {
-            console.log(typeof _val)
-            console.log(_val)
-            let nb = new Number(_val)
-            console.log(nb);
-            this.delVal = parseInt(nb);
-            console.log(this.delVal)
+        delRow(event) {
 
-            delete this.baseCerealsCopy[this.delVal];
+            let delVal = event.target.id;
+
+            let newTable = [...this.baseCerealsCopy]
+
+            let del = 0;
+            for (let item of newTable) {
+                if (delVal == item.id) {
+                    del = newTable.indexOf(item).toString();
+                }
+            }
+
+            newTable.splice(del, 1);
+
+            return this.baseCerealsCopy = [...newTable]
+
+        },
+        searchCer() {
+
+            let input = this.searchValue.toLowerCase();
+
+            this.baseCerealsCopy = this.baseCereals.filter(item => item.name.toLowerCase().includes(input));
+
+
+            console.log(input);
             return this.baseCerealsCopy;
+
+        },
+        sortNS() {
+            console.log(this.inputNS);
+            this.baseCerealsCopy = this.baseCereals.filter(item => this.inputNS.includes(item.nutriscore));
+
+        },
+        sortCategorie() {
+
+            const criteria = {
+                sansSucre: (item) => item.sugars <= 1,
+                pauvreEnSel: (item) => item.sodium <= 50,
+                boost: (item) => item.vitamins >= 25 && item.fiber >= 10,
+            };
+
+            this.baseCerealsCopy = this.baseCereals.filter(criteria[this.category]);
+
+
+
+
+
+
+
+            /*
+            
+                        switch (this.category) {
+            
+                            case 0: this.baseCerealsCopy = [...this.baseCereals];
+                                break;
+                            case 1: this.baseCerealsCopy = this.baseCereals.filter(item => item.sugars = 0);
+                                break;
+                            case 2: this.baseCerealsCopy = this.baseCereals.filter(item => item.sodium > 0 && item.sodium < 50);
+                                break;
+                            case 3: this.baseCerealsCopy = this.baseCereals.filter(item => item.vitamins >= 25 && item.fiber >= 10);
+                                break;
+            
+                        }
+            */
         }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
 

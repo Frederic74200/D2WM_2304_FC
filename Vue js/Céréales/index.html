@@ -18,42 +18,45 @@
 
 
         <header>
-            <button @click="dysplayInconsole"> Allo console </button>
-            <p> {{ searchValue }} {{ columnName }} {{ delVal}} </p>
+
+
 
             <h1> Cereals</h1>
-            <div id="search">
+
+
+            <fieldset id="search">
+                <legend>Search</legend>
+                <input type="text" placeholder="Cereal name" v-model="searchValue" @input="searchCer">
+            </fieldset>
+
+            <fieldset id="filter">
+                <legend>Filter</legend>
+
 
                 <fieldset>
-                    <legend>Search</legend>
-                    <input type="text" placeholder="Cereal name" v-model="searchValue">
+                    <legend>Nutriscore</legend>
+                    <div v-for=" item of typesOfNS ">
+                        <label for="item">{{ item }} </label>
+                        <input type="checkbox" :id="item" :value="item" v-model="inputNS" @change="sortNS">
+                    </div>
                 </fieldset>
 
                 <fieldset>
-                    <legend>Filter</legend>
+                    <legend>Category</legend>
 
-
-                    <fieldset>
-                        <legend>Nutriscore</legend>
-                        <div>
-                            <label for=""> </label>
-                            <input type="checkbox">
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Category</legend>
-                        <select name="" id="">
-                            <option value="All">All</option>
-                            <option value="Sugar free">Sugar free</option>
-                            <option value="Low in salt">Low in salt</option>
-                            <option value="Booost">Booost</option>
-                        </select>
-                    </fieldset>
-
-
+                    <select name="byCategory" id="byCategory" v-model="category" @change="sortCategorie">
+                        <option value="0">All</option>
+                        <option value="1">Sugar free
+                        </option>
+                        <option value="2">Low in salt
+                        </option>
+                        <option value="3">Booost</option>
+                    </select>
                 </fieldset>
-            </div>
+
+
+            </fieldset>
+
         </header>
 
         <main>
@@ -62,8 +65,7 @@
 
                 <thead>
                     <tr>
-                        <th v-for=" item in headTable " role="button" @click=" columnSort(item ) " :id="item"
-                            :value="item" v-model="columnName">
+                        <th v-for=" item in headTable " role="button" :id="item" @click="columnSort" :value="item">
                             {{ item }}
                         </th>
 
@@ -86,12 +88,16 @@
                         <td> {{ item.vitamins }} </td>
                         <td> {{ item.rating }} </td>
                         <td :style="item.hexa"> {{ item.nutriscore }} </td>
-                        <td role="button" :value="item.id" :id="item.id" :vmodel="delVal" @click="delRow(delVal)"
-                            style="  cursor: pointer;"> X
+                        <td role="button" :value="item.id" :id="item.id" @click="delRow" style="  cursor: pointer;"> X
                         </td>
                     </tr>
 
                 </tbody>
+                <tfoot>
+                    <td> {{ entries }} elements </td>
+                    <td> colories average : {{ calAvg }} </td>
+
+                </tfoot>
 
             </table>
 
