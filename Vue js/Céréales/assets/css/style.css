@@ -1,12 +1,43 @@
+:root {
+    --base-1: #111;
+    --base-2: #222;
+    --base-3: #333;
+    --base-4: #444;
+    --base-5: #664;
+    --base-6: #fff;
+    --base-7: #ffffffcc;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
 body {
-    background-color: rgb(99, 99, 170);
+    width: 100vw;
+    height: auto;
+    font-size: 1.6rem;
+    color: var(--base-7);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: var(--base-1);
+    border: 1vh solid var(--base-3);
 }
 
-button {
-    cursor: pointer;
-
-}
 
 th:nth-child(13) {
     display: none;
+    cursor: pointer;
+}
+
+header {
+
+    width: 98vw;
+    margin: 1ù auto;
+    display: flex;
+
+    justify-content: space-around;
 }
