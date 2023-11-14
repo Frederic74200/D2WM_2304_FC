@@ -23,52 +23,53 @@
 
             <h1> Cereals</h1>
 
-
-            <fieldset id="search">
-                <legend>Search</legend>
-                <input type="text" placeholder="Cereal name" v-model="searchValue" @input="searchCer">
-            </fieldset>
-
-            <fieldset id="filter">
-                <legend>Filter</legend>
-
-
-                <fieldset>
-                    <legend>Nutriscore</legend>
-                    <div v-for=" item of typesOfNS ">
-                        <label for="item">{{ item }} </label>
-                        <input type="checkbox" :id="item" :value="item" v-model="inputNS" @change="sortNS">
-                    </div>
+            <div id="searchArea">
+                <fieldset id="search">
+                    <legend>Search</legend>
+                    <input id="searchCer" type="text" placeholder="Cereal name" v-model="searchValue"
+                        @input="searchCer">
                 </fieldset>
 
-                <fieldset>
-                    <legend>Category</legend>
+                <fieldset id="filter">
+                    <legend>Filter</legend>
 
-                    <select name="byCategory" id="byCategory" v-model="category" @change="sortCategorie">
-                        <option value="0">All</option>
-                        <option value="1">Sugar free
-                        </option>
-                        <option value="2">Low in salt
-                        </option>
-                        <option value="3">Booost</option>
-                    </select>
+
+                    <fieldset id="nutriscore">
+                        <legend>Nutriscore</legend>
+                        <div id="div_nutriscore" v-for=" item of typesOfNS ">
+                            <label for="item">{{ item }} </label>
+                            <input type="checkbox" :id="item" :value="item" v-model="inputNS" @change="sortNS">
+                        </div>
+                    </fieldset>
+
+                    <fieldset id="category">
+                        <legend>Category</legend>
+
+                        <select name="byCategory" id="byCategory" v-model="category" @change="sortCategorie">
+                            <option value="0">All</option>
+                            <option value="1">Sugar free
+                            </option>
+                            <option value="2">Low in salt
+                            </option>
+                            <option value="3">Booost</option>
+                        </select>
+                    </fieldset>
+
+
                 </fieldset>
-
-
-            </fieldset>
-
+            </div>
         </header>
 
         <main>
-            <button type="button" @click="resteTable">Reset</button>
+            <button id="resetbtn" type="button" @click="resteTable">Reset</button>
             <table>
 
                 <thead>
                     <tr>
-                        <th v-for=" item in headTable " role="button" :id="item" @click="columnSort" :value="item">
+                        <td v-for=" item in headTable " role="button" :id="item" @click="columnSort" :value="item">
                             {{ item }}
-                        </th>
-
+                        </td>
+                        <td>DEL</td>
                     </tr>
 
 
@@ -87,8 +88,8 @@
                         <td> {{ item.potass }} </td>
                         <td> {{ item.vitamins }} </td>
                         <td> {{ item.rating }} </td>
-                        <td :style="item.hexa"> {{ item.nutriscore }} </td>
-                        <td role="button" :value="item.id" :id="item.id" @click="delRow" style="  cursor: pointer;"> X
+                        <td :class="item.ns"> {{ item.ns }} </td>
+                        <td role="button" :value="item.id" :id="item.id" @click="delRow" style="  cursor: pointer;">❌
                         </td>
                     </tr>
 

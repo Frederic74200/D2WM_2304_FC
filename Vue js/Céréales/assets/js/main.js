@@ -35,13 +35,13 @@ const cereals = {
         };
 
         for (let key in this.baseCereals[1]) {
-            let titleCase = (key.charAt(0).toUpperCase() + key.slice(1));
+            // let titleCase = (key.charAt(0).toUpperCase() + key.slice(1));
 
-            this.headTable.push(titleCase);
+            this.headTable.push(key.toUpperCase());
         };
 
         for (let item of this.baseCereals) {
-            this.typesOfNS.push(item.nutriscore)
+            this.typesOfNS.push(item.ns)
         }
         this.typesOfNS.sort();
         this.typesOfNS = new Set(this.typesOfNS);
