@@ -15,8 +15,8 @@ class Cereal {
         this.potass = 0
         this.vitamins = 0;
         this.rating = "";
-        this.nutriscore = "";
-        this.hexa = "";
+        this.ns = "";
+
         this.affectData(_json);
         this.setNutriscore(_json.rating)
 
@@ -45,27 +45,20 @@ class Cereal {
         let rating = parseFloat(_data);
 
         if (rating > 80) {
-            this.nutriscore = "A";
-            this.hexa = "background-color:  darkgreen; text-align: center;"
+            this.ns = "A";
         }
         else if (rating > 70 && rating <= 80) {
-            this.nutriscore = "B";
+            this.ns = "B";
 
-            this.hexa = "background-color:  #009900CC; text-align: center;"
         }
         else if (rating > 55 && rating <= 70) {
-            this.nutriscore = "C";
-            this.hexa = "background-color: #cccc00cc; text-align: center;"
-
+            this.ns = "C";
         }
         else if (rating > 35 && rating <= 55) {
-
-            this.nutriscore = "D";
-            this.hexa = "background-color:  #cc6600cc; text-align: center;"
+            this.ns = "D";
         }
         else {
-            this.nutriscore = "E";
-            this.hexa = "background-color: #cc0000cc; text-align: center;"
+            this.ns = "E";
         }
 
     }
