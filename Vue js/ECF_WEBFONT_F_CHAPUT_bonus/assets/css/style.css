@@ -1,0 +1,64 @@
+:root {
+    --base-bg: #2D3142;
+    --base-link: #BFC0C0;
+    --base-txt: #EF8354;
+    --base-btn: #4F5D75;
+    --base-border: #4F5D75;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    color: var(--base-link);
+    background-color: var(--base-bg);
+    padding: 10px 20px;
+}
+
+#appFootball {
+    border: 2px solid var(--base-link);
+    padding: 10px 15px;
+}
+
+.spn_infos {
+    background-color: var(--base-link);
+    color: var(--base-bg);
+    padding: 3px 13px;
+}
+
+#labelrecherche {
+    color: var(--base-txt);
+    margin-right: 120px;
+}
+
+#recherche {
+    background-color: var(--base-btn);
+    border: unset;
+    height: 30px;
+    color: var(--base-link)
+}
+
+#recherche::placeholder {
+    color: var(--base-link);
+    position: absolute;
+    bottom: 3px;
+    left: 4px;
+    opacity: 0.5;
+}
+
+table {
+    margin: 20px 0;
+    background-color: var(--base-btn);
+}
+
+th,
+td {
+    padding: 3px 6px;
+}
