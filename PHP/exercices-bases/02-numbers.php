@@ -46,30 +46,4 @@ echo " div 2 : " . getDiv($e,$f);
 
 
 
-
-
-
-
-/*
-function isMajor(int $age) : bool
-{
-    if ( $age < 18 ) {
-        return false;
-    }
-    else 
-    {
-        return true; 
-    }
-}
-
-$age1 = 12;
-$age2 = 42;
-
-echo "false : " . isMajor($age1);
-echo "true : " . isMajor($age2);
-
-
-*/
-
-
 ?>
