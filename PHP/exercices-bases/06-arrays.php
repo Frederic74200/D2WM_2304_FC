@@ -24,14 +24,14 @@ function lastItem( array $tableau)
 
 */
 
-function stringItems(array $array) {
+function sortItems(array $array) {
     // Vérifie si le tableau est vide
     if (empty($array)) {
       return "Nothing to display";
     }
   
     // Tri le tableau
-    $array = array_sort($array);
+    rsort($array);
   
     // Convertit le tableau en chaîne de caractères
     $string = implode(", ", $array);
@@ -40,8 +40,27 @@ function stringItems(array $array) {
   }
 
 
+  function stringItems(array $array) {
+    // Vérifie si le tableau est vide
+    if (empty($array)) {
+      return "Nothing to display";
+    }
+  
+    // Tri le tableau
+    sort($array);
+  
+    // Convertit le tableau en chaîne de caractères
+    $string = implode(", ", $array);
+  
+    return $string;
+  }
+
+
+
+
+
 echo "first item : ".firstItem ($names); // retourne « Joe »
 echo "\n last item : ".lastItem ($names); // retourne « Néo »
-echo "\n string item : ".stringItems($names); // retourne « Jack, Joe, Léa, Néo, Zoé »
-
+echo "\n sortItems  : ".sortItems($names); // retourne « Jack, Joe, Léa, Néo, Zoé »
+echo "\n string items :".stringItems ($names); // retourne « Jack, Joe, Léa, Néo, Zoé »
 ?>
