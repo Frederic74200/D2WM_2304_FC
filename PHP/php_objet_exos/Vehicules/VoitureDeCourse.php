@@ -3,11 +3,22 @@ require_once('Voiture.php');
 
 use Voiture;
 
-class VoitureDeCourse
+class VoitureDeCourse extends Voiture
 {
+    protected Moteur $moteur;
 
-    protected Voiture $VoitCourse;
+    public function __construct(string $marque, int $poids, Moteur $moteurVc)
+    {
+        if ($moteurVc->getMarqueMoteur() !== $marque) {
+            throw new Exception("La marque du moteur doit être la même que celle de la voiture");
+        }
 
+        $this->moteur = $moteurVc;
+        parent::__construct($marque, $poids, $moteurVc);
+    }
+
+
+    /*
     public function __construct($VoitCourse)
     {
         try {
@@ -17,9 +28,10 @@ class VoitureDeCourse
             echo "Erreur Moteur";
         }
     }
+    */
 
     public function voitCoursetoString()
     {
-        return $this->VoitCourse->voitureToString();
+        return 'voitre OK !';
     }
 }
