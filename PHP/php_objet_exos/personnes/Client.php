@@ -15,4 +15,9 @@ class Client extends Personne
         $this->numClient = $numClient;
         $this->adresse = $adresse;
     }
+
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
 }

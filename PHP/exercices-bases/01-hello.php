@@ -13,26 +13,28 @@ echo '<p> Hello ' . $prenom . ' !</p>';
 
 
 
-function helloWord() : void
+function helloWord(): void
 {
-echo "Hello function !";
+    echo "Hello function !";
 }
 
 helloWord();
 
 
-function hello( string $name) : string 
+function hello(string $name): string
 {
-    if ( $name === "") {
-        return "nobody";
+    /*   $chaine = "";
+    if ($name === "") {
+        $chaine = "nobody";
+    } else {
+        $chaine = "hello " . $name;
     }
-    else {
-        return "hello ".$name; 
-    }
+
+    return $chaine;*/
+
+    return $name == "" ? "nobody " : "hello " . $name;
 }
 
-$name = "Chaput"; 
+$name = "franck";
 
-echo hello($name); 
-
-?>
+echo hello($name);

@@ -5,11 +5,14 @@ class Personne
     private string $prenom;
     private int $age;
 
-    public function __construct(string $nom, string $prenom, int $age)
+    public function __construct(string $nom, string $prenom, string $dateDeNaissance)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
-        $this->age = $age;
+        $dateDuJour = new DateTime();
+        $dateDeNaissance = new DateTime($dateDeNaissance);
+        $interval = $dateDuJour->diff($dateDeNaissance);
+        $this->age = $interval->y;
     }
 
     public function getNom()
@@ -17,7 +20,7 @@ class Personne
         return  $this->nom;
     }
 
-    public function getPrennom()
+    public function getPrenom()
     {
         return  $this->prenom;
     }
