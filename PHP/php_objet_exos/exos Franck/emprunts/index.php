@@ -1,3 +1,17 @@
+<?php
+require 'Emprunt.php';
+
+if (!empty($_POST['capital']) && !empty($_POST['taux'])  && !empty($_POST["duree"])) {
+    $emprunt = new Emprunt($_POST['capital'], $_POST['taux'], $_POST["duree"]);
+    $resultat = $emprunt->calculerMensualité();
+    $tableau = $emprunt->revoyertablea();
+} else {
+    $resultat = 1234;
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -9,27 +23,18 @@
 
 <body>
 
-    <form action="index.php" method="get">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <label for="capital">Capital emprunté</label>
         <input type="number" name="capital" id="capital">
         <label for="taux">taux en % </label>
         <input type="taux" name="taux" id="taux">
         <label for="duree">Durée de remboursement en années</label>
         <input type="number" name="duree" id="duree">
-        <input type="submit" name="valider" id="valider" value="valider">
-
+        <button type="submit">Valider</button>
         <label for="mensualite">Mensualité :</label>
+        <input type="text" name="mensualite" id="mensualité" readonly value="<?php echo $resultat;  ?>">
 
-        <?php
-        require_once('Emprunt.php');
 
-        $capital = $_GET["capital"];
-        $taux = $_GET['taux'];
-        $duree = $_GET['duree'];
-        $emprunt = new Emprunt($capital, $taux, $duree);
-        $mensualite = $emprunt->calculerMensualité();
-        echo  '<input type=\"number\" name=\"mensualite\" id=\"mensualite\" value=\"' . $mensualite . '\">';
-        ?>
 
 
 
@@ -37,6 +42,15 @@
     </form>
 
     <h2>Tableau de remboursement d'amorissment du pret </h2>
+
+    <table>
+        <?php
+
+        echo $tableau;
+
+        ?>
+
+    </table>
 
 
 </body>
