@@ -6,6 +6,7 @@ class Emprunt
     private int $capital = 120000000000;
     private float $taux = 55.0;
     private int $duree = 2;
+    private   $array = array();
 
     public function __construct($_capital, $_taux, $_duree)
     {
@@ -34,12 +35,54 @@ class Emprunt
         return $this->calculerMensualité() - $partInteret;
     }
 
-    public function capitalDu($capital, $interet)
+    public function capitalDu($capital, $amort)
     {
-        return $capital - $interet;
+        return $capital - $amort;
     }
 
 
+    public function genererTableau()
+    {
+
+        $capitalDumois = 0.0;
+        $partAmortMois = 0.0;
+        $interetsMois = 0.0;
+        $capitalDuMoisPrec = 0.0;
+
+
+
+        for ($i = 0; $i < $this->duree * 12; $i++) {
+            if ($i == 0) {
+
+                $this->array['mois'] = $i + 1;
+                $capitalDuMois = $this->capital;
+                $this->array['capital'] = $capitalDuMois;
+                $interetsMois = $this->partInterets($capitalDuMois);
+                $this->array["interets"] = $interetsMois;
+                $partAmortmois = $this->partAmort($interetsMois);
+                $this->array["amort"] = $partAmortmois;
+                $capitalDuMoisPrec = $capitalDuMois;
+            } else {
+
+                $this->array['mois'] = $i + 1;
+                $capitalDuMois = $this->capitalDu($capitalDuMoisPrec, $partAmortMois);
+                $this->array['capital'] = $capitalDuMois;
+                $interetsMois = $this->partInterets($capitalDuMois);
+                $this->array["interets"] = $interetsMois;
+                $partAmortmois = $this->partAmort($interetsMois);
+                $this->array["amort"] = $partAmortMois;
+                $capitalDuMoisPrec = $capitalDuMois;
+            }
+        }
+
+        return $this->array;
+    }
+
+
+
+
+
+    /*
     public function revoyertablea()
     {
 
@@ -57,7 +100,7 @@ class Emprunt
 
         return $tableauTest;
     }
-    /*
+    
   public void remplirColonnesIndex_1_2_3()
         {
 
