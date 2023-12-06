@@ -12,7 +12,7 @@ class Connexion
     private function __construct()
     {
     }
-
+    /*
 
     public static final function getInstance()
     {
@@ -20,6 +20,25 @@ class Connexion
 
             try {
                 self::$connexion = new PDO('mysql:host=' . self::$host . ';dbname=' . self::$database, self::$user, self::$password, array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+                echo 'ça a marché !';
+            } catch (PDOException $e) {
+                die('database connexion failled' . $e->getMessage());
+                echo "toto";
+            }
+        }
+        return self::$connexion;
+    }
+
+
+    */
+
+
+    public static final function getInstance()
+    {
+        if (is_null(self::$connexion)) {
+
+            try {
+                self::$connexion = new PDO('mysql:host=' . self::$host . ';dbname=' . self::$database, self::$user, self::$password, array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_NUM, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
                 echo 'ça a marché !';
             } catch (PDOException $e) {
                 die('database connexion failled' . $e->getMessage());
