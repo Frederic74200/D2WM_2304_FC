@@ -16,6 +16,8 @@
 <body>
     <h1>Guide des restaurants </h1>
 
+    <th>Modifier</th>
+
     <?php
 
     /*
@@ -51,25 +53,34 @@
     $mesDonnees = $maTable->readTable();
     var_dump($mesDonnees[0]);
 
+    $flags = array();
+    $flags = $maTable->getFlags();
 
-    foreach ($mesDonnees[0] as $value) {
-        echo "<br/>" . $value;
+
+
+
+    foreach ($flags as $value) {
+        foreach ($value as $val) {
+            echo "<br/>" . $val;
+        }
     }
 
-    echo "<p> clé primare : "  . "</p><br/>";
-    echo "<table class='table table-dark table-hover'><thead><tr>";
+    // echo "<p> clé primare : "  . "</p><br/>";
+    echo "<table class='table table-dark table-hover'><thead><tr>  <th>Modifier</th>";
     foreach ($mesDonnees[1] as $value) {
 
         echo "<th>$value</th>";
     }
 
-    echo "</tr></thead><tbody>";
+    echo "  <th>Supprimer</th></tr></thead><tbody>";
     for ($i = 2; $i < count($mesDonnees); $i++) {
 
         echo "<tr>";
+        echo '<td><button type="button" name="bouton" id="' . $mesDonnees[$i][0] . '">Modifier</button></td>';
         for ($j = 0; $j < count($mesDonnees[$i]); $j++) {
             echo "<td>" . $mesDonnees[$i][$j] . "</td>";
         }
+        echo '<td><button type="button" class="btnSupp" id="' . $mesDonnees[$i][0] . '">Suppr</button></td>';
         echo "</tr>";
     }
     echo "</tbody></table>";
@@ -77,13 +88,20 @@
 
 
 
+    $dom = new DOMDocument;
 
+    $el = $dom->getElementsByTagName('bouton');
 
+    var_dump($el);
 
-
-
-
+    $name = $_POST['name'];
+    var_dump($$name);
     ?>
+
+
+
+
+
     <!--    
 
     <div id="app">

@@ -8,6 +8,7 @@ class MyTable
     private int $nbCol;
     private array $tabNomCol;
 
+
     public function __construct(string $_table)
     {
         $this->table = $_table;
@@ -80,5 +81,36 @@ class MyTable
         }
 
         return $fieldsNames;
+    }
+
+    public function getFlags(): array
+    {
+        $flags = array();
+        // déterminer le nombre de champs de la table 
+        $requete = "SELECT * from " . $this->table;
+        // préparer la requète
+        $state = $this->connexion->prepare($requete);
+        // Exécuter la requète
+        $state->execute();
+        $this->nbCol = $state->columnCount();
+        // PPO get column meta 
+        for ($i = 0; $i < $this->nbCol; $i++) {
+            $resultat = $state->getColumnMeta($i);
+            array_push($flags, $resultat['flags']);
+        }
+
+        return $flags;
+    }
+
+    function supprimerLigne($id)
+    {
+        // Connexion à la base de données
+        $maConnexion = Connexion::getInstance();
+
+        // Exécution de la requête DELETE
+        $rqt = 'DELETE FROM restaurants WHERE id = :id';
+        $state = $maConnexion->prepare($rqt);
+        $state->bindParam(':id', $id);
+        $state->execute();
     }
 }
