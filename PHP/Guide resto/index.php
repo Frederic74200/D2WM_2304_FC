@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
 <body>
     <h1>Guide des restaurants </h1>
 
-    <th>Modifier</th>
+
 
     <?php
 
@@ -51,11 +51,10 @@
     $maTable = new MyTable("restaurants");
 
     $mesDonnees = $maTable->readTable();
-    var_dump($mesDonnees[0]);
+    /*  var_dump($mesDonnees[0]);
 
     $flags = array();
     $flags = $maTable->getFlags();
-
 
 
 
@@ -66,6 +65,26 @@
     }
 
     // echo "<p> clé primare : "  . "</p><br/>";
+
+*/
+    echo $maTable->rendreHTML();
+
+
+
+
+
+
+    /*
+$nomResto = $_POST["nomResto"];
+    $adreseeResto = $_POST['adresseResto'];
+    $prixResto = $_POST["prixResto"];
+    $commentResto = $_POST["commentResto"];
+    $noteResto = $_POST["noteResto"];
+    $visiteResto = $_POST["visiteResto"];
+
+    */
+
+    /*
     echo "<table class='table table-dark table-hover'><thead><tr>  <th>Modifier</th>";
     foreach ($mesDonnees[1] as $value) {
 
@@ -88,17 +107,20 @@
 
 
 
-    $dom = new DOMDocument;
+*/
 
-    $el = $dom->getElementsByTagName('bouton');
 
-    var_dump($el);
 
-    $name = $_POST['name'];
-    var_dump($$name);
+
     ?>
 
+    <form action="detail.php" method="post">
 
+    </form>
+
+
+
+    <a href="detail.php">Formulaire</a>
 
 
 
