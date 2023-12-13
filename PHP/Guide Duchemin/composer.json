@@ -1,0 +1,16 @@
+{
+    "name": "your-vendor-name/package-name",
+    "description": "Autoload exo guide",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Frederic74200"
+        }
+    ],
+    "require": {}
+}

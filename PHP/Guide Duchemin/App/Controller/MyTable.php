@@ -1,10 +1,11 @@
 <?php
 
-namespace App\MyTable;
+namespace App\Controller;
 
-use App\Connexion;
+require_once 'C:\Users\Fchaput\Documents\gitlocal\D2WM_2304_FC\PHP\Guide Duchemin\App\Model\Connexion.php';
 
-require "Connexion.php";
+use App\Model\Connexion;
+
 class MyTable
 { //attributs
     private \PDO $connexion;
@@ -16,7 +17,7 @@ class MyTable
     public function __construct(string $_table)
     {
         $this->table = $_table;
-        $this->connexion = App\Connexion::getinstance();
+        $this->connexion = Connexion::getinstance();
     }
 
 
@@ -105,20 +106,9 @@ class MyTable
 
         return $flags;
     }
-    /*
-    function supprimerLigne($id)
-    {
-        // Connexion à la base de données
-        $maConnexion = Connexion::getInstance();
 
-        // Exécution de la requête DELETE
-        $rqt = 'DELETE FROM restaurants WHERE id = :id';
-        $state = $maConnexion->prepare($rqt);
-        $state->bindParam(':id', $id);
-        $state->execute();
-    }
 
-*/
+
 
     public function rendreHTML(): string
     {
