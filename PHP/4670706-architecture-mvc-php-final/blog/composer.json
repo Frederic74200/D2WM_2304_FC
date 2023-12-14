@@ -1,0 +1,16 @@
+{
+    "name": "openclass/blog",
+    "description": "Composer dans open class room",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Application\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Frederic74200"
+        }
+    ],
+    "require": {}
+}
