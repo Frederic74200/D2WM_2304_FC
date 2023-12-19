@@ -1,0 +1,2 @@
+<h1>Ma super page acceuil</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolor recusandae veniam magnam dolorum, repudiandae voluptatem incidunt quo ab, voluptatum doloremque vitae ut facilis minus aliquam beatae deserunt reprehenderit alias?</p>
