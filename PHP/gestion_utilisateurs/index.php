@@ -9,32 +9,29 @@
 
 <body>
     <?php
-    require 'App/Controller/LoginUsager.php';
-    session_start();
 
+    session_start();
+    // si session valide ---------------------------------------------------
     if (isset($_SESSION["nom_utilisateur"])) {
-        echo 'Bienvenue  ' . $_SESSION["nom_utilisateur"];
+        echo 'Bienvenue  ' . $_SESSION["nom_utilisateur"] . "  Votre fonction : " . $_SESSION["fonction"];
+        require 'templates/boutonLogout.php';
+        if (isset($_POST['logout'])) {
+            require 'templates/formLogin.php';
+            session_destroy();
+            echo "<script>window.location.href='index.php'</script>";
+        }
+        // si pas connexion -----------------------------------------------------
     } else {
         require 'templates/accueil.php';
-
+        // afficher bouton se connecter 
         if (isset($_POST['login'])) {
-            require 'templates/formLogin.php';
+
+            require 'App/Vue/traitementConnexion.php';
         }
+        // affcher bouton s'inscrire 
         if (isset($_POST['signin'])) {
-            require 'templates/formsingin.php';
-        }
-
-        if (isset($_POST['identifiant'], $_POST['password']) && !empty($_POST['identifiant']) && !empty($_POST['password'])) {
-            $valid = LoginUsager::verifierMotDePasse($_POST['identifiant'], $_POST['password']);
-            if ($valid) {
-                $_SESSION["nom_utilisateur"] = LoginUsager::getNomUtilisateur($_POST['identifiant']);
-
-                echo "<script>window.location.href='index.php'</script>";
-            } else {
-                echo "Authentification échouée!";
-            }
-        } else {
-            echo "Veuillez remplir toutes les zones du formulaire!";
+            require 'templates/formSingin.php';
+            require 'App/Vue/traitementInscription.php';
         }
     }
 
