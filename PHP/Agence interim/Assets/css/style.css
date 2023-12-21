@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: #4b7279;
+    height: 100vh;
+    width: 100vw;
+    color: #2f2f2f;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    max-width: 60vw;
+    min-height: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+}
+
+header,
+nav,
+ul {
+    background-color: #99b2b5;
+
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 60vw;
+    height: 5vh;
+
+
+}
+
+ul li {
+    list-style-type: none;
+    width: 10vw;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+}
+
+ul li a {
+    font-size: 1.3em;
+    font-weight: 900;
+    color: #4b7279;
+    text-decoration: none;
+
+}
+
+header img {
+    min-width: 60vw;
+}
+
+form {
+    height: 10vh;
+    margin: 2vh 2vw;
+    display: flex;
+    flex-direction: row;
+
+}
+
+fieldset {
+    margin: 0 2vw;
+    padding: 1%;
+    border: 2px solid #4b7279;
+    background-color: #9ec8cf;
+
+}
+
+#choixDpt {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 15vw;
+}
+
+
+#choixEts {
+    min-width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#choixEts input {
+    display: block;
+}
+
+
+#choixEts div {
+    width: 22vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+
+
+
+}
