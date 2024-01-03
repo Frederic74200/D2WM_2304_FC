@@ -1,3 +1,3 @@
 <footer>
-    <p> © Franck 1997</p>
+    <p> Cpyright Francky© 1997</p>
 </footer>

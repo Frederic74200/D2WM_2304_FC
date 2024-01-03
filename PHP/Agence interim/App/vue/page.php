@@ -2,6 +2,7 @@
 
 <?php ob_start();
 require './templates/formRecherche.php';
+require './templates/tableau.php';
 
 ?>
 <?php $content = ob_get_clean(); ?>

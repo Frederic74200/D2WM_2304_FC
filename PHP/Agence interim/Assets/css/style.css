@@ -4,7 +4,6 @@
     padding: 0;
 }
 
-
 body {
     background-color: #4b7279;
     height: 100vh;
@@ -25,7 +24,6 @@ header,
 nav,
 ul {
     background-color: #99b2b5;
-
 }
 
 ul {
@@ -34,8 +32,6 @@ ul {
     justify-content: space-around;
     width: 60vw;
     height: 5vh;
-
-
 }
 
 ul li {
@@ -53,7 +49,6 @@ ul li a {
     font-weight: 900;
     color: #4b7279;
     text-decoration: none;
-
 }
 
 header img {
@@ -65,7 +60,6 @@ form {
     margin: 2vh 2vw;
     display: flex;
     flex-direction: row;
-
 }
 
 fieldset {
@@ -73,18 +67,15 @@ fieldset {
     padding: 1%;
     border: 2px solid #4b7279;
     background-color: #9ec8cf;
-
 }
 
 #choixDpt {
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     min-width: 15vw;
 }
-
 
 #choixEts {
     min-width: 25vw;
@@ -98,14 +89,36 @@ fieldset {
     display: block;
 }
 
-
 #choixEts div {
     width: 22vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
+}
+
+#valider {
+    font-size: 1.1em;
+    font-weight: 900;
+    border: 2px solid #4b7279;
+    background-color: #9ec8cf;
+    width: 5vw;
+    color: #4b7279;
+}
 
 
 
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 60vw;
+    height: 5vh;
+    border-top: 2px solid #4b7279;
+    background-color: #9ec8cf;
+    color: #ffffff;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
