@@ -1,5 +1,9 @@
 <header>
-    <img src="./Assets/img/fond8.jpg" alt="">
+    <div id="titre">
+        <h1>Le Portail des commerciaux</h1>
+
+    </div>
+
     <nav>
         <ul>
             <li><a href="#">Entreprises</a></li>

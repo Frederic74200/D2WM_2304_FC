@@ -1,23 +1,20 @@
 <?php
 session_start();
-require 'App/vue/page.php';
 
 
-$array = array();
+
+
 
 
 if (isset($_POST) && !empty($_POST)) {
-
+    $array = array();
 
     foreach ($_POST as $key => $value) {
 
         $array[$key] = $value;
     }
+    $_SESSION['array'] = $array;
+    require 'App/vue/page.php';
+} else {
+    require 'App/vue/page.php';
 }
-
-
-
-
-
-
-$_SESSION['array'] = $array;

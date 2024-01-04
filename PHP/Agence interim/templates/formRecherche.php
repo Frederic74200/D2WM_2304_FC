@@ -1,15 +1,8 @@
 <?php
-@session_start();
-
-
-require './App/Controllers/interim.php';
-$numDept = array();
-$inter = new interim();
-
-$numDept = $inter->getNumDpts();
-
-
-
+require './App/vue/ViewToTemplate.php';
+$numDept = [];
+$view = new ViewToTemplate();
+$numDept = $view->getDeptNum();
 ?>
 <form action="index.php" method="POST" enctype="multipart/form-data">
     <fieldset id="choixDpt">
@@ -51,5 +44,7 @@ $numDept = $inter->getNumDpts();
             <input type="checkbox" name="typeEts[]" id="dept" value="AUTRES">Autres
         </div>
     </fieldset>
+
     <input type="submit" value="Valider" id="valider">
+
 </form>

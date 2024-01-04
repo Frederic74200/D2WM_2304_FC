@@ -13,8 +13,8 @@ body {
 }
 
 main {
-    max-width: 60vw;
-    min-height: 100vw;
+    max-width: 82vw;
+    min-height: 100vh;
     margin-left: auto;
     margin-right: auto;
     background-color: #ffffff;
@@ -30,7 +30,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 60vw;
+    width: 70vw;
     height: 5vh;
 }
 
@@ -51,13 +51,26 @@ ul li a {
     text-decoration: none;
 }
 
-header img {
-    min-width: 60vw;
+#titre {
+    background-image: url(../img/fond7.jpg);
+    min-width: 82vw;
+    min-height: 20vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#titre h1 {
+    color: #ffffff;
+    font-size: 5rem;
+    text-shadow: 3px 3px #4b7279;
 }
 
 form {
     height: 10vh;
-    margin: 2vh 2vw;
+    margin: 2vh 10vw;
     display: flex;
     flex-direction: row;
 }
@@ -111,8 +124,9 @@ fieldset {
 
 footer {
     position: absolute;
+    background-attachment: fixed;
     bottom: 0;
-    width: 60vw;
+    width: 82vw;
     height: 5vh;
     border-top: 2px solid #4b7279;
     background-color: #9ec8cf;
@@ -121,4 +135,39 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+table {
+    width: 80vw;
+    font-size: small;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-bottom: 5vh;
+    background-color: #4b7279;
+
+}
+
+
+th {
+    padding: 1vh;
+    font-size: large;
+    background-color: #4b7279;
+
+    color: #ffffff;
+}
+
+
+td {
+    padding-left: 1vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: #9ec8cf;
 }

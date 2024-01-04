@@ -11,24 +11,17 @@ class interim
 
     public function getNumDpts(): array
     {
-
         $numDpts = array();
         $requete = "SELECT id_dep, Name FROM  departements;   ";
 
         $connect = Connexion::getInstance();
-
-
         $state = $connect->prepare($requete);
         $state->execute();
-
-
         $nbLigne = $state->rowCount();
 
         /*   while ($ligne = $state->fetch()) {
             array_push($numDpts, $ligne['Name']);
         }
-
-
         while ($obj = $state->fetch()) {
             // array_push($numDpts, $ligne["id_dep"]=> $ligne[]);
 
@@ -43,18 +36,37 @@ class interim
     }
 
 
-    public   function resultats(array $_input): array
+    public   function resultats(array $_input = null): array
     {
 
         $result = array();
-
         $deptInput = $_input['dept'];
-        $etsInput = $_input['typeEts'];
+        $etsInput = [];
+        !empty($_input['typeEts']) ?   $etsInput = $_input['typeEts'] :  $etsInput = [];;
         $connect = Connexion::getInstance();
+        $requete = "";
 
 
+        if (!empty($deptInput) && !empty($etsInput)) {
 
-        $requete = " SELECT  *  FROM institutions";
+            $liste = "";
+
+            for ($i = 0; $i < count($etsInput); $i++) {
+
+                $liste .= ", '" . $etsInput[$i] . "'";
+            }
+
+
+            $rest = substr($liste, 1);
+
+            $requete = "SELECT  nom_etab, type_etab , nom_resp, adresse, cp, ville, Telephone , email FROM institutions WHERE depart = " . $deptInput . " AND type_etab IN ( " . $rest . ");";
+        } else  
+        
+        if (!empty($deptInput)) {
+
+            $requete = "SELECT  nom_etab, type_etab , nom_resp, adresse, cp, ville, Telephone , email FROM institutions WHERE depart = " . $deptInput . " ;";
+        }
+
 
         try {
             $state = $connect->prepare($requete);
@@ -86,22 +98,8 @@ class interim
     public function allData(): array
     {
         $result = array();
-        $requete = " SELECT  *  FROM institutions";
-        $connect = Connexion::getInstance();
 
-        try {
-            $state = $connect->prepare($requete);
-            //   $state->bindParam(" :code_inscription", $codeInscr, PDO::PARAM_STR);
-            $state->execute();
-        } catch (PDOException $e) {
-            throw new Exception("Erreur de connexion à la base de données", 1);
-        }
-
-
-
-        while ($ligne = $state->fetch()) {
-            array_push($result, $ligne);
-        }
+        $result["Choixdept"] = ["Choisissez un département"];
 
         return $result;
     }
