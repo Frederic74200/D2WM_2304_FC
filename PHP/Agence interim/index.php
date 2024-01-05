@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-
-
-
-
-
 if (isset($_POST) && !empty($_POST)) {
     $array = array();
 
@@ -16,5 +11,5 @@ if (isset($_POST) && !empty($_POST)) {
     $_SESSION['array'] = $array;
     require 'App/vue/page.php';
 } else {
-    require 'App/vue/page.php';
+    require 'App/vue/homePgae.php';
 }

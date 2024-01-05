@@ -1,10 +1,14 @@
 <?php
+
 $reesult = [];
 $view = new ViewToTemplate();
 $reesult = $view->sortToForm();
+$nbLignes = $view->getNbLignes();
+
+
 ?>
 
-<table>
+<table id="tableau">
     <thead>
         <th>Nom de l'établissment</th>
         <th>Type</th>
@@ -25,4 +29,45 @@ $reesult = $view->sortToForm();
         <?php endforeach ?>
     </tbody>
 
+    <?php if ($nbLignes > 0) : ?>
+        <tfoot>
+            <tr>
+                <td>
+                    Resultats de la recherche :
+                </td>
+                <td>
+                    <? echo $nbLignes ?>
+                </td>
+
+                <td>
+                    <button type="button" onclick="window.print()" id="printBtn">Imprimer</button>
+                </td>
+                <td>
+                    <button type="button" onclick="convertirEnPDF()" id="printBtn">Convertir en PDF</button>
+                </td>
+
+            </tr>
+        </tfoot>
+    <?php endif; ?>
+
 </table>
+
+<script>
+    function convertirEnPDF() {
+        // Obtenez le tableau à convertir
+        const tableau = document.getElementById("tableau").innerHTML;
+
+        // Définissez les paramètres de conversion
+        const orientation = "landscape";
+
+        // Enregistrez le tableau au format PDF
+        const blob = new Blob([tableau], {
+            type: "application/pdf"
+        });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "tableau.pdf";
+        link.click();
+    }
+</script>

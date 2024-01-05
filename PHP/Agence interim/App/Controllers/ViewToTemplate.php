@@ -38,14 +38,21 @@ class ViewToTemplate
         return $inputForm;
     }
 
+
+    public function getValuesEts(array $_input = null): array
+    {
+
+        return $this->interim->getValuesEts($_input);
+    }
+
     public function getDeptNum()
     {
         return $this->interim->getNumDpts();
     }
 
 
-    public function resetForm()
+    public function getNbLignes(): int
     {
-        return session_destroy();
+        return   $this->interim->getNbLignes();
     }
 }

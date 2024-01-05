@@ -113,12 +113,23 @@ fieldset {
 #valider {
     font-size: 1.1em;
     font-weight: 900;
+    padding: 1%;
     border: 2px solid #4b7279;
     background-color: #9ec8cf;
-    width: 5vw;
+    min-width: 5vw;
     color: #4b7279;
 }
 
+
+#printBtn {
+    font-size: 1.1em;
+    font-weight: 900;
+    padding: 1%;
+    border: 2px solid #4b7279;
+    background-color: #9ec8cf;
+    min-width: 10vw;
+    color: #4b7279;
+}
 
 
 
@@ -151,6 +162,7 @@ table {
 th {
     padding: 1vh;
     font-size: large;
+    font-weight: 500;
     background-color: #4b7279;
 
     color: #ffffff;
@@ -170,4 +182,21 @@ tr:nth-child(odd) {
 
 tr:nth-child(even) {
     background-color: #9ec8cf;
+}
+
+@media print {
+    @page {
+        size: landscape;
+    }
+
+    header,
+    footer,
+    form,
+    #printBtn {
+        display: none;
+    }
+
+
+
+
 }

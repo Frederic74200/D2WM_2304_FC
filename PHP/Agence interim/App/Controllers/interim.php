@@ -3,6 +3,7 @@ require './App/models/Connexion.php';
 class interim
 {
 
+    private int $nbLignes = 0;
 
 
     public function __construct()
@@ -80,10 +81,15 @@ class interim
 
         while ($ligne = $state->fetch()) {
             array_push($result, $ligne);
+            $this->nbLignes++;
         }
 
 
+        if (empty($result)) {
 
+            $result["Choixdept"] = ["Choisissez un autre département", "", "", "", "", "", "", ""];
+            $this->nbLignes = 0;
+        }
 
 
 
@@ -92,15 +98,25 @@ class interim
     }
 
 
-
+    public function getValuesEts(array $_input = null): array
+    {
+        $etsInput = [];
+        !empty($_input['typeEts']) ?   $etsInput = $_input['typeEts'] :  $etsInput = [];;
+        return $etsInput;
+    }
 
 
     public function allData(): array
     {
         $result = array();
 
-        $result["Choixdept"] = ["Choisissez un département"];
+        $result["Choixdept"] = ["Choisissez un département", "", "", "", "", "", "", ""];
 
         return $result;
+    }
+
+    public function getNbLignes(): int
+    {
+        return $this->nbLignes;
     }
 }
