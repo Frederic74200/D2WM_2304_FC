@@ -3,7 +3,7 @@
 $reesult = [];
 $view = new ViewToTemplate();
 $reesult = $view->sortToForm();
-$nbLignes = $view->getNbLignes();
+$nbLignes = 0;
 
 
 ?>
@@ -25,6 +25,8 @@ $nbLignes = $view->getNbLignes();
                 <?php foreach ($key as $value) : ?>
                     <td><?php echo $value ?></td>
                 <?php endforeach ?>
+
+                <?php $nbLignes++ ?>
             </tr>
         <?php endforeach ?>
     </tbody>
@@ -36,7 +38,7 @@ $nbLignes = $view->getNbLignes();
                     Resultats de la recherche :
                 </td>
                 <td>
-                    <? echo $nbLignes ?>
+                    <?php echo $nbLignes ?>
                 </td>
 
                 <td>

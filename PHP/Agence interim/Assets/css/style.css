@@ -52,7 +52,7 @@ ul li a {
 }
 
 #titre {
-    background-image: url(../img/fond7.jpg);
+    background-image: url(../img/fond8.jpg);
     min-width: 82vw;
     min-height: 20vh;
     background-repeat: no-repeat;
@@ -91,12 +91,23 @@ fieldset {
 }
 
 #choixEts {
-    min-width: 25vw;
+    min-width: 30vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     align-items: center;
 }
+
+#choixEts div {
+    min-width: 26vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
 
 #choixEts input {
     display: block;
@@ -182,6 +193,11 @@ tr:nth-child(odd) {
 
 tr:nth-child(even) {
     background-color: #9ec8cf;
+}
+
+h2 {
+    color: #4b7279;
+    text-align: center;
 }
 
 @media print {

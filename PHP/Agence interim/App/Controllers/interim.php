@@ -119,4 +119,10 @@ class interim
     {
         return $this->nbLignes;
     }
+
+    public function getdeptInput(array $_input = null)
+    {
+
+        return $_input['dept'];
+    }
 }

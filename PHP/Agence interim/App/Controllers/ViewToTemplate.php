@@ -39,10 +39,10 @@ class ViewToTemplate
     }
 
 
-    public function getValuesEts(array $_input = null): array
+    public function getValuesEts(): array
     {
 
-        return $this->interim->getValuesEts($_input);
+        return $this->interim->getValuesEts($this->tab);
     }
 
     public function getDeptNum()
@@ -54,5 +54,10 @@ class ViewToTemplate
     public function getNbLignes(): int
     {
         return   $this->interim->getNbLignes();
+    }
+
+    public function getdeptInput()
+    {
+        return $this->interim->getdeptInput($this->tab);
     }
 }
