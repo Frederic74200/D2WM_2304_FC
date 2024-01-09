@@ -1,6 +1,8 @@
 <?php
 
-require './src/Controllers/ViewToTemplate.php';
+use App\Controllers\ViewToTemplate;
+
+// require './src/Controllers/ViewToTemplate.php';
 
 $numDept = [];
 $view = new ViewToTemplate();

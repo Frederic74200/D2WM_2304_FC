@@ -16,7 +16,7 @@ class MyTable
     public function __construct(string $_table)
     {
         $this->table = $_table;
-        $this->connexion = App\Connexion::getinstance();
+        $this->connexion = Connexion::getinstance();
     }
 
 

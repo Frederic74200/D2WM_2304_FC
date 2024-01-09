@@ -1,5 +1,10 @@
 <?php
-require './App/models/Connexion.php';
+
+namespace App\Controllers;
+
+use App\Models\Connexion;
+
+//require './src/models/Connexion.php';
 class interim
 {
 
@@ -46,19 +51,18 @@ class interim
         !empty($_input['typeEts']) ?   $etsInput = $_input['typeEts'] :  $etsInput = [];;
         $connect = Connexion::getInstance();
         $requete = "";
+        $liste = "";
 
+        for ($i = 0; $i < count($etsInput); $i++) {
+
+            $liste .= ", '" . $etsInput[$i] . "'";
+        }
+
+        $rest = substr($liste, 1);
 
         if (!empty($deptInput) && !empty($etsInput)) {
 
-            $liste = "";
 
-            for ($i = 0; $i < count($etsInput); $i++) {
-
-                $liste .= ", '" . $etsInput[$i] . "'";
-            }
-
-
-            $rest = substr($liste, 1);
 
             $requete = "SELECT  nom_etab, type_etab , nom_resp, adresse, cp, ville, Telephone , email FROM institutions WHERE depart = " . $deptInput . " AND type_etab IN ( " . $rest . ");";
         } else  
@@ -66,6 +70,11 @@ class interim
         if (!empty($deptInput)) {
 
             $requete = "SELECT  nom_etab, type_etab , nom_resp, adresse, cp, ville, Telephone , email FROM institutions WHERE depart = " . $deptInput . " ;";
+        } else  
+        
+        if (!empty($etsInput)) {
+
+            $requete = "SELECT  nom_etab, type_etab , nom_resp, adresse, cp, ville, Telephone , email FROM institutions WHERE type_etab IN ( " . $rest . ");";
         }
 
 
@@ -73,8 +82,8 @@ class interim
             $state = $connect->prepare($requete);
             //   $state->bindParam(" :code_inscription", $codeInscr, PDO::PARAM_STR);
             $state->execute();
-        } catch (PDOException $e) {
-            throw new Exception("Erreur de connexion à la base de données", 1);
+        } catch (\PDOException $e) {
+            throw new \Exception("Erreur de connexion à la base de données", 1);
         }
 
 
@@ -122,7 +131,9 @@ class interim
 
     public function getdeptInput(array $_input = null)
     {
+        if ($_input != null) {
 
-        return $_input['dept'];
+            return $_input['dept'];
+        }
     }
 }

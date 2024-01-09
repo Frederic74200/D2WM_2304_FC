@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Controllers\ViewToTemplate;
 
 
 $reesult = [];
@@ -26,7 +26,7 @@ $nbLignes = 0;
         <?php foreach ($reesult as $key) : ?>
             <tr>
                 <?php foreach ($key as $value) : ?>
-                    <td><?php echo $value ?></td>
+                    <td><?php echo utf8_decode($value)  ?></td>
                 <?php endforeach ?>
 
                 <?php $nbLignes++ ?>

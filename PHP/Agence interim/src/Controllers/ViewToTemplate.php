@@ -1,9 +1,8 @@
 <?php
+
+require 'interim.php';
+
 @session_start();
-
-
-require './App/Controllers/interim.php';
-
 
 class ViewToTemplate
 {
