@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="FR-fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats du tournoi de Football</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+</head>
+
+<body>
+    <div id="appFootball">
+
+        <h1>Tournoi de football</h1>
+        <p><span class="spn_infos">{{ nbEquipes }} équipes</span> <span class="spn_infos">{{ nbMatchs }} matchs
+                joués</span></p>
+
+        <h2>Matchs joués</h2>
+
+        <label for="recherche" id="labelrecherche">Filtres</label>
+        <input type="search" placeholder="Nom d'équipe" v-model="recherche" id="recherche" @input="triTableau">
+
+        <table>
+            <thead>
+                <th>Équipe 1</th>
+                <th>Équipe 2</th>
+                <th>Score 1</th>
+                <th>Gagnant 1</th>
+                <th>Score 2</th>
+                <th>Gagnant 2</th>
+            </thead>
+            <tbody>
+                <tr v-for=" item in tournoi ">
+                    <td> {{ item.team1 }} </td>
+                    <td>{{ item.team2 }} </td>
+                    <td>{{ item.score1 }} </td>
+                    <td>{{ item.gagnant1 }} </td>
+                    <td>{{ item.score2 }} </td>
+                    <td>{{ item.gagnant2 }} </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+
+
+
+
+
+    </div>
+
+</body>
+
+</html>

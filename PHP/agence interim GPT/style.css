@@ -1,0 +1,27 @@
+form {
+    width: 500px;
+    margin: 0 auto;
+}
+
+select {
+    width: 200px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Formulaire de Recherche</title>
+</head>
+
+<body>
+
+    <form action="recherche.php" method="post">
+        <label for="departement">Département:</label>
+        <input type="text" name="departement" id="departement">
+
+        <label for="type_etablissement">Type d'établissement:</label>
+        <input type="checkbox" name="type_etablissement[]" value="Ecole"> Ecole
+        <input type="checkbox" name="type_etablissement[]" value="Entreprise"> Entreprise
+        <!-- Ajoutez d'autres types d'établissements ici -->
+
+        <button type="submit" name="search">Valider</button>
+        <button type="submit" name="print">Imprimer</button>
+    </form>
+
+</body>
+
+</html>
