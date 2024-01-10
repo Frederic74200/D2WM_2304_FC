@@ -1,7 +1,7 @@
 <form name='singin' action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST" enctype="multipart/form-data">
 
     <fieldset> Inscription
-
+        <input type="hidden" name="sigform" value="0">
         <label for="lastname">Nom :</label>
         <input type="text" name="lastname" id='lastname'>
         <label for="firstname">Prénom : </label>

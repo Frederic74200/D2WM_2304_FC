@@ -12,5 +12,7 @@
             "name": "Frederic74200"
         }
     ],
-    "require": {}
+    "require": {
+        "twig/twig": "^3.8"
+    }
 }

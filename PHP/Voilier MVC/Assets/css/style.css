@@ -1,3 +1,9 @@
 body {
     background-color: wheat;
 }
+
+header {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}

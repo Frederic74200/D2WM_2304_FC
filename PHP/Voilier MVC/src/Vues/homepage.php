@@ -2,7 +2,9 @@
 
 <?php ob_start();
 
-require './Templates/singin.php';
+require './Templates//header.php';
+require './Templates/btnlogsign.php';
+
 
 ?>
 
