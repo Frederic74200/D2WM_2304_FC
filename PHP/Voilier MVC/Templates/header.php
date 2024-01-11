@@ -7,9 +7,7 @@ $userInfo = [];
 
 if (isset($_SESSION["userdata"])) {
 
-
     $userInfo = $_SESSION["userdata"];
-    var_dump($userInfo);
 }
 
 
@@ -25,9 +23,9 @@ if (isset($_SESSION["userdata"])) {
 
     <?php if ($userInfo != null) : ?>
 
-        <img id="avatar" src=<? $userInfo["image_url"] ?> alt="">
+        <img id="avatar" src="<?php echo $userInfo["image_url"] ?>" alt="">
 
-        <p>Bienvenue <? $userInfo['firstname_user'] ?> <? $userInfo["lastname_user"] ?> </p>
+        <p>Bienvenue <?php echo $userInfo['firstname_user'] ?> <?php echo $userInfo["lastname_user"] ?> </p>
 
 
 

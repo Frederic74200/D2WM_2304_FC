@@ -6,6 +6,13 @@ session_start();
 
 if (isset($_SESSION["user"])) {
     require 'src/Vues/listpage.php';
+
+    if (isset($_GET['logout'])) {
+
+        session_destroy();
+
+        echo "<script>window.location.href='index.php'</script>";
+    }
 } else {
     if ($_GET == null && $_POST == null) {
         require 'src/Vues/homepage.php';
@@ -34,47 +41,40 @@ if (isset($_SESSION["user"])) {
 
 
             echo "<script>window.location.href='index.php'</script>";
+        } else {
+
+            echo "<script>alert('Erreur de connexion! Veuillez vérifier votre mot de passe.'); window.location.href='index.php?log=log'</script>";
         }
     }
-}
-/*
-if (!isset($_SESSION) && empty($_SESSION)) {
 
-    session_start();
-    if (isset($_GET) && !empty($_GET)) {
-        var_dump($_GET);
-        if (isset($_GET['log'])) {
-            require 'src/Vues/logpage.php';
-        } elseif (isset($_GET['sing'])) {
-            require 'src/Vues/signpage.php';
-        }
-    } elseif (isset($_POST) && !empty($_POST)) {
-        var_dump($_POST);
-        if (isset($_POST['logform']) && !empty($_POST['logform'])) {
-            require 'src/Controllers/LogClass.php';
-            $log = new LogClass();
-            $logOk = false;
-            $logOk = $log->checkPassWord($_POST['email'], $_POST['password']);
-            var_dump($logOk);
-            if ($logOk == true) {
+    if (isset($_POST['sigform'])) {
 
-                $_SESSION['user'] = "toto";
-                unset($_POST);
 
-                echo "<script>window.location.href='index.php'</script>";
+        if ($_POST['password']  === $_POST['prtpassword']) {
+            require 'src/Controllers/SignClass.php';
+            $user = new SignClass($_POST, $_FILES);
+            $signOk = 0;
+
+            $signOk = $user->addUser();
+
+
+            if ($signOk != 0) {
+                session_destroy();
+                echo "<script>alert('Inscription réussie. Connectez-vous '); window.location.href='index.php?log=log'</script>";
             } else {
-                require 'src/Vues/logpage.php';
+
+                echo "<script>alert('Erreur inscription. Recommencez ! '); window.location.href='index.php?sing=sing'</script>";
             }
+        } else {
+
+            echo "<script>alert('Les mots de passes ne sont pas identiques ! Veuillez recommencer.'); window.location.href='index.php?sing=sing'</script>";
         }
-    } else {
-        require 'src/Vues/homepage.php';
     }
-} else {
-    @session_start();
-    require 'src/Vues/listpage.php';
 }
 
 
+
+/*
 
 $mdp = "Tournedisque";
 $hash_mdp =  password_hash($mdp, CRYPT_BLOWFISH);
