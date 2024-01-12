@@ -53,9 +53,24 @@ if (isset($_SESSION["user"])) {
         if ($_POST['password']  === $_POST['prtpassword']) {
             require 'src/Controllers/SignClass.php';
             $user = new SignClass($_POST, $_FILES);
+
+            $idav = 3;
+            if (!empty($_FILES)) {
+                $adav = 0;
+                $adav = $user->addAvatar();
+
+                if ($adav != 0) {
+
+                    $idav = $user->getIdAvatar();
+                }
+            }
+
+
+
+
             $signOk = 0;
 
-            $signOk = $user->addUser();
+            $signOk = $user->addUser($idav);
 
 
             if ($signOk != 0) {

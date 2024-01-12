@@ -11,7 +11,7 @@ class SignClass
     private string  $mail_user =   "";
     private string $pass_user  =   "";
     private int $level_user =   1;
-    private  int $avatar =  3;
+    private  int $avatar =  0;
     private array $image =  [];
     private string   $adresse_virtuelle = "";
 
@@ -29,43 +29,45 @@ class SignClass
     }
     //----------------------------------------------------------------------------------
 
-    private function addAvatar(): string
+    public function addAvatar(): string
     {
 
         // Récupération du nom de l'utilisateur
-        $username = $this->lastname_user . $this->firstname_user;
+        $username = $this->lastname_user . '_' . $this->firstname_user;
         $nom_fichier = $username . '.jpeg';
 
-
-        // Stockage de l'image
-        $chemin_physique = 'C:\Users\Fchaput\Documents\gitlocal\D2WM_2304_FC\PHP\Voilier MVC\Assets\images';
+        // Stockage de l'image    C:\Users\Fchaput\Documents\gitlocal\D2WM_2304_FC\PHP\Voilier MVC\
+        $chemin_physique = './Assets/images';
+        $adresse_physique =  $chemin_physique . '/tmp/' . $nom_fichier;
         // $nom_fichier = $username . '.jpeg';
-        move_uploaded_file($this->image['tmp_name'], $chemin_physique . '/' . $nom_fichier);
+        move_uploaded_file($this->image['tmp_name'],  $adresse_physique);
+
+        // Redimensionnement de l'image
+        $image = imagecreatefromjpeg($adresse_physique);
+        $largeur_nouvelle = 200;
+        $hauteur_nouvelle = 200;
+        $image_redimensionnee = imagecreatetruecolor($largeur_nouvelle, $hauteur_nouvelle);
+        //   $image = imagecreatefromjpeg($nom_fichier);
+
+        list($width, $height) = getimagesize($adresse_physique);
+
+        imagecopyresampled($image_redimensionnee,    $image, 0, 0, 0, 0, $largeur_nouvelle, $hauteur_nouvelle, $width,  $height);
+
+        imagejpeg($image_redimensionnee, $chemin_physique . '/' . $nom_fichier);
+
+
+        unlink($adresse_physique);
 
         // Association de l'adresse virtuelle
         $this->adresse_virtuelle = 'http://localhost/gitphp/Voilier%20MVC//Assets/images/' . $nom_fichier;
 
 
-
-
-
-        // Redimensionnement de l'image
-        $image_redimensionnee = imagecreatefromjpeg($this->image['tmp_name']);
-        $largeur_nouvelle = 200;
-        $hauteur_nouvelle = 200;
-        $image = imagecreatefromjpeg($nom_fichier);
-
-        list($width, $height) = getimagesize($this->image['tmp_name']);
-
-        imagecopyresampled($image_redimensionnee,  $image, 0, 0, 0, 0, $largeur_nouvelle, $hauteur_nouvelle, $width,  $height);
-
-
-        $requete = " INSERT INTO avatars (image_url) VALUES (':image_url ');";
+        $requete = "INSERT INTO avatars (image_url) VALUES (:image_url);";
         $connect = Connexion::getInstance();
 
         try {
             $state = $connect->prepare($requete);
-            $state->bindParam(": image_url ", $this->adresse_virtuelle, PDO::PARAM_STR);
+            $state->bindParam(":image_url", $this->adresse_virtuelle, PDO::PARAM_STR);
             $state->execute();
         } catch (PDOException $e) {
             throw new Exception("Erreur de connexion à la base de données add avatar ", 1);
@@ -78,17 +80,17 @@ class SignClass
     }
     //----------------------------------------------------------------------------------
 
-    private function getIdAvatar(): int
+    public function getIdAvatar(): int
     {
         $id = 0;
 
-        $requete = "SELECT id FROM avatars WHERE image_url  IN (':image_url')";
+        $requete = "SELECT id FROM avatars WHERE image_url  IN (:image_url)";
 
         $connect = Connexion::getInstance();
 
         try {
             $state = $connect->prepare($requete);
-            $state->bindParam(":image_url ", $this->adresse_virtuelle, PDO::PARAM_STR);
+            $state->bindParam(":image_url", $this->adresse_virtuelle, PDO::PARAM_STR);
             $state->execute();
         } catch (PDOException $e) {
             throw new Exception("Erreur de connexion à la base de données get avatar ", 1);
@@ -103,18 +105,11 @@ class SignClass
         return $id;
     }
 
-    //----------------------------------------------------------------------------------
-    public  function addUser(): int
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    public  function addUser(int $idAvatar): int
     {
-        $nb  = 0;
-        $nbav = 0;
-        if (!empty($this->image)) {
-            $nbav = $this->addAvatar();
-            if ($nbav != 0) {
-                $this->avatar = $this->getIdAvatar();
-            }
-        }
 
+        $this->avatar = $idAvatar;
 
         $requete = "INSERT INTO utilisateurs (  lastname_user,  firstname_user, mail_user , pass_user, level_user, avatar   ) 
         VALUES ( :lastname_user    ,  :firstname_user , :mail_user    , :pass_user  , :level_user  ,  :avatar ); ";
