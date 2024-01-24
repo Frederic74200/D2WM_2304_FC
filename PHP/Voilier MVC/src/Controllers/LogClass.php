@@ -50,7 +50,7 @@ class LogClass
     }
 
 
-    public static function userInfos(string $_identifiant): array
+    public function userInfos(string $_identifiant): array
     {
 
         $userInfos = [];
@@ -74,11 +74,7 @@ class LogClass
             $userInfos = $state->fetch();
         }
 
-        /*
-        while ($obj = $state->fetch()) {
-            array_push($userInfos, $obj);
-        }
-*/
+
         return $userInfos;
     }
 }
